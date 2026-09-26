@@ -125,6 +125,7 @@ UK passport: no sponsorship needed for UK roles.
 | Kerry | European R&D graduate rotations may include Germany | 2027 intake |
 | BRAIN Biotech | Scientist – Fermentation, Microbiology, Molecular Biology, Process Engineering | R&D career areas explicitly include microbiology, molecular biology, fermentation and process engineering |
 | AB Enzymes | R&D Scientist, Fermentation Scientist, Enzyme Scientist | Germany/Finland/global. Large industrial enzyme company with R&D and biotech manufacturing, and explicit early-career opportunities |
+| Mushlabs | Junior Fermentation Scientist | Hamburg. Actually uses "Junior" in the title: shake-flask to bench bioreactors, fermentation experiments, HPLC/enzymatic assays; a very good 2027 target ([posting](https://portal.oproma.de/jobs/junior-fermentation-scientist-m-f-d-ID-13570546)) |
 
 ## 8. Denmark
 
@@ -141,6 +142,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Novonesis | Fermentation / strain / enzyme / industrial biotech scientist roles | Very large industrial biotech employer |
 | Kerry | European R&D rotations | May include Denmark |
 | IFF | Scientist – Fermentation Operations, Process Development Scientist | Denmark/global. Recent Scientist role covered fermentation planning/execution, microbiology, bioprocessing, DSP and industrial biotechnology ([posting](https://iff.wd5.myworkdayjobs.com/en-US/IFF_Careers/job/Scientist--Fermentation-Operations_R19901)) |
+| Agrobiomics | Fermentation Scientist | Copenhagen. Agricultural microbial biotech: strain development, batch/fed-batch/continuous fermentation and scale-up; the current posting is senior, but the team belongs on the watchlist ([posting](https://dk.linkedin.com/jobs/view/senior-fermentation-scientist-at-agrobiomics-4305300715)) |
 
 ## 9. Sweden
 
@@ -190,9 +192,9 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 
 ## 14. United States
 
-The major constraint here is US work authorisation/sponsorship. The US is split into two tables so the weekly scan can research it as two parallel batches.
+The major constraint here is US work authorisation/sponsorship. The US is split into three tables so the weekly scan can research it in parallel batches.
 
-### 14a. Fermentation, synbio and industrial-biotech companies
+### 14a. Precision fermentation and fermentation platforms
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -202,23 +204,32 @@ The major constraint here is US work authorisation/sponsorship. The US is split 
 | The EVERY Company | Fermentation Scientist / Research Associate | Precision-fermented proteins |
 | EVERY | Bioprocess Development & Scale-Up / downstream process roles | Strong process-development target |
 | Culture Biosciences | Bioprocess Scientist / Fermentation Scientist / Application Scientist | Bioreactor/bioprocess technology |
+| Pow.bio | Fermentation / continuous biomanufacturing / bioprocess roles | Watch |
+| Liberation Labs | Fermentation / scale-up / biomanufacturing roles | Industrial PF infrastructure |
+| Helaina | Associate Scientist, Fermentation/Bioprocess Scientist, Early-Stage R&D | New York. Very relevant: recombinant human lactoferrin by precision fermentation; has advertised Associate Scientist roles involving small-scale fermentation and is expanding its R&D team |
+| Checkerspot | Fermentation Scientist, Strain Scientist, RA | California. Precision fermentation of fats/oils; explicitly accepts speculative CVs |
+| C16 Biosciences | Fermentation Scientist, Strain Development, RA | New York. Precision-fermentation oils/fats; has a General Application route |
+| Sunflower Therapeutics | Research Associate – Strain Creation & Fermentation | Massachusetts. One of the best matches found: yeast strain engineering, cloning, fermentation, recombinant proteins, SDS-PAGE and bench/pilot manufacturing; Bachelor's + 1–2 years' lab experience accepted ([posting](https://sunflowertx.com/join-us/research-associate-strain-creation-and-fermentation/)) |
+| Robigo | Research Associate – Bioprocessing | Massachusetts. Agricultural biotech using microbial production: fermentation optimisation, media development, scale-up and microbial culture work ([posting](https://www.robigo.bio/bioprocessing-ra)) |
+
+### 14b. Synbio, strain/enzyme engineering and industrial chemicals
+
+| Company | Opportunity | Relevance |
+|---|---|---|
 | Ginkgo Bioworks | Research Associate, Scientist, Strain Engineering Scientist, HTS Scientist | Synthetic biology / organism engineering |
 | Antheia | Fermentation / metabolic engineering / synthetic-biology scientist roles | Engineered microbes / molecules |
 | Conagen | Fermentation / strain engineering / industrial biotech scientist roles | Watch |
-| Pow.bio | Fermentation / continuous biomanufacturing / bioprocess roles | Watch |
-| Liberation Labs | Fermentation / scale-up / biomanufacturing roles | Industrial PF infrastructure |
 | Flagship Pioneering portfolio | Microbial engineering / synbio startup scientist roles | Ecosystem rather than one company |
-| Helaina | Associate Scientist, Fermentation/Bioprocess Scientist, Early-Stage R&D | New York. Very relevant: recombinant human lactoferrin by precision fermentation; has advertised Associate Scientist roles involving small-scale fermentation and is expanding its R&D team |
+| Flagship Pioneering / FL112 | Research Associate I/II – Bioprocess Development | Cambridge, MA. Bench-scale microbial fermentation, recombinant proteins, fed-batch, HPLC and scale-up; very close to where I could be by mid-2027 ([posting](https://job-boards.greenhouse.io/flagshippioneeringinc/jobs/8797916002)) |
 | ZymoChem | Research Associate, Fermentation/Metabolic Engineering Scientist | California. Industrial biotech for sustainable chemicals/materials; has a talent network for future scientific hires |
-| Checkerspot | Fermentation Scientist, Strain Scientist, RA | California. Precision fermentation of fats/oils; explicitly accepts speculative CVs |
-| C16 Biosciences | Fermentation Scientist, Strain Development, RA | New York. Precision-fermentation oils/fats; has a General Application route |
 | Codexis | Research Associate – Process Development, Enzyme Scientist | California. Enzyme engineering/biocatalysis; RA role in Process Development and future-role registration |
 | Arzeda | Associate Scientist, Protein/Strain Design Scientist | Seattle. Protein engineering + synthetic biology + fermentation; team includes strain-design and fermentation functions |
 | LanzaTech | Scientist – Gas Fermentation, Strain Development Scientist | Chicago/global. Huge addition: CSTR gas fermentation, bacterial cultivation and scale-up; recruits scientists/RAs across disciplines |
 | Capra Biosciences | Metabolic Engineer, Bioprocess Scientist, Fermentation Scientist | Virginia. Scientists work across the molecule–reactor–factory stack; explicitly invites speculative scientist applications |
 | Lygos | Fermentation / Metabolic Engineering Scientist | California. Industrial biotechnology producing sustainable chemicals/materials |
+| Manus Bio | Research Associate / Senior RA – Strain & Enzyme Engineering | Massachusetts. E. coli strain construction, culture, screening, metabolic engineering and industrial biotech ([posting](https://jobs.climatedraft.org/companies/manus-bio-2-a677ce5e-8c6e-4c1e-9322-f480fd62269f/jobs/85813694-sr-research-associate-strain-and-enzyme-engineering)) |
 
-### 14b. Large companies and graduate programmes
+### 14c. Large companies and graduate programmes
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -229,6 +240,7 @@ The major constraint here is US work authorisation/sponsorship. The US is split 
 | Pfizer | Process Scientist / Process Development Scientist / Manufacturing Scientist | Direct-entry targets |
 | BioMarin | Associate Scientist / Technical Development Scientist / Process Development Scientist | Direct-entry targets |
 | AstraZeneca | Associate Scientist / Research Scientist / Biopharmaceutical Development Scientist | Strong direct-entry target |
+| Syngenta Biologicals | Fermentation Scientist | Durham, NC / global. Microbial agricultural products from lab to pilot scale: 100 mL–30 L bioreactors, fermentation kinetics and scale-up ([posting](https://careers.ncbiotech.org/companies/syngenta-2-c5e919dd-e4bc-4710-953b-cc270d0d5d70/jobs/83102055-fermentation-scientist)) |
 
 ## 15. Singapore
 
@@ -260,9 +272,19 @@ The major constraint here is US work authorisation/sponsorship. The US is split 
 | GSK | Various 2027 graduate programmes | Singapore and US specific programmes identified |
 | CSL | Four Australian 2027 programmes | Start too early for my MSc completion |
 
-## 17. Master employer list
+## 17. Switzerland and Spain
 
-The de-duplicated employer universe (116; numbers 99–116 were added in September 2026). The region tables above are what the routine searches; this list is for reference.
+Switzerland isn't in the EU: Swiss roles need a work permit.
+
+| Company | Location | Roles to watch | Relevance |
+|---|---|---|---|
+| Sophia CDMO | Spain / Switzerland / Europe | Fungal Fermentation Scientist | Microbial/fungal fermentation (Pichia, E. coli, Bacillus, yeast, filamentous fungi), recombinant proteins, enzymes, DSP and scale-up |
+| Lallemand – Corporate R&D Switzerland | Basel area | Research Scientist – Fermentation & Bioprocess Development | Yeast/bacteria, batch/fed-batch/continuous culture, scale-up/down and technology transfer; industrial experience described as advantageous rather than mandatory ([posting](https://ch.linkedin.com/jobs/view/research-scientist-fermentation-bioprocess-development-at-lallemand-4453704660)) |
+| Ferring Pharmaceuticals | Lausanne area | Upstream Process Development Scientist | Master's-level biologics process-development route: bioreactors, process scale-up and tech transfer ([posting](https://ch.linkedin.com/jobs/view/upstream-process-development-scientist-at-ferring-pharmaceuticals-3817744166)) |
+
+## 18. Master employer list
+
+The de-duplicated employer universe (125; numbers 99–125 were added in September 2026). The region tables above are what the routine searches; this list is for reference.
 
 1. Daisy Lab
 2. NewFish
@@ -367,7 +389,7 @@ The de-duplicated employer universe (116; numbers 99–116 were added in Septemb
 101. CPI – National Industrial Biotechnology Facility
 102. IFF
 103. Lesaffre
-104. Lallemand
+104. Lallemand (including Corporate R&D Switzerland)
 105. BRAIN Biotech
 106. AB Enzymes
 107. Corbion
@@ -380,3 +402,12 @@ The de-duplicated employer universe (116; numbers 99–116 were added in Septemb
 114. LanzaTech
 115. Capra Biosciences
 116. Lygos
+117. Sunflower Therapeutics
+118. Flagship Pioneering / FL112
+119. Robigo
+120. Syngenta Biologicals
+121. Manus Bio
+122. Mushlabs
+123. Agrobiomics
+124. Sophia CDMO
+125. Ferring Pharmaceuticals

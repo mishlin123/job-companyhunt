@@ -10,20 +10,22 @@ The Monday routine follows this file step by step. It runs in a fresh Claude Cod
 4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, and the newest file in `reports/` if there is one. That report's date is LAST (use "none" if there is no report yet).
 5. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
 
-## 1. Research with eight parallel subagents
+## 1. Research with ten parallel subagents
 
-Launch eight general-purpose subagents **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Each one covers these `watchlist.md` sections:
+Launch ten general-purpose subagents **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Each one covers these `watchlist.md` sections:
 
 | Batch | Sections |
 |---|---|
 | 1 | 1. New Zealand |
 | 2 | 2. Australia |
 | 3 | 3. Ireland |
-| 4 | 4. United Kingdom, 5. Belgium, 6. Netherlands |
-| 5 | 7. Germany, 8. Denmark, 9. Sweden, 10. Finland |
-| 6 | 11. France, 12. Israel, 13. Canada, 14b. United States: large companies and graduate programmes |
-| 7 | 14a. United States: fermentation, synbio and industrial-biotech companies |
-| 8 | 15. Singapore, 16. Other international 2027 graduate programmes |
+| 4 | 4. United Kingdom, 5. Belgium, 17. Switzerland and Spain |
+| 5 | 6. Netherlands, 7. Germany, 11. France |
+| 6 | 8. Denmark, 9. Sweden, 10. Finland |
+| 7 | 12. Israel, 14a. United States: precision fermentation and fermentation platforms |
+| 8 | 13. Canada, 14b. United States: synbio, strain/enzyme engineering and industrial chemicals |
+| 9 | 14c. United States: large companies and graduate programmes, 16. Other international 2027 graduate programmes |
+| 10 | 15. Singapore |
 
 Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
 
@@ -38,7 +40,7 @@ For **each** row in your sections:
 1. **Careers page.** Use the `careers_url` in `tracker/companies.csv` if there is one. Otherwise find the company's careers page or job board, often hosted on an applicant-tracking system (Greenhouse, Lever, Ashby, Teamtailor, Workable, Personio, Recruitee, SmartRecruiters, Workday).
 2. **WebFetch, once.** Try WebFetch on your first careers page. The environment's network policy may block it (`EGRESS_BLOCKED`). If it does, don't use WebFetch again this run; work from WebSearch alone.
 3. **Open roles.** Run one to three WebSearch queries per row, built from the company, location and roles to watch. For example: `"<Company>" careers fermentation scientist`, `"<Company>" jobs <city> research associate`, `"<Company>" graduate programme 2027 <country>`. Use `allowed_domains` to aim a query at the company's careers or ATS domain, or at job boards such as linkedin.com, seek.co.nz, seek.com.au, indeed.com, irishjobs.ie, jobs.ie, gradireland.com, targetjobs.co.uk, prospects.ac.uk, jobteaser.com, thehub.io, jobindex.dk, stepstone.de, welcometothejungle.com, mycareersfuture.gov.sg, foodimpactcareers.com, climatebase.org, wellfound.com and euraxess.ec.europa.eu.
-   For big multinationals (Pfizer, Amgen, AstraZeneca, GSK, MSD, Sanofi, Eli Lilly, BMS, Regeneron, Thermo Fisher, Lonza, Takeda, Roche, Gilead, Grifols, Abbott, J&J, Novonesis, ADM, CSL, Kerry, IFF, dsm-firmenich, Corbion, Lesaffre, Lallemand, AB Enzymes), look only for the programmes, sites and role types named in the watchlist.
+   For big multinationals (Pfizer, Amgen, AstraZeneca, GSK, MSD, Sanofi, Eli Lilly, BMS, Regeneron, Thermo Fisher, Lonza, Takeda, Roche, Gilead, Grifols, Abbott, J&J, Novonesis, ADM, CSL, Kerry, IFF, dsm-firmenich, Corbion, Lesaffre, Lallemand, AB Enzymes, Syngenta, Ferring), look only for the programmes, sites and role types named in the watchlist.
 4. **News.** Run one or two searches for news published since LAST (the last 14 days on a baseline run): funding, layoffs or closures, new plants or scale-up, regulatory approvals, partnerships or acquisitions, leadership changes, graduate-intake announcements, hiring pushes. Skip older items and evergreen pages.
 5. **Fit.** Rate each relevant role `strong`, `possible` or `signal` using "How to judge fit" in `profile.md`. Leave out anything below `signal`.
 6. **Tracker.** If a role is already in `tracker/roles.csv`, put that row's `id` in your entry, even if the title or link has changed slightly. Don't list a tracked role you can't find again; the script marks it.

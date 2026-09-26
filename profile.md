@@ -26,7 +26,8 @@ The weekly routine uses this to decide which roles are worth flagging and how we
 - British citizen with a UK passport.
 - **UK**: no sponsorship needed.
 - **Ireland**: straightforward under the Common Travel Area.
-- **EU** (Belgium, Netherlands, Germany, Denmark, Sweden, Finland, France): needs a work permit. Note whether a posting offers relocation or visa support. Programmes that require permanent EU/Swiss work rights (e.g. J&J GOLD) are a hurdle.
+- **EU** (Belgium, Netherlands, Germany, Denmark, Sweden, Finland, France, Spain): needs a work permit. Note whether a posting offers relocation or visa support. Programmes that require permanent EU/Swiss work rights (e.g. J&J GOLD) are a hurdle.
+- **Switzerland**: not in the EU; needs a Swiss work permit. Note whether a posting offers relocation or permit support.
 - **US**: sponsorship is the major constraint. Note whether a posting mentions it.
 - **NZ, Australia, Canada, Singapore, Israel**: note any citizenship, residency or visa requirement a posting states.
 

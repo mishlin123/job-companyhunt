@@ -1,12 +1,12 @@
 # Job company hunt
 
-A watchlist of about 115 biotech and precision-fermentation employers for jobs starting after my MSc (finishing June 2027), plus a weekly Claude routine that scans them.
+A watchlist of about 125 biotech and precision-fermentation employers for jobs starting after my MSc (finishing June 2027), plus a weekly Claude routine that scans them.
 
 ## The weekly routine
 
 - **When:** every Monday at about 7am New Zealand time. A full scan takes roughly 15–30 minutes.
 - **What it does:** checks every company in [`watchlist.md`](watchlist.md) for relevant open roles and recent news, judges fit against [`profile.md`](profile.md), and compares with [`tracker/`](tracker/) so it can tell what's genuinely new.
-- **How:** Claude follows [`ROUTINE.md`](ROUTINE.md), splitting the watchlist across eight parallel research agents. [`scripts/update_tracker.py`](scripts/update_tracker.py) does the bookkeeping.
+- **How:** Claude follows [`ROUTINE.md`](ROUTINE.md), splitting the watchlist across ten parallel research agents. [`scripts/update_tracker.py`](scripts/update_tracker.py) does the bookkeeping.
 - **Results:**
   - `reports/YYYY-MM-DD.md`: the full weekly report.
   - `tracker/roles.csv`: every relevant role seen so far, with first-seen and last-seen dates and a status.
