@@ -4,7 +4,7 @@ A watchlist of about 100 biotech and precision-fermentation employers for jobs s
 
 ## The weekly routine
 
-- **When:** every Monday at 6:57am New Zealand time. A full scan takes roughly 15–30 minutes.
+- **When:** every Monday at about 7am New Zealand time. A full scan takes roughly 15–30 minutes.
 - **What it does:** checks every company in [`watchlist.md`](watchlist.md) for relevant open roles and recent news, judges fit against [`profile.md`](profile.md), and compares with [`tracker/`](tracker/) so it can tell what's genuinely new.
 - **How:** Claude follows [`ROUTINE.md`](ROUTINE.md), splitting the watchlist across eight parallel research agents. [`scripts/update_tracker.py`](scripts/update_tracker.py) does the bookkeeping.
 - **Results:**
