@@ -89,6 +89,7 @@ UK passport: no sponsorship needed for UK roles.
 | Hypha Discovery | Fermentation Scientist – Microbiology | Relevant role discovered earlier; wanted immediate availability |
 | Adamo Foods | Fermentation / Process Development Scientist | MSc Microbiology/Biotech accepted; fermentation scale-up |
 | Anthropic | Biology-related AI/research roles | Mentioned elsewhere in my search, but not a fermentation employer |
+| CPI – National Industrial Biotechnology Facility | Scientist 1 – Process, Research Scientist, Bioprocess Scientist | Recent entry-level Scientist role involved transferring biological processes into pilot fermentation facilities; Research Scientist 1 roles can explicitly suit recent graduates ([example posting](https://www.uk-cpi.com/careers/jobs/cpi-75-26)) |
 
 ## 5. Belgium
 
@@ -99,6 +100,7 @@ UK passport: no sponsorship needed for UK roles.
 | Paleo | Fermentation / molecular biology / PF scientist opportunities | Precision-fermented proteins |
 | GSK Belgium | Bioprocess/process scientist roles | Biopharma/vaccines |
 | Johnson & Johnson | Global Operations Leadership Development Programme (GOLD) | 2027 programme; EU work-right hurdle |
+| Bio Base Europe Pilot Plant | R&D Engineer / Biotechnologist, Fermentation Scientist, Process Development | Ghent. One of the strongest additions: the current R&D Engineer role asks for fermentation (bacteria/yeast/fungi) and DSP, working from lab to multi-tonne scale ([posting](https://jobs.bbeu.org/en/r-d-engineer)) |
 
 ## 6. Netherlands
 
@@ -110,6 +112,8 @@ UK passport: no sponsorship needed for UK roles.
 | The Protein Brewery | Fermentation Scientist | Mycelial fermentation and process scale-up |
 | Farmless | Fermentation / bioprocess / microbial engineering roles | Alternative-protein/industrial fermentation |
 | Johnson & Johnson | GOLD programme | EU work-right issue |
+| Corbion | Scientist – Bioprocess, Fermentation, Science & Technology | Netherlands/global. Specifically recruits scientists and graduates into bio-based-product R&D |
+| dsm-firmenich | Scientist – Fermentation, Biotechnology, R&D | Netherlands/Switzerland/global. Massive bioscience employer with dedicated R&D/innovation and early-career pipelines |
 
 ## 7. Germany
 
@@ -119,6 +123,8 @@ UK passport: no sponsorship needed for UK roles.
 | Fermeta | Fermentation Scientist | MSc accepted; fermenters, USP/DSP, scale-up |
 | Infinite Roots | Fermentation / mycelium / biotech scientist roles | Watch |
 | Kerry | European R&D graduate rotations may include Germany | 2027 intake |
+| BRAIN Biotech | Scientist – Fermentation, Microbiology, Molecular Biology, Process Engineering | R&D career areas explicitly include microbiology, molecular biology, fermentation and process engineering |
+| AB Enzymes | R&D Scientist, Fermentation Scientist, Enzyme Scientist | Germany/Finland/global. Large industrial enzyme company with R&D and biotech manufacturing, and explicit early-career opportunities |
 
 ## 8. Denmark
 
@@ -134,6 +140,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | 21st.BIO | Fermentation / biomanufacturing scientist roles | Major PF/biomanufacturing platform |
 | Novonesis | Fermentation / strain / enzyme / industrial biotech scientist roles | Very large industrial biotech employer |
 | Kerry | European R&D rotations | May include Denmark |
+| IFF | Scientist – Fermentation Operations, Process Development Scientist | Denmark/global. Recent Scientist role covered fermentation planning/execution, microbiology, bioprocessing, DSP and industrial biotechnology ([posting](https://iff.wd5.myworkdayjobs.com/en-US/IFF_Careers/job/Scientist--Fermentation-Operations_R19901)) |
 
 ## 9. Sweden
 
@@ -160,6 +167,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Nutropy | Scientist – Bioprocessing / Fermentation | MSc accepted; recombinant proteins, bioreactors, DoE, scale-up |
 | Standing Ovation | Molecular Biology Scientist / Fermentation Scientist / Engineer | Precision-fermentation proteins |
 | Kerry | European rotations | Possible |
+| Lesaffre | R&D Scientist – Fermentation | France/global. Fermentation R&D centre does strain-performance testing, process optimisation, pilot-scale tech transfer and factory trials; MSc Biotechnology explicitly accepted ([posting](https://www.lesaffre.com/careers/jobs/rd-scientist-fermentation-2/)) |
 
 ## 12. Israel
 
@@ -178,10 +186,13 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Future Fields | Bioprocess / recombinant protein scientist roles | Edmonton biotech |
 | Ardra | Synthetic biology / microbial-production scientist roles | Toronto |
 | Terra Bio | Circular biotech / fermentation / valorisation R&D | Toronto |
+| Lallemand | R&D Specialist – Bioprocesses | Europe/Canada/global. Recent MSc-level role in Tallinn required only 1–3 years' experience: yeast/bacteria batch, fed-batch and continuous bioreactor cultivation ([posting](https://careers.lallemand.com/job-postings/details/2312-rd-specialist-for-bioprocesses)) |
 
 ## 14. United States
 
-The major constraint here is US work authorisation/sponsorship.
+The major constraint here is US work authorisation/sponsorship. The US is split into two tables so the weekly scan can research it as two parallel batches.
+
+### 14a. Fermentation, synbio and industrial-biotech companies
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -196,6 +207,21 @@ The major constraint here is US work authorisation/sponsorship.
 | Conagen | Fermentation / strain engineering / industrial biotech scientist roles | Watch |
 | Pow.bio | Fermentation / continuous biomanufacturing / bioprocess roles | Watch |
 | Liberation Labs | Fermentation / scale-up / biomanufacturing roles | Industrial PF infrastructure |
+| Flagship Pioneering portfolio | Microbial engineering / synbio startup scientist roles | Ecosystem rather than one company |
+| Helaina | Associate Scientist, Fermentation/Bioprocess Scientist, Early-Stage R&D | New York. Very relevant: recombinant human lactoferrin by precision fermentation; has advertised Associate Scientist roles involving small-scale fermentation and is expanding its R&D team |
+| ZymoChem | Research Associate, Fermentation/Metabolic Engineering Scientist | California. Industrial biotech for sustainable chemicals/materials; has a talent network for future scientific hires |
+| Checkerspot | Fermentation Scientist, Strain Scientist, RA | California. Precision fermentation of fats/oils; explicitly accepts speculative CVs |
+| C16 Biosciences | Fermentation Scientist, Strain Development, RA | New York. Precision-fermentation oils/fats; has a General Application route |
+| Codexis | Research Associate – Process Development, Enzyme Scientist | California. Enzyme engineering/biocatalysis; RA role in Process Development and future-role registration |
+| Arzeda | Associate Scientist, Protein/Strain Design Scientist | Seattle. Protein engineering + synthetic biology + fermentation; team includes strain-design and fermentation functions |
+| LanzaTech | Scientist – Gas Fermentation, Strain Development Scientist | Chicago/global. Huge addition: CSTR gas fermentation, bacterial cultivation and scale-up; recruits scientists/RAs across disciplines |
+| Capra Biosciences | Metabolic Engineer, Bioprocess Scientist, Fermentation Scientist | Virginia. Scientists work across the molecule–reactor–factory stack; explicitly invites speculative scientist applications |
+| Lygos | Fermentation / Metabolic Engineering Scientist | California. Industrial biotechnology producing sustainable chemicals/materials |
+
+### 14b. Large companies and graduate programmes
+
+| Company | Opportunity | Relevance |
+|---|---|---|
 | ADM | Scientist I – Benchtop Fermentation | 7.5 L fermentation, yeast/bacteria/fungi, scale-up/down |
 | GSK – Hamilton, Montana | 2027 Quality Science Graduate Program | Sep 2027; Microbiology/Biotech accepted; less R&D-focused |
 | GSK – Upper Merion, Pennsylvania | 2027 Manufacturing Operations Graduate Program | Sep 2027; biotech manufacturing |
@@ -203,7 +229,6 @@ The major constraint here is US work authorisation/sponsorship.
 | Pfizer | Process Scientist / Process Development Scientist / Manufacturing Scientist | Direct-entry targets |
 | BioMarin | Associate Scientist / Technical Development Scientist / Process Development Scientist | Direct-entry targets |
 | AstraZeneca | Associate Scientist / Research Scientist / Biopharmaceutical Development Scientist | Strong direct-entry target |
-| Flagship Pioneering portfolio | Microbial engineering / synbio startup scientist roles | Ecosystem rather than one company |
 
 ## 15. Singapore
 
@@ -237,7 +262,7 @@ The major constraint here is US work authorisation/sponsorship.
 
 ## 17. Master employer list
 
-The de-duplicated employer universe (98). The region tables above are what the routine searches; this list is for reference.
+The de-duplicated employer universe (116; numbers 99–116 were added in September 2026). The region tables above are what the routine searches; this list is for reference.
 
 1. Daisy Lab
 2. NewFish
@@ -337,3 +362,21 @@ The de-duplicated employer universe (98). The region tables above are what the r
 96. Lonza
 97. Takeda
 98. Roche
+99. Helaina
+100. Bio Base Europe Pilot Plant
+101. CPI – National Industrial Biotechnology Facility
+102. IFF
+103. Lesaffre
+104. Lallemand
+105. BRAIN Biotech
+106. AB Enzymes
+107. Corbion
+108. dsm-firmenich
+109. ZymoChem
+110. Checkerspot
+111. C16 Biosciences
+112. Codexis
+113. Arzeda
+114. LanzaTech
+115. Capra Biosciences
+116. Lygos

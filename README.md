@@ -1,6 +1,6 @@
 # Job company hunt
 
-A watchlist of about 100 biotech and precision-fermentation employers for jobs starting after my MSc (finishing June 2027), plus a weekly Claude routine that scans them.
+A watchlist of about 115 biotech and precision-fermentation employers for jobs starting after my MSc (finishing June 2027), plus a weekly Claude routine that scans them.
 
 ## The weekly routine
 
