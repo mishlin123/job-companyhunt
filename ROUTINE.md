@@ -1,46 +1,35 @@
 # Weekly scan playbook
 
-The Monday routine follows this file step by step. It runs in a fresh Claude Code session with this repo checked out, and commits its results to `main`. Work through everything in one go: the run's final message is emailed, so don't stop until the report is pushed.
+The Monday routine follows this file step by step. It runs as a local routine in the Claude desktop app, in a clone of this repo on my computer, and commits its results to `main`. Work through everything in one go: your final message is the run's summary, so don't stop until the report is pushed.
+
+Use `python3` in the commands below, or `python` if that's what this computer has.
 
 ## 0. Set up
 
-1. `git checkout main && git pull origin main`
-2. The run date is today's date in New Zealand: `TZ=Pacific/Auckland date +%F`. Below it is called DATE.
+1. `git checkout main && git pull origin main`. If the pull fails because of local edits, carry on with the files as they are and mention it in the final message.
+2. The run date is today's local date as `YYYY-MM-DD` (`date +%F`). Below it is called DATE. If `reports/DATE.md` already exists, the scan has already run today: stop and say so.
 3. `mkdir -p work` (git-ignored scratch space for this run).
 4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, and the newest file in `reports/` if there is one. That report's date is LAST (use "none" if there is no report yet).
 5. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
 
-## 1. Research with ten parallel subagents
+## 1. Research with parallel subagents
 
-Launch ten general-purpose subagents **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Each one covers these `watchlist.md` sections:
+Run `python3 scripts/plan_batches.py`. It splits the watchlist's tables into batches of at most 20 rows and prints one line per batch, naming the `watchlist.md` sections that batch covers. A large section can be split into row ranges such as `14a. ... (rows 1–12)`: those count only that section's table rows, header excluded.
 
-| Batch | Sections |
-|---|---|
-| 1 | 1. New Zealand |
-| 2 | 2. Australia |
-| 3 | 3. Ireland |
-| 4 | 4. United Kingdom, 5. Belgium, 17. Switzerland and Spain |
-| 5 | 6. Netherlands, 7. Germany, 11. France |
-| 6 | 8. Denmark, 9. Sweden, 10. Finland |
-| 7 | 12. Israel, 14a. United States: precision fermentation and fermentation platforms |
-| 8 | 13. Canada, 14b. United States: synbio, strain/enzyme engineering and industrial chemicals |
-| 9 | 14c. United States: large companies and graduate programmes, 16. Other international 2027 graduate programmes |
-| 10 | 15. Singapore |
+Launch one general-purpose subagent per batch, all **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
 
-Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
-
-> You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, sections SECTIONS of `watchlist.md`, and the rows for your companies in `tracker/roles.csv` and `tracker/companies.csv`. Today is DATE; the last report was LAST. Research every row in your sections and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
+> You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, these parts of `watchlist.md`: SECTIONS, and the rows for your companies in `tracker/roles.csv` and `tracker/companies.csv`. Today is DATE; the last report was LAST. Research every row in your part of the watchlist and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
 
 When they have all returned, check that each `work/findings-N.json` exists and parses (`python3 -m json.tool work/findings-N.json`). Re-run a failed batch once. If it fails again, carry on without it and say so in the report.
 
 ## Research brief (for subagents)
 
-For **each** row in your sections:
+For **each** row in your part of the watchlist:
 
-1. **Careers page.** Use the `careers_url` in `tracker/companies.csv` if there is one. Otherwise find the company's careers page or job board, often hosted on an applicant-tracking system (Greenhouse, Lever, Ashby, Teamtailor, Workable, Personio, Recruitee, SmartRecruiters, Workday).
-2. **WebFetch, once.** Try WebFetch on your first careers page. The environment's network policy may block it (`EGRESS_BLOCKED`). If it does, don't use WebFetch again this run; work from WebSearch alone.
-3. **Open roles.** Run one to three WebSearch queries per row, built from the company, location and roles to watch. For example: `"<Company>" careers fermentation scientist`, `"<Company>" jobs <city> research associate`, `"<Company>" graduate programme 2027 <country>`. Use `allowed_domains` to aim a query at the company's careers or ATS domain, or at job boards such as linkedin.com, seek.co.nz, seek.com.au, indeed.com, irishjobs.ie, jobs.ie, gradireland.com, targetjobs.co.uk, prospects.ac.uk, jobteaser.com, thehub.io, jobindex.dk, stepstone.de, welcometothejungle.com, mycareersfuture.gov.sg, foodimpactcareers.com, climatebase.org, wellfound.com and euraxess.ec.europa.eu.
-   For big multinationals (Pfizer, Amgen, AstraZeneca, GSK, MSD, Sanofi, Eli Lilly, BMS, Regeneron, Thermo Fisher, Lonza, Takeda, Roche, Gilead, Grifols, Abbott, J&J, Novonesis, ADM, CSL, Kerry, IFF, dsm-firmenich, Corbion, Lesaffre, Lallemand, AB Enzymes, Syngenta, Ferring), look only for the programmes, sites and role types named in the watchlist.
+1. **Careers page.** Use the `careers_url` in `tracker/companies.csv` if there is one. Otherwise find the company's careers page or job board, often hosted on an applicant-tracking system (Greenhouse, Lever, Ashby, Teamtailor, Workable, Personio, Recruitee, SmartRecruiters, Breezy, Rippling, Workday).
+2. **Read it.** Fetch the careers page with WebFetch and note the relevant open roles it lists. Pages that load their jobs with JavaScript can come back empty; then rely on WebSearch. If WebFetch is blocked outright (`EGRESS_BLOCKED`, which only happens in restricted cloud environments), don't use it again this run.
+3. **Search for roles.** Run one to three WebSearch queries per row to catch roles the careers page didn't show, built from the company, location and roles to watch. For example: `"<Company>" careers fermentation scientist`, `"<Company>" jobs <city> research associate`, `"<Company>" graduate programme 2027 <country>`. Use `allowed_domains` to aim a query at the company's careers or ATS domain, or at job boards such as linkedin.com, seek.co.nz, seek.com.au, indeed.com, irishjobs.ie, jobs.ie, gradireland.com, targetjobs.co.uk, prospects.ac.uk, jobteaser.com, thehub.io, jobindex.dk, stepstone.de, welcometothejungle.com, mycareersfuture.gov.sg, foodimpactcareers.com, climatebase.org, wellfound.com and euraxess.ec.europa.eu.
+   For big multinationals (Pfizer, Amgen, AstraZeneca, GSK, MSD, Sanofi, Eli Lilly, BMS, Regeneron, Thermo Fisher, Lonza, Takeda, Roche, Gilead, Grifols, Abbott, J&J, Novonesis, ADM, CSL, Kerry, IFF, dsm-firmenich, Corbion, Lesaffre, Lallemand, AB Enzymes, Syngenta, Ferring, Croda, GenScript, Agilent, Accord Healthcare), look only for the programmes, sites and role types named in the watchlist.
 4. **News.** Run one or two searches for news published since LAST (the last 14 days on a baseline run): funding, layoffs or closures, new plants or scale-up, regulatory approvals, partnerships or acquisitions, leadership changes, graduate-intake announcements, hiring pushes. Skip older items and evergreen pages.
 5. **Fit.** Rate each relevant role `strong`, `possible` or `signal` using "How to judge fit" in `profile.md`. Leave out anything below `signal`.
 6. **Tracker.** If a role is already in `tracker/roles.csv`, put that row's `id` in your entry, even if the title or link has changed slightly. Don't list a tracked role you can't find again; the script marks it.
@@ -71,7 +60,7 @@ Write `work/findings-N.json`:
 }
 ```
 
-- `companies`: one entry for every row name in your sections, including rows where nothing was found. Use the name exactly as it appears in the first column of `watchlist.md`. Set `checked: false` only if you couldn't search that company at all.
+- `companies`: one entry for every row name in your part of the watchlist, including rows where nothing was found. Use the name exactly as it appears in the first column of `watchlist.md`. Set `checked: false` only if you couldn't search that company at all.
 - `roles[].company`: use the same watchlist name.
 - `closes`: `YYYY-MM-DD` if known, otherwise `""`. `starts`: free text, or `""`.
 
@@ -118,7 +107,7 @@ Company | Role | Closes | Link
 Optional, at most three: companies worth adding (e.g. found while searching), or rows that look obsolete (acquired, shut down, programme discontinued).
 
 ## Coverage
-Companies checked, failed or not reported; problems such as WebFetch being blocked or searches failing.
+Companies checked, failed or not reported; problems such as careers pages that wouldn't load or searches that failed.
 ```
 
 ## 4. Commit and push to `main`
@@ -129,14 +118,14 @@ git commit -m "Weekly job scan DATE"
 git push origin main
 ```
 
-- A run changes only `reports/` and `tracker/`. Never edit `watchlist.md`, `profile.md`, `ROUTINE.md` or `scripts/`; suggest changes in the report instead.
+- A run changes only `reports/` and `tracker/`. Never edit `watchlist.md`, `profile.md`, `ROUTINE.md`, `scripts/` or `.claude/`; suggest changes in the report instead.
 - If the push is rejected because `main` has moved on, run `git pull --rebase origin main` and push again.
 - On network errors, retry up to four times, waiting 2, 4, 8 and 16 seconds.
-- If pushing to `main` is refused for permission reasons, push the commit to your session's own branch instead, open a draft pull request titled "Weekly job scan DATE", and say so in the final message.
+- If the push still fails (for example, GitHub credentials aren't set up on this computer), leave the commit in place and say at the top of your final message that the results are saved on this computer but weren't pushed, and why.
 
 ## 5. Final message
 
-Your last message is emailed and sent as a phone notification, so keep it under about 25 lines:
+Your last message is the run's summary, the first thing I read when I open the run from its notification. Keep it under about 25 lines:
 
 ```
 Weekly job scan — Mon 28 Sep 2026

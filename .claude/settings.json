@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Bash(git checkout main)",
+      "Bash(git switch main)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(git push origin main)",
+      "Bash(python3 scripts/plan_batches.py *)",
+      "Bash(python3 scripts/update_tracker.py *)",
+      "Bash(python3 -m json.tool *)",
+      "Bash(python scripts/plan_batches.py *)",
+      "Bash(python scripts/update_tracker.py *)",
+      "Bash(python -m json.tool *)",
+      "Bash(mkdir -p work)",
+      "Bash(date *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(wc *)",
+      "Edit(reports/**)",
+      "Edit(work/**)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)"
+    ]
+  }
+}
