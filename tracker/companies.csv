@@ -1,30 +1,180 @@
 company,careers_url,last_checked,notes
-AB Enzymes,https://www.abenzymes.com/en/careers/,,
-Arzeda,https://www.arzeda.com/careers,,
-Bio Base Europe Pilot Plant,https://jobs.bbeu.org,,
-BIOVECTRA / Agilent,https://agilent.wd5.myworkdayjobs.com/en-US/Agilent_Careers,,
-Bluestem Biosciences,https://bluestem-biosciences.breezy.hr/,,
-Boston Bioprocess,https://ats.rippling.com/open-jobs/jobs,,
-BRAIN Biotech,https://www.brain-biotech.com/en/career/,,
-C16 Biosciences,https://c16bio.com/careers,,
-Capra Biosciences,https://www.caprabiosciences.com/careers.html,,
-Checkerspot,https://www.checkerspot.com/careers/,,
-Chinova Bioworks,https://www.chinovabioworks.com/careers,,
-Codexis,https://www.codexis.com/careers/,,
-Corbion,https://www.corbion.com/about-us/our-company/careers,,
-CPI – National Industrial Biotechnology Facility,https://www.uk-cpi.com/careers,,
-dsm-firmenich,https://careers.dsm-firmenich.com/en/careers.html,,
-Flagship Pioneering / FL112,https://job-boards.greenhouse.io/flagshippioneeringinc,,
-Flagship Pioneering portfolio,https://job-boards.greenhouse.io/flagshippioneeringinc,,
-IFF,https://iff.wd5.myworkdayjobs.com/en-US/IFF_Careers,,
-Kinva Bio,https://kinva.bio/jobs,,
-Lallemand,https://careers.lallemand.com,,
-Lallemand – Corporate R&D Switzerland,https://careers.lallemand.com,,
-LanzaTech,https://lanzatech.com/careers/,,
-Lesaffre,https://www.lesaffre.com/careers/jobs/,,
-Locus Fermentation Solutions,https://locusfs.com/careers/,,
-Lygos,https://www.lygos.com/careers,,
-Polyose Bio,https://www.polyosebio.com/careers,,
-Sophia CDMO,https://www.sophiacdmo.com/careers/,,
-Sunflower Therapeutics,https://sunflowertx.com/join-us/,,
-ZymoChem,https://www.zymochem.com/careers,,
+20BLOC,https://20bloc.com/careers/current-openings/,2026-09-29,Seven on-site Thousand Oaks roles incl. Fermentation Scientist and Process Scientist; no US sponsorship
+21st.BIO,https://21st.bio/career/,2026-09-29,"The careers page lists no specific roles. A Senior Research Associate, Fermentation appeared on LinkedIn (unverified)."
+A*STAR / SIFBI,https://careers.a-star.edu.sg/,2026-09-29,No open SIFBI fermentation/biotransformation Research Officer roles found; earlier RO and Scientist I postings have expired. Could only check partly: the web-search budget ran out.
+AB Enzymes,https://www.abenzymes.com/en/careers/how-to-join-ab-enzymes/,2026-09-29,Vacancy list loads by JavaScript; senior Darmstadt roles found only via Glassdoor snippets
+Abbott,https://abbott.wd5.myworkdayjobs.com/abbottcareers,2026-09-29,"OPDP Ireland 2027 open, closes 8 Oct, rolling interviews"
+Accord Healthcare,https://uk.linkedin.com/jobs/view/scientist-downstream-process-development-at-accord-healthcare-4465528144,2026-09-29,Downstream PD scientist still open (mid-senior).
+Adamo Foods,https://www.adamofoods.com/,2026-09-29,No careers page on site; hiring via job boards and email.
+ADM,https://sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=25416&siteid=5998#home,2026-09-29,Decatur R&D is hiring heavily in fermentation and strain development (13 fermentation-related postings)
+Again,https://again.teamtailor.com/jobs,2026-09-29,"Only a marketing role and Unsolicited Applications (Munich/Copenhagen/Houston, relocation help offered). The Scientist – Gas Fermentation posting is gone (410)."
+AgResearch,https://careers.sciencenewzealand.org/agresearch-jobs,2026-09-29,No AgResearch-specific scientist roles on the shared BSI board.
+Agrobiomics,,2026-09-29,No current posting found. The last Fermentation Scientist ad (deadline 28 Feb) is stale. They recently hired a DTU MSc as Fermentation Scientist. Speculative route: anders@agrobiomics.bio.
+Alexion / AstraZeneca,https://astrazeneca.wd3.myworkdayjobs.com/Careers,2026-09-29,"Only 5 Irish roles (College Park technician, automation, commercial); nothing in biologics process development"
+Allozymes,https://www.allozymes.com/job-openings/,2026-09-29,"Jobs page 404; last science posting (Senior Strain Scientist, PhD) no longer accepting. Speculative route: careers@allozymes.com (from search snippet, unverified)."
+ALS,https://nz.seek.com/ALS-jobs/in-Hamilton-Waikato,2026-09-29,No R&D Scientist role currently on SEEK Hamilton (only finance). Christchurch sample-receipt technician only.
+Amgen,https://careers.amgen.com/en/location/dun-laoghaire-jobs/87/2963597-7521314-2964506/4,2026-09-29,Fuel ETRP 2027 (Dun Laoghaire) posted 22 Sep; other Dun Laoghaire roles are senior engineering and maintenance
+Antheia,https://job-boards.greenhouse.io/antheia,2026-09-29,"RA II DSP (Menlo Park), Lab Ops & RA I (Singapore) and Scientist I-II Analytical Development are open; there is also a General Applications route."
+Anthropic,https://job-boards.greenhouse.io/anthropic,2026-09-29,"Only life-sciences roles are US-based ML/operator roles (Research Engineer, Life Sciences in SF; Life Sciences Operator Lead in NYC); not relevant to a wet-lab profile."
+Ardra,,2026-09-29,Website returns 401; no current postings found
+Argenta,https://www.argentaglobal.com/careers,2026-09-29,"BambooHR board didn't render; none on SEEK. A Senior Development Chemist (Manurewa) appeared on an aggregator, undated and senior formulation chemistry, so left out."
+AROA Biosurgery,https://aroabio.bamboohr.com/careers,2026-09-29,"BambooHR board showed no open roles. Earlier 6-month research role (biomaterials/tissue repair, Mangere) no longer listed."
+Arovella Therapeutics,https://www.arovella.com/,2026-09-29,No careers page; no current posting found (older Research Associate/Scientist ad at Jumar lab not verifiable)
+Arzeda,https://www.arzeda.com/careers,2026-09-29,Two Protein Testing Scientist roles (Seattle); these explicitly offer no visa sponsorship.
+AstraZeneca,https://careers.astrazeneca.com/early-talent,2026-09-29,2027 UK R&D Bioscience & Chemistry and Biopharmaceutical Development graduate programmes not yet posted (only 2027 undergrad industrial placements went up ~9 Sep). Check weekly.
+AstraZeneca Gothenburg,https://astrazeneca.wd3.myworkdayjobs.com/Careers,2026-09-29,No graduate or entry-level scientist roles in Gothenburg; only senior roles and a 45/60-credit thesis project (for current students). R&D graduate programme (Cambridge/Gothenburg) 2027 intake not yet posted.
+Bio Base Europe Pilot Plant,https://jobs.bbeu.org,2026-09-29,"Jobs portal shows no vacancies. The R&D Engineer, bioprocess-engineer and internship pages return 404. Latest news: Raman analyser demo with Perceptra, 8 Sep (outside window)."
+BioAgilytix,https://jobs.lever.co/bioagilytix,2026-09-29,Melbourne (360biolabs) Scientist (Virology) closes 30 Sep 2026; AU/NZ residents only
+BioCina,https://biocina.com/careers/,2026-09-29,No roles on SEEK; careers page invites speculative CVs to info@biocina.com
+BioColor,https://www.biocolor.eu/,2026-09-29,No careers page or openings found. Contact is info@biocolor.eu.
+Bioeconomy Science Institute,https://careers.sciencenewzealand.org/search,2026-09-29,"18 vacancies on the Science NZ board, all summer student internships, technicians or non-science roles; no scientist/fermentation roles. Endeavour Fund contracts ending 30 Sep 2026 extended to Sep 2027."
+BioMarin,https://www.biomarin.com/careers/jobs/,2026-09-29,Careers moved from careers.biomarin.com to biomarin.com/careers/jobs; 2027 Graduate Scientist and Engineer programmes open
+BiomeBank,https://au.linkedin.com/company/biomebank,2026-09-29,No careers page; only old LinkedIn ads found. Blackmores partnership Apr 2026
+BiomeMega,https://sg.linkedin.com/company/biomemega,2026-09-29,Watchlist Fermentation Specialist posting is no longer accepting applications (posted ~10 months ago). Nothing else found.
+BioOra,https://bioora.com/join-us,2026-09-29,Join-us page says applications open but lists no roles in fetched content (JS/newsletter). CAR-T cell therapy (adjacent field). Miltenyi commercial-manufacturing deal 20 Aug 2026.
+Biosyntia,https://biosyntia.hire.trakstar.com/,2026-09-29,"Only an unsolicited-application listing (Copenhagen, full-time)."
+Biotelliga,https://www.biotelliga.com/,2026-09-29,"No careers page found (404). Past Scientist ad (fungal strain development for secondary metabolites) was Parnell, Auckland, not Christchurch; not currently found."
+BIOVECTRA / Agilent,https://agilent.wd5.myworkdayjobs.com/en-US/Agilent_Careers,2026-09-29,"R&D Tech (Charlottetown) still open; Dartmouth PD Technician, Biologics no longer listed"
+BIOWEG,https://bioweg.jobs.personio.de/?language=en,2026-09-29,"Raised ~USD 40.6m (EUR 35m incl. EUR 10.3m NRW grant) on 14 Sep 2026 for a 10,000 t bacterial-cellulose plant in Elsdorf, ~30 jobs, construction Q4 2026, first volumes 2028 (one day outside the news window; strong hiring signal for 2027-28)"
+Bluestem Biosciences,https://bluestem-biosciences.breezy.hr/,2026-09-29,Open Application - Future Opportunities route live; Fermentation Technician at demo plant; VP Upstream PD hiring
+BMC Ingredients / The Better Meat Co.,https://www.bmcingredients.com/careers,2026-09-29,Senior Fermentation Operations Specialist open; general enquiries to hello@bettermeat.co
+Boston Bioprocess,https://ats.rippling.com/open-jobs/jobs,2026-09-29,"Contract Bioprocess Associate (Champaign, IL) still listed"
+Boston Institute of Biotechnology,https://bostonbib.com/careers/,2026-09-29,"Only senior roles (Fermentation Sr. Scientist USP, associate directors)"
+BRAIN Biotech,https://www.brain-biotech-group.com/en/career/job-vacancies-in-the-brain-biotech-group/,2026-09-29,Group vacancies page says no current vacancies; Personio link redirects away. EUR 11.5m Royalty Pharma milestone payment on 9 Sep 2026 (just outside window)
+Bristol Myers Squibb,https://bristolmyerssquibb.wd5.myworkdayjobs.com/BMS,2026-09-29,Dublin and Cruiserath roles are all manager-level or non-science; no graduate roles
+BryoSphere Biotechnologies,https://www.bryospherebio.com/careers,2026-09-29,LinkedIn downstream/bioprocess scientist posting has expired; secured angel funding 14 Sep 2026 to scale production (just outside news window)
+C16 Biosciences,https://c16bio.com/careers,2026-09-29,No listed roles; General Application route at c16bio.com/general-application
+Capra Biosciences,https://www.caprabiosciences.com/careers.html,2026-09-29,"Intern / Bioreactor Technician (Sterling, VA) is open. Speculative applications explicitly welcomed at hr@caprabiosciences.com."
+Cauldron Ferm,https://www.cauldronferm.com/careers,2026-09-29,Only a Capital Project Director listed; older Senior/Level 2 Scientist ads (Orange NSW) seen in search but not on careers page. Speculative route: recruitment@cauldronferm.com
+Cemvita,,2026-09-29,"No careers page found (/careers returns 404). Latest news: 75,000 L FermOil scale-up demo (May 2026), nothing in the last 14 days."
+Checkerspot,https://www.checkerspot.com/careers/,2026-09-29,No listed roles; speculative CV to careers@checkerspot.com
+Chinova Bioworks,https://www.chinovabioworks.com/careers,2026-09-29,Research Scientist – PD&I posted 13 Aug 2026; Google Form open for CVs for future roles
+Clean Food Group,https://cleanfood.group/,2026-09-29,Old Fermentation Scientist/Engineer page now 404; no careers section; latest news Dec 2025.
+Codexis,https://www.codexis.com/careers/,2026-09-29,Four roles open: RA IV Attribute Sciences (ECO Process Development) is the only science one. The register-your-interest route is open.
+Colorifix,https://colorifixlimited.teamtailor.com/jobs,2026-09-29,Teamtailor board lists only a Sales Specialist (Portugal); no fermentation roles open.
+Conagen,https://www.conagen.com/careers,2026-09-29,"Careers page blocked (HTTP 404/429) and web-search budget exhausted, so no roles verified. Re-check next run."
+Corbion,https://jobs.corbion.com/,2026-09-29,Science & Technology board lists only US/Singapore roles; no current Gorinchem scientist or graduate roles
+Cosaic,,,cosaic.com refused the connection and the session's web-search budget was exhausted; could not check
+CPI – National Industrial Biotechnology Facility,https://www.uk-cpi.com/careers,2026-09-29,Jobs page says 'No vacancies' today; Future Innovators graduate scheme exists but nothing open.
+Croda – Biotechnology R&T,https://www.croda.com/en-gb/careers/current-vacancies,2026-09-29,New global biotech R&D centre at Sci-Tech Daresbury opened mid-Sep 2026; entry-level Research Scientist open on LinkedIn.
+CSIRO,https://jobs.csiro.au/,2026-09-29,"Only 4 Science roles listed (agriculture, ACDP ops, reactive gases, chemical engineer); nothing in microbiology/synbio/fermentation"
+CSL,https://www.cslbehring.com.au/careers/graduate-program,2026-09-29,"2027 AU graduate program (Feb 2027 start) requires Australian citizenship or PR, so a blocker as well as too early; careers page rate-limited (429). CSL restructuring after FY26 loss"
+Cultivarium,https://www.cultivarium.org/careers,2026-09-29,"Careers page redirects to a Dover board that didn't render; London Scientist, Cell-Free Systems still live on LinkedIn (PhD required)."
+Culture Biosciences,https://culturebiosciences.com/careers,2026-09-29,"Greenhouse board (culturebiosciences) has only manufacturing engineering, software and marketing roles; no bioprocess/application scientist roles"
+Cysbio,https://cysbio.com/careers/,2026-09-29,DSP Scientist closes 30 Sep 2026. MSc student projects and unsolicited applications (careers@cysbio.com) are open.
+Daisy Lab,https://nz.linkedin.com/company/daisylab,2026-09-29,"No careers page on daisylab.co.nz; last posting (Junior R&D Scientist, 6-month contract, recent NZ MSc/PhD grads) closed ~7 months ago. Direct approach is the route."
+Debut Biotech,https://www.linkedin.com/company/debutbiotech/jobs/,2026-09-29,"No own careers page found (debutbiotech.com/careers 404); only LinkedIn RA Fermentation listing, posted ~3 months ago; Scientist I Fermentation listing on Better Ventures board now gone"
+dsm-firmenich,https://jobs.dsm-firmenich.com/careers,2026-09-29,No fermentation/biotech R&D roles in NL (Delft) or Switzerland on the careers API; only a US DSP scientist role relevant
+Eden Brew,https://employmenthero.com/jobs/organisations/eden-brew-pty-ltd-26zqf/,2026-09-29,Only a stale Principal Bioprocess Engineer ad (Nov 2024). FSANZ assessing its beta-casein (Mar 2026)
+Eli Lilly,https://lilly.wd115.myworkdayjobs.com/LLY,2026-09-29,No Limerick roles listed; Cork and Kinsale roles are senior or non-science
+Enduro Genetics,https://www.enduro.bio/,2026-09-29,"The site lists Project lead (strain engineering), Research scientist (synbio) and student research assistants. Unsolicited molecular biology and fermentation applications welcome via info@enduro.bio. The jobs subpage would not load."
+Enifer,https://enifer.com/contact,2026-09-29,No listed roles; 'Join us' routes to contact page (info@enifer.com). Kantvik factory commissioning started 16 Sep 2026 - good moment for a speculative approach.
+EVERY,https://job-boards.greenhouse.io/theeverycompany,2026-09-29,Same company as The EVERY Company; DSP Process Engineer II open (3 yrs exp)
+Farmless,https://careers.farmless.com/,2026-09-29,Only internships and engineering/ops roles; fermentation PD internship listing is ~2 years old
+Fermeta,https://www.fermeta.com/,2026-09-29,Hamburg postbiotic feed-additive startup; no careers page or open roles found; LinkedIn only
+Ferring Pharmaceuticals,https://www.ferring.com/careers/,2026-09-29,Careers site blocked fetch (403) and search budget ran out; the watchlist's Upstream PD Scientist posting (Epalinges) is ~2 years old and closed; no current role found
+Ferronova,,2026-09-29,Medtech (magnetic nanoparticle cancer detection); no careers page or openings found
+Flagship Pioneering / FL112,https://job-boards.greenhouse.io/flagshippioneeringinc,2026-09-29,The watchlist RA I/II Bioprocess Development posting is still open (USD 65-93.5k).
+Flagship Pioneering portfolio,https://job-boards.greenhouse.io/flagshippioneeringinc,2026-09-29,"Board updated 22-28 Sep. Relevant roles: RA I/II Bioprocess Development (FL112, entered under that row) and Senior RA Strain Engineering. Mostly therapeutics, ML and senior roles otherwise."
+Fooditive,https://nl.linkedin.com/company/fooditive,2026-09-29,Only a fermentation R&D internship restricted to NL-resident EU students
+Formo,https://formo.bio/work/,2026-09-29,"Recruitee board (formofoodsgmbh.recruitee.com) lists 3 roles, all Frankfurt; no fermentation-scientist role open"
+Future Fields,https://futurefields.applytojobs.ca/,2026-09-29,Two openings (facilities tech; senior DSP scale-up specialist); no sponsorship offered
+GenScript,https://www.genscript.com/careers.html,2026-09-29,RA (Protein Sciences) re-posted on LinkedIn about 5 days ago.
+Gilead,https://gilead.wd1.myworkdayjobs.com/gileadcareers,2026-09-29,"Cork (Carrigtohill) has a Graduate Associate DTS role, a QA Graduate Programme 2027 (Cork residents only) and a Supply Chain graduate programme"
+Ginkgo Bioworks,https://job-boards.greenhouse.io/ginkgobioworks,2026-09-29,"20 roles on Greenhouse, mostly automation, software or senior. The only relevant bench role is HTS Scientist (3 yrs). No strain-engineering RA roles."
+Grifols,https://jobsearch.grifols.com/search/?q=&locationsearch=Dublin,2026-09-29,Dublin (Grange Castle) roles are manufacturing ops and support; no graduate roles
+GSK,https://jobs.gsk.com/gb/en/job/446606/Register-Your-Interest-GSK-Graduate-Programme-Singapore-2027-Intake,2026-09-29,Singapore Graduate Programme 2027 register-interest posting live on LinkedIn; the jobs.gsk.com link returned HTTP 410 on 2026-09-29 (may have moved as formal applications open).
+GSK Belgium,https://be.gsk.com/en-be/careers/,2026-09-29,"The 'Register your interest – Graduate Programmes 2027, Belgium' page now shows as filled. GSK said 2027 vacancies (Sep 2027 start, Wavre) open Sep–Nov 2026, but none were found yet. The 2026 Manufacturing Ops programme required French plus English."
+GSK Singapore,https://jobs.gsk.com/,2026-09-29,"No current Biotechnologist posting found. Open GSK (Glaxo Wellcome Manufacturing) entry roles on MyCareersFuture are AnT trainee schemes (posted 2026-09-24), normally restricted to Singapore citizens/PRs, so left out. Past Biotechnologist ads were citizens/PRs only."
+"GSK – Hamilton, Montana",https://gsk.wd5.myworkdayjobs.com/GSKCareers,2026-09-29,2027 programme open; only one US GSK programme application allowed
+"GSK – Upper Merion, Pennsylvania",https://gsk.wd5.myworkdayjobs.com/GSKCareers,2026-09-29,2027 Manufacturing Ops programme open; a Quality Science programme at Upper Merion is also open
+Helaina,https://jobs.primary.vc/companies/helaina,2026-09-29,No open jobs on Primary VC board or Simplify; speculative route careers@myhelaina.com
+Hovione,https://en-careers-hovione.icims.com/jobs/intro,2026-09-29,"Cork roles are operators, engineers and QC; no graduate programme listed"
+Hypha Discovery,https://www.hyphadiscovery.com/,2026-09-29,Fermentation Scientist (Microbiology) LinkedIn posting has expired (it asked for a PhD); no careers page. Speculative route: hr@hyphadiscovery.com.
+IFF,https://iff.wd5.myworkdayjobs.com/en-US/IFF_Careers,2026-09-29,"Scientist – Fermentation Operations (Brabrand, R19901) was early-career but closed 6 Sep 2026, so it is left out. The team does hire at this level; watch for a repeat."
+Imagindairy,https://imagindairy.com/careers/,2026-09-29,Careers page lists no current openings; invites speculative CVs. No news in last 14 days.
+Infinite Roots,https://infiniteroots.jobs.personio.com/?language=en,2026-09-29,Infinite Roots is the renamed Mushlabs. Personio lists only commercial roles plus an Open Application (speculative route); the Junior Fermentation Scientist is recorded under Mushlabs
+Johnson & Johnson,https://www.careers.jnj.com/en/jobs/r-096190/class-of-2027-global-operations-leadership-development-program-europe-gold/,2026-09-29,"GOLD Europe Class of 2027 open, closes 11 Oct 2026; requires permanent EU/Swiss work rights"
+Jooules,https://www.jooules.com,2026-09-29,No careers page or open roles; site news is old (latest mid-2025).
+Jumar Bioincubator companies,https://www.jumarbio.com/meet-our-residents,2026-09-29,"~33 residents (e.g. Arovella, exteRNA, Tessara, Novoroo); no hiring listed on Jumar site"
+Kedrion Biopharma UK,https://uk.linkedin.com/jobs/view/bioprocessing-scientist-at-kedrion-biopharma-uk-4468993667,2026-09-29,Entry-level Bioprocessing Scientist open; assessment day 19 Oct 2026.
+Kerry,https://jobs.kerry.com/go/Graduate-Opportunities/5202301/,2026-09-29,"Graduate Programme 2027 R&D (Biotech Solutions): kerry.com pages for Ireland and Germany now say 'filled', but gradireland still lists a 5 Oct 2026 deadline. European rotations can include France."
+Kinisla,https://apply.workable.com/kinisla/,2026-09-29,2027 grad and intern roles posted 8 Sep on Workable; no closing date shown
+KINNVA,https://kinnva.com/,2026-09-29,"Only recent posting (Scale-Up Bioprocess Engineer, 3+ yrs) closed 2026-08-05. Nothing open."
+Kinva Bio,https://kinva.bio/jobs,2026-09-29,Jobs page loads with JavaScript; role details only from search snippets.
+Kula Bio,https://recruiting.paylocity.com/recruiting/jobs/All/289c9efb-be57-4191-88ad-b83ef6af6248/Kula-Bio-Inc,2026-09-29,"Paylocity job feed is empty, so the watchlist MSAT fermentation role appears closed."
+Lallemand,https://careers.lallemand.com,2026-09-29,"Careers site blocks automated fetches (403); could not confirm which postings are live. Search showed Research Scientist Fermentation & Bioprocess Development (Reinach CH, MSc+2y) and older Montreal RA listings, unverified"
+Lallemand – Corporate R&D Switzerland,https://careers.lallemand.com,2026-09-29,careers.lallemand.com blocks automated fetch (Cloudflare); role checked via LinkedIn
+LanzaTech,https://lanzatech.com/careers/,2026-09-29,"Scientist (Skokie, gas fermentation CSTR, MSc+2y) is listed in a labour-certification style ad. The Dayforce board would not render."
+Lesaffre,https://www.lesaffre.com/careers/jobs/,2026-09-29,"The watchlist R&D Scientist - Fermentation posting and several other fermentation R&D postings (R&D Scientist Fermentation W/M, 6-month CDD fermentation-process researcher, Metabolomics Scientist) are now closed. Only unrelated roles and an immunology internship are open in France."
+Liberation Labs,https://liberationbioindustries.bamboohr.com/careers,2026-09-29,"Now Liberation Bioindustries; BambooHR board has 0 openings; Richmond, IN plant start-up expected late 2026/early 2027 (will need operators/fermentation staff)"
+LimmaTech Biologics,https://www.limmatech.com/,2026-09-29,Site blocked fetch (Cloudflare); the watchlist's Research Associate posting is ~2 years old and closed; no current role found (search budget exhausted)
+Locus Fermentation Solutions,https://locusfs.com/careers/,2026-09-29,"ADP board: Lab Technician PD Fermentation and Lead Microbiologist in Solon, OH"
+Lonza,https://lonza.wd3.myworkdayjobs.com/Lonza_Careers,2026-09-29,"Tuas ads on MyCareersFuture are engineering, senior MFG or MSAT PM roles, plus an AnT Trainee - Biotechnologist (normally citizens/PRs only). No fitting development-services role found."
+Lygos,https://www.lygos.com/careers,2026-09-29,Website returns HTTP 402 (site may have lapsed; company status unclear). No roles found.
+Manaaki Whenua,https://careers.sciencenewzealand.org/search,2026-09-29,No Manaaki Whenua roles on the BSI board.
+Manus Bio,https://www.manusbio.com/careers,2026-09-29,"Jobs load via a cookie-gated third-party widget and could not be read. The watchlist Sr RA Strain & Enzyme Engineering posting (Waltham, posted 9 Jul 2026) is closed. Proactive CVs welcomed."
+Mara Renewables,https://theorg.com/org/mara-renewables/jobs/fermentation-scientist-le-f2272f81,2026-09-29,Fermentation Scientist Level 1 still shown as hiring on The Org; no company ATS found
+Massey University precision-fermentation programme,https://www.massey.ac.nz/about/careers-at-massey/,2026-09-29,Careers page 404 and job board unreachable; no related news in September 2026. Not properly checked for postdoc/research officer roles.
+Melt&Marble,https://www.meltandmarble.com/jobs,2026-09-29,"Unsolicited R&D application open (rolling). Other open roles: Manufacturing Operations Specialist (ops/quality, 3+ yrs, closes 30 Sep) and BD Manager, both left out."
+Microba,https://employmenthero.com/jobs/organisations/microba-kru1d/,2026-09-29,"Only a Laboratory Director (Woolloongabba, posted 4 Sep 2026) open: senior, left out"
+MSD / Merck,https://msd.wd5.myworkdayjobs.com/SearchJobs,2026-09-29,No Irish 2027 graduate posting found yet; the 2027 Future Talent roles are US only. Dundalk biologics is hiring bioprocess associates
+Mushlabs,https://infiniteroots.jobs.personio.com/?language=en,2026-09-29,Now trading as Infinite Roots (Hamburg)
+Nature's Fynd,,,Website failed (SSL handshake error); no ATS board found and web-search budget was exhausted
+New Culture,https://www.newculture.com/careers,2026-09-29,"Careers page links to jobs.ashbyhq.com/new-culture but that Ashby board is inactive/empty; no open roles, use contact form for speculative approach"
+NewFish,https://www.nutritionfromwater.com/,2026-09-29,"Rebranded as Nutrition from Water (NXW); R&D now centred on Faro, Portugal via PhycoFerm stake. PhycoFerm's MSc Researcher (heterotrophic microalgae fermentation) closed 1 Jul 2026. No open roles."
+NIBRT,https://www.nibrt.ie/careers/vacancies/,2026-09-29,Only vacancy is a neurovascular postdoc (not relevant); new Sartorius continuous-bioprocessing centre opening Q4 2026
+Noblegen,https://noblegen.com/about-us/careers/,2026-09-29,No roles listed; jobs via Indeed; open to speculative CVs
+NoPalm Ingredients,https://jobs.nopalm-ingredients.com/,2026-09-29,Homerun board shows no live roles (Fermentation Support Technician now 404); open application route available
+Nourish Ingredients,https://careers.nourishingredients.com/,2026-09-29,"No open roles; contact form open for speculative approaches. Completed 10-tonne Creamilux run with SD Guthrie (NL), reported 7 Sep 2026 and closing a funding round"
+Novonesis,https://www.novonesis.com/en/careers/jobs,2026-09-29,No verifiable entry-level fermentation or strain role found. The graduate programme typically opens ~1 Dec and closes ~20 Jan for a 1 Sep start; the only track confirmed is Finance. Recheck in December.
+Novonesis Singapore,https://www.novonesis.com/en/careers,2026-09-29,"Nothing on MyCareersFuture. Could not run a web search (budget exhausted), so coverage is limited."
+NovoNutrients,,2026-09-29,Website returns 404; LinkedIn shows ~6 staff and no jobs. Possibly dormant; not verified
+Nutropy,https://www.genopole.fr/campus/offre-genopole/nutropy-scientist-bioprocessing-lead/,2026-09-29,Only a senior Fermentation Scientist Lead (5+ yrs) found open; the earlier 3-yr Scientist posting (FoodImpactCareers) is gone. Spontaneous applications welcomed (contact@nutropy.com). Casein launch targeted 2027.
+Oath Biome,https://www.oathbiome.com/pages/careers,2026-09-29,No open positions; Fermentation Scientist LinkedIn posting no longer loads. Accepts CVs via Media & Research contact
+Octarine Bio,https://www.linkedin.com/company/octarinebio/,2026-09-29,The junior Fermentation Scientist / Process Engineer role is no longer accepting applications. No careers page on the website.
+Onego Bio,https://www.onego.bio/careers,2026-09-29,"No open roles listed; speculative CV route open via https://www.onego.bio/getintouch. Newsroom did not render, no dated September news found."
+Paleo,https://paleo.bio/join-us/,2026-09-29,No openings listed. Raised €2M (led by Beyond Impact VC) in early Sep 2026 for heme-protein scale-up and North American regulatory filing; outside the 14-day window.
+Performance Labs,https://www.mycareersfuture.gov.sg/,2026-09-29,"Research Scientist (Fermentation) closed. Current ads are a food-plant Engineer and a QA Specialist (both 3 yrs, not R&D)."
+Pfizer,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers,2026-09-29,PD roles at Pearl River/Andover/Bothell are mostly senior; the entry-ish PD role states no visa sponsorship
+Pfizer – Grange Castle,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers,2026-09-29,2027 programme open 21 Sep to 18 Oct
+Pfizer – Newbridge,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers,2026-09-29,2027 programme open 21 Sep to 18 Oct; oral solid dose; hired via CPL
+Pfizer – Ringaskiddy,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers,2026-09-29,2027 programme open until 11 Oct; small-molecule API site
+Phycus Biotechnologies,https://www.phycusbio.com/careers,2026-09-29,"Careers page lists RA (Metabolic Engineering), Senior Scientist, Industrial Post-Doc (Fermentation), Applications Engineer; no dates shown"
+Plant & Food Research,https://careers.sciencenewzealand.org/plant-and-food-research/plant-and-food-research-jobs,2026-09-29,"Only summer internships (e.g. protein purification from Pichia, Mt Albert, now closed) and a berryfruit technician role; nothing at graduate/scientist level."
+Polyose Bio,https://www.polyosebio.com/careers,2026-09-29,"Synthetic Biologist and Metabolic Engineer are listed (MSc or PhD with 3+ yrs research). Full-time and internship both mentioned. Undated, evergreen-style listings."
+Pow.bio,https://jobs.gusto.com/boards/pow-bio-d549529e-373b-434f-8dd5-8c309b711a18,2026-09-29,"Gusto job board blocked fetches (403) and web-search budget was exhausted, so current openings could not be verified; site says actively hiring"
+Precision Chroma,https://precision-chroma.com,2026-09-29,"No careers page. A search snippet mentioned several Christchurch scientist roles (chromatography scale-up, hydrogel media, contract R&D scientist/engineer) (unverified); none found on current SEEK Christchurch listings, so likely closed. Contact: CEO Sean Feast."
+Primrose Bio,https://www.primrosebio.com/careers/,2026-09-29,Careers page says no open positions; temp SRA advertised on LinkedIn only
+Recircle,https://www.recircle.ai/careers,2026-09-29,Bioprocess Engineer LinkedIn posting has expired; careers page shows no roles. Couldn't search further (search budget exhausted).
+Regeneron,https://regeneron.wd1.myworkdayjobs.com/Careers,2026-09-29,Limerick Process Sciences hiring temporary associate process scientists (BSc/MSc level)
+Remilk,https://www.remilk.com/careers,2026-09-29,"Careers page shows 'No items found'. No news in last 14 days found (US launch planned for 2026, per older coverage)."
+Reshape Biotech,https://careers.reshapebiotech.com,2026-09-29,The careers page failed to load (TLS error). Search showed only older application-scientist and data roles plus an unsolicited-application route.
+Richter BioLogics,https://www.richterbiologics.eu/career/,2026-09-29,Job list loads by JavaScript; site states German is the company language and a prerequisite
+Robigo,https://www.robigo.bio/careers,2026-09-29,"Careers page lists only exec roles (CPO, CBO, COS); Bioprocessing RA page still live but no longer listed, so omitted"
+Roche,https://careers.roche.com/global/en,2026-09-29,Manufacturing Biotechnologist (Jun 2026) returns 410 and the Attach & Train trainee ad has expired. Nothing open found.
+Samsara Eco,https://www.samsaraeco.com/work-with-us/,2026-09-29,"Careers page loads jobs via JS and SEEK blocked fetch; search snippets mention a lab role and a Research Associate, Cell & Process Development (Sydney), but no posting could be verified"
+Sanofi,https://www.sanofi.com/en/careers,2026-09-29,"Biotechnologist Trainee (Career Conversion Program) posted 2026-09-16, closes 2026-10-16. CCP schemes are normally for citizens/PRs, so it's left out. Other Sanofi SG ads are senior, maintenance or QC supervisor roles."
+ScaleUp Bio,https://www.mycareersfuture.gov.sg/companies/scaleup-bio-202212855C,2026-09-29,Only open ad is a QC Microbiologist that needs 10 yrs (closes 2026-10-02). Senior MSAT DSP Engineer (12 yrs) closed 2026-09-28. Both are senior; they show the company is hiring in its Tuas facility.
+Scindo,https://scindo.bio/,2026-09-29,"No careers page or current openings found; older LinkedIn roles (senior protein engineer, ML scientist) look stale. Speculative: info@scindo.bio."
+Scion,https://careers.sciencenewzealand.org/scion/scion-jobs,2026-09-29,"7 summer student internships (closing 4 Oct 2026), incl. biomass processing/biomanufacturing (extrusion-focused); no graduate roles."
+SignalChem Biotech / Sino Biological,,2026-09-29,"Research Scientist (Richmond BC) still open on LinkedIn; 3+ yrs, PhD preferred"
+Solar Foods,https://solarfoods.com/careers/,2026-09-29,"Only open role is IT/OT Manager (not relevant). Open application live on RecRight: https://www.recright.com/careers/en/solar-foods/open-application-652928ce478e1c217b03030d. Factory 02 financed (EUR 77.8m, Jun 2026), so future hiring likely."
+Sophia CDMO,https://www.sophiacdmo.com/careers/,2026-09-29,Apply by email to info@sophiacdmo.com; all three roles are mid/senior level
+Southern RNA,https://southernrna.com.au/careers/,2026-09-29,"Rolling expression-of-interest pages for R&D, Analytical & Process Development, Manufacturing; info@southernrna.com.au"
+Standing Ovation,,2026-09-29,"No careers page; only a Fermentation Process Technician (Paris, posted 12 Jun 2026, Bac+2/3) found, too old to list. Applications go to jobs01@standing-ovation.co. Raised EUR 30M Series B in Mar 2026."
+Sunflower Therapeutics,https://sunflowertx.com/join-us/,2026-09-29,RA Strain Creation & Fermentation still listed (start Sept 2026); also Bioprocess Engineer; apply by email careers@sunflowertx.com
+Syngenta Biologicals,https://jobs.syngenta.com/,2026-09-29,Fermentation Scientist (Durham) no longer listed on SmartRecruiters; no fermentation postings found
+Takeda,https://jobs.takeda.com/singapore,2026-09-29,Process Sciences Engineer (Lab) posting now 404; nothing on MyCareersFuture. Earlier ad asked for an MSc plus 2 yrs.
+Terra Bio,,2026-09-29,Terra Bioindustries; no careers page or postings found
+The EVERY Company,https://job-boards.greenhouse.io/theeverycompany,2026-09-29,Now branded EVERY (every.com); Greenhouse board lists 2 relevant roles (RA I Protein Science & Analytics; Process Engineer II DSP)
+The Protein Brewery,https://www.theproteinbrewery.com/vacancies,2026-09-29,Fermentation Scientist open but requires fluent Dutch; also process operator and operations internships
+Thermo Fisher Scientific,https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers,2026-09-29,Irish roles are mostly PPD Athlone labs (analytical); one upstream bioprocessing field application scientist role (senior)
+Those Vegan Cowboys,https://thosevegancowboys.com/jobs/,2026-09-29,"Research Associate – Fermentation posted 21 Sep 2026 (only vacancy). Also €1.2M OPZuid funding for cow-free casein in sports nutrition (date not confirmed, so not listed as news)."
+TurtleTree,https://www.turtletree.com/turtletree-life/,2026-09-29,"The /careers URL returns 404 and MyCareersFuture shows no openings. The open talent route could not be confirmed this run. Last news (Novonesis lactoferrin deal, Jul 2026) falls outside the 14-day window."
+VALANX Biotech,https://www.valanx.bio/,2026-09-29,No careers page; the watchlist's USP Scientist posting (~11 months old) is closed; news page has nothing since June 2026
+Vivici,https://www.vivici.com/working-with-us,2026-09-29,No careers page or open roles found (FoodImpactCareers shows 0); speculative approach via LinkedIn/contact form
+Vow,https://www.eatvow.com/careers,2026-09-29,Only a general Expression of Interest form (Sydney) listed
+Willow / Lume Biosciences,,2026-09-29,willowbio.com now redirects to Evolutia Bio (combined with Mycofeast); old PrismHR job board is dead; no open roles found
+WuXi Biologics,https://www.wuxibiologics.com/join-us/,2026-09-29,Own job board (SAP SuccessFactors) wouldn't load; used LinkedIn listings instead. Dundalk is hiring heavily in bioprocess and MSAT
+ZymoChem,https://zymochem.applytojob.com/apply,2026-09-29,Only Pilot Production Operator and a senior contract-manufacturing role are open. Talent pool open for speculative applications.
