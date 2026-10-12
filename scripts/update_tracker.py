@@ -18,6 +18,7 @@ Role statuses in tracker/roles.csv:
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import sys
@@ -39,7 +40,11 @@ DEADLINE_WINDOW_DAYS = 42
 
 def slug(*parts):
     text = " ".join(p for p in parts if p).lower()
-    return re.sub(r"[^a-z0-9]+", "-", text).strip("-")[:90]
+    full = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
+    if len(full) <= 90:
+        return full
+    # Long names (e.g. "University research labs (...)") would otherwise truncate to the same id.
+    return full[:81].rstrip("-") + "-" + hashlib.sha1(full.encode()).hexdigest()[:8]
 
 
 def norm_url(url):
