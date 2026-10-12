@@ -7,8 +7,10 @@ Usage:
 Every table in watchlist.md sits under a numbered heading ("## 4. United
 Kingdom", "### 14a. ..."). Sections are packed into as few batches as possible
 with at most --max-rows table rows each, largest first, and a section bigger
-than that is split into row ranges. Prints one line per batch, so new sections
-and rows are picked up without editing ROUTINE.md.
+than that is split into row ranges. Rows in a section whose title contains
+"sweep" each cover a whole job market, so each is its own piece and counts as
+SWEEP_WEIGHT rows; sweeps are packed into batches of their own. Prints one line per batch, so new sections and rows are
+picked up without editing ROUTINE.md.
 """
 
 import argparse
@@ -18,6 +20,7 @@ import sys
 from pathlib import Path
 
 HEADING = re.compile(r"#{2,3} (\d+[a-z]?)\. (.+)")
+SWEEP_WEIGHT = 10
 
 
 def sections(path):
@@ -44,6 +47,10 @@ def sections(path):
 def pieces(secs, max_rows):
     """Split any section with more than max_rows rows into near-equal row ranges."""
     for index, label, rows in secs:
+        if "sweep" in label.lower():
+            for row in range(1, rows + 1):
+                yield index, f"{label} (row {row})", min(SWEEP_WEIGHT, max_rows)
+            continue
         parts = math.ceil(rows / max_rows)
         if parts == 1:
             yield index, label, rows
@@ -79,7 +86,11 @@ def main():
     if not args.watchlist.exists():
         sys.exit(f"{args.watchlist} not found")
 
-    batches = pack(pieces(sections(args.watchlist), args.max_rows), args.max_rows)
+    items = list(pieces(sections(args.watchlist), args.max_rows))
+    sweeps = [i for i in items if "sweep" in i[1].lower()]
+    # Sweeps get batches of their own, after the company batches.
+    batches = (pack([i for i in items if i not in sweeps], args.max_rows)
+               + pack(sweeps, args.max_rows))
     total = sum(i[2] for b in batches for i in b)
     print(f"{len(batches)} batches, {total} rows, at most {args.max_rows} rows each")
     for n, batch in enumerate(batches, 1):
