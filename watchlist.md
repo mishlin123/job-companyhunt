@@ -471,6 +471,146 @@ These rows aren't companies. Each one tells a research batch to search a whole j
 | Visa-sponsoring employers – Europe | LinkedIn and EURAXESS searches combining fermentation / bioprocess / microbiology with "visa sponsorship" or "relocation"; jobindex.dk, thehub.io, welcometothejungle.com, stepstone.de; the [IND recognised-sponsor register](https://ind.nl/en/public-register-recognised-sponsors/public-register-regular-labour-and-highly-skilled-migrants) and the [SIRI Fast-track list](https://www.nyidanmark.dk/en-GB/Words-and-concepts/SIRI/Certified-companies) to check employers | Entry-level fermentation, bioprocess, microbiology, strain-engineering and natural-colour roles where the posting offers sponsorship or relocation, or the employer is on a sponsor register |
 | Visa-sponsoring employers – US, Canada and Singapore | LinkedIn, Greenhouse / Lever / Ashby boards, mycareersfuture.gov.sg, Canada Job Bank; [h1bdata.info](https://h1bdata.info/) to check an employer's H-1B history | Entry-level roles at employers with sponsorship evidence; cap-exempt university and national-lab Research Associate posts (no H-1B lottery); J-1 internship hosts; Singapore roles that match "Novel food biotechnologist" on the Shortage Occupation List |
 | Microalgae, phycocyanin and natural colours – worldwide | LinkedIn, company career pages, the Algae Biomass Organization and EABA job boards, natural-colour companies (Oterra, GNT, Givaudan Sense Colour, Sensient, DIC) | Any role in microalgae cultivation or fermentation, spirulina / phycocyanin / phycobiliproteins, or natural-colour R&D, anywhere. These are the strongest fits to the thesis |
+| Funded PhDs – Europe and UK | EURAXESS and the Marie Skłodowska-Curie doctoral network listings, FindAPhD and jobs.ac.uk (BBSRC doctoral training partnerships, industrial CASE studentships), university PhD pages | Salaried or fully funded PhD positions in fermentation, bioprocess, microbial or metabolic engineering, microalgae and phycobiliproteins, starting 2027. Note the deadline, the start date and the eligibility rules (MSCA mobility rule; UK home-fee status) |
+| Funded PhDs – Australia and NZ | University scholarship pages, CRC and ARC Training Centre listings, Riddet Institute, industry-PhD schemes, findaphd.com | Funded PhD or industry-PhD positions in the same fields, plus research-assistant-to-PhD programmes (e.g. the Heart Research Institute's NZ pathway), starting 2027 |
+
+## 20. Alternative career routes
+
+Routes outside bench R&D that take MSc microbiology/biotech graduates and need no sponsorship in the countries listed. Added October 2026; relevance notes are starting points to verify, not confirmed intakes.
+
+### 20a. Patent attorney firms (trainee patent attorney / technical assistant, life sciences)
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Mewburn Ellis | London, Cambridge, Bristol, Manchester (UK) | Trainee Patent Attorney – Life Sciences / Biotechnology | High. Large UK life-sciences practice; UK trainee intakes usually recruit autumn–spring for a September start |
+| Marks & Clerk | UK offices (London, Cambridge, Oxford, Manchester, Edinburgh and others) | Trainee Patent Attorney – Life Sciences / Chemistry | High. One of the largest UK firms; check the graduate trainee page each autumn |
+| Carpmaels & Ransford | London | Trainee Patent Attorney – Life Sciences | High. Life-sciences-heavy London firm with a yearly trainee intake |
+| J A Kemp | London, Oxford, Cambridge, Munich | Trainee Patent Attorney – Biotechnology | High. Strong biotech practice; trainee intake usually September |
+| HGF | Leeds, Manchester, London and other UK cities; also Europe | Trainee Patent Attorney – Life Sciences | High. Large UK/European IP firm with regional offices |
+| Withers & Rogers | London, Bristol, Leamington Spa, Sheffield | Trainee Patent Attorney – Life Sciences | Medium |
+| Dehns | London, Oxford, Brighton, Bristol | Trainee Patent Attorney – Life Sciences | Medium |
+| Potter Clarkson | Nottingham, London, Cambridge; also Nordic offices | Trainee Patent Attorney – Biotech / Life Sciences | Medium |
+| Kilburn & Strode | London, Cambridge | Trainee Patent Attorney – Life Sciences | Medium |
+| D Young & Co | London, Southampton, Munich | Trainee Patent Attorney – Biotechnology | Medium |
+| FRKelly | Dublin, Belfast | Trainee Patent Attorney / Technical Assistant | Medium. Ireland's largest IP firm; no permit needed (Common Travel Area) |
+| Tomkins | Dublin | Trainee Patent Attorney | Low–Medium. Irish IP firm |
+| AJ Park | Wellington, Auckland | Technical Assistant / Trainee Patent Attorney – Life Sciences | High. NZ's largest IP firm; recruits science graduates as trainees |
+| Baldwins | Wellington, Auckland | Technical Assistant / Trainee Patent Attorney | Medium. NZ IP firm |
+| James & Wells | Auckland, Hamilton, Tauranga, Christchurch | Trainee Patent Attorney – Biotech | Medium. NZ IP firm with a Christchurch office |
+| Spruson & Ferguson | Sydney, Melbourne, Brisbane | Patent Scientist / Trainee Patent Attorney – Biotech | High. Large Australian firm; "patent scientist" is the usual entry title |
+| Davies Collison Cave | Melbourne, Sydney, Brisbane | Trainee Patent Attorney / Patent Scientist – Life Sciences | High. Large Australian firm with a big life-sciences group |
+| FPA Patent Attorneys | Melbourne, Sydney, Brisbane, Adelaide | Trainee Patent Attorney – Life Sciences | Medium |
+| Griffith Hack | Melbourne, Sydney, Brisbane, Perth | Trainee Patent Attorney / Patent Scientist | Medium |
+| Phillips Ormonde Fitzpatrick | Melbourne, Sydney, Adelaide | Trainee Patent Attorney – Biotech | Medium |
+
+### 20b. Government science schemes, regulators and biosecurity labs
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| UK Civil Service Fast Stream | UK-wide | Science and Engineering Fast Stream | High. Graduate scheme open to UK nationals; applications have usually opened in autumn for the following September. Check this year's dates |
+| UK Food Standards Agency | London, York | Scientific / regulatory roles (regulated products, novel foods, microbiology) | Medium. Novel-food and precision-fermentation authorisations |
+| UK Animal and Plant Health Agency (APHA) | Weybridge / Addlestone and regional labs | Scientist, Laboratory Technician (bacteriology, virology, molecular) | Medium. Government microbiology and biosecurity labs |
+| UK Health Security Agency (UKHSA) | Porton Down, Colindale | Scientist, Higher Scientific Officer (microbiology, bioprocess, vaccine development) | Medium. Porton Down has bioprocess and vaccine-development teams |
+| Food Safety Authority of Ireland | Dublin | Scientific / technical executive (microbiology, novel foods) | Low–Medium |
+| Department of Agriculture, Food and the Marine – Laboratories | Backweston, Celbridge, Ireland | Laboratory Analyst / Scientist (microbiology, molecular) | Medium. State lab campus hiring through publicjobs.ie |
+| Ministry for Primary Industries | Wellington; Animal Health Laboratory and Plant Health & Environment Laboratory (Upper Hutt / Auckland) | Scientist, Technician, graduate programme; New Zealand Food Safety roles | High. NZ biosecurity and food-safety science; no work-rights issue |
+| NZ Environmental Protection Authority | Wellington | Advisor / scientist (new organisms, hazardous substances, gene technology) | Medium. Gene-technology regulation is being reformed, which may add roles (check status) |
+| Food Standards Australia New Zealand (FSANZ) | Canberra, Wellington | Food scientist / risk assessor (novel foods, microbiology) | Medium. Assesses precision-fermentation applications. Australian public-service roles often need Australian citizenship; the Wellington office may not |
+| Office of the Gene Technology Regulator | Canberra | Regulatory scientist | Low–Medium. Australian Public Service: usually needs Australian citizenship, so check each posting |
+
+### 20c. Commissioning, qualification and validation consultancies (Ireland)
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| PM Group | Cork, Dublin, Limerick | Graduate C&Q / Validation Engineer, graduate programme (science graduates) | High. Major engineering firm for Irish biopharma plants; graduate intakes |
+| Arcadis DPS Group | Cork, Dublin | Graduate C&Q / Validation Engineer | High. DPS Group (now part of Arcadis) is a big life-sciences engineering employer in Ireland |
+| Jacobs | Dublin, Cork | Graduate Validation / C&Q Engineer (life sciences) | Medium |
+| CAI (Commissioning Agents) | Cork, Dublin | Commissioning & Qualification Associate (graduate) | High. Specialist C&Q firm that hires and trains science graduates |
+| Hyde Engineering + Consulting | Cork / Ireland | Cleaning Validation / C&Q Engineer (graduate) | Medium |
+| PQE Group | Ireland (Cork) | Graduate Validation / CSV / Quality Engineer | Medium |
+
+### 20d. Bioprocess equipment and life-science tools (field application, technical and bioprocess specialist roles)
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Sartorius | Göttingen (DE); Royston / Epsom (UK); Melbourne (AU) | Field Application Specialist – Bioprocess, Application Scientist (fermentation, single-use bioreactors) | High. Bench-bioreactor experience is directly relevant |
+| Cytiva | UK (Amersham, Cardiff); Ireland; Australia | Field Application Scientist – Bioprocess, Technical Specialist | High |
+| Eppendorf | Jülich (bioprocess centre, DE); Hamburg; Australia / NZ | Bioprocess Application Specialist (DASGIP / BioFlo) | High |
+| Getinge – Applikon | Delft / Schiedam (NL) | Application Scientist – Bioprocess, Field Service Bioprocess | Medium. NL roles need sponsorship: check the IND register |
+| Merck Life Science (MilliporeSigma) | Darmstadt (DE); UK; Cork (IE) | Field Application / Process Development Scientist – BioProcessing | Medium |
+| Repligen | UK; Ireland; Germany | Field Application Scientist – Bioprocessing | Medium |
+| INFORS HT | Bottmingen (CH); UK | Application Specialist – Bioreactors | Medium |
+| Bioengineering AG | Wald (CH) | Application Engineer – Fermentation | Low–Medium |
+| Bio-Strategy | Auckland, Wellington, Christchurch; Australia | Product / Application Specialist (life science, bioprocess) | High. ANZ distributor; no work-rights issue |
+| In Vitro Technologies | Auckland; Melbourne, Sydney, Brisbane | Product / Application Specialist (life science) | Medium. ANZ distributor |
+| John Morris Group | Sydney, Melbourne; Auckland | Application Scientist / Product Specialist | Medium. ANZ distributor of lab and bioprocess equipment |
+| Thermo Fisher Scientific – BioProduction field roles | UK, Ireland, Australia | Field Application Scientist – BioProduction / Bioprocess | Medium. Field roles only; Thermo's site rows cover the rest |
+
+## 21. Adjacent industries
+
+Industries that use fermentation, microbiology or phycocyanin skills but weren't covered above. Added October 2026.
+
+### 21a. Human milk oligosaccharides and early-life nutrition
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Novonesis – HMO | Kalundborg / Lyngby (DK); Germany | Fermentation Scientist, Process Development – HMOs | High. HMOs are made by precision fermentation. Denmark needs a work permit: check whether Novonesis is on the SIRI Fast-track list |
+| dsm-firmenich – HMO (Glycom) | Denmark; Netherlands; Switzerland | Fermentation / DSP Scientist – HMOs | Medium. Check sponsorship |
+| Nestlé Research | Lausanne (CH); Singapore | Research Associate / Scientist – nutrition, microbiome, fermentation | Medium. Swiss Young Professionals route possible |
+| Reckitt – Mead Johnson Nutrition | Nijmegen (NL); Singapore | Research Associate / Scientist – infant nutrition | Medium. Check IND register |
+| FrieslandCampina Ingredients | Wageningen / Amersfoort (NL) | Scientist – HMOs, fermentation, early-life nutrition | Medium. Check IND register |
+| a2 Milk Company | Auckland | R&D / quality / technical roles | Medium. No work-rights issue |
+
+### 21b. Mycoprotein and fungal fermentation
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Quorn Foods | Billingham / Stokesley (UK) | Fermentation Technologist, Process Scientist, Graduate Technologist | High. Large-scale continuous fungal fermentation; UK, no sponsorship |
+| ENOUGH | Sas van Gent (NL); Scotland | Fermentation Scientist / Technologist | Low–Medium. Mycoprotein; reported financial trouble, so check status |
+| Mycorena (Naplasol) | Gothenburg area (SE) | Fermentation Scientist | Low. Check status after the acquisition |
+
+### 21c. Cosmetic and personal-care biotech ingredients
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Givaudan – Active Beauty | France (Pomacle, Toulouse area), Spain (Barcelona), Switzerland | Biotech / Fermentation Scientist, Microbiology Technician | High. Fermentation-derived cosmetic actives; phycocyanin and algae extracts are a talking point |
+| Symrise | Holzminden (DE); France | Scientist / Lab Technician – biotech cosmetic ingredients | Medium. Germany: skilled-worker route without sponsor |
+| Clariant – Lucas Meyer Cosmetics | France; Spain; Germany | Biotech R&D Scientist (cosmetic actives) | Medium |
+| Evonik – biosurfactants | Germany (Hanau, Essen); Slovakia (Slovenská Ľupča plant) | Fermentation / Process Development Scientist (rhamnolipids) | Medium |
+| Seppic | France (Castres, Paris area) | Biotech / Fermentation Scientist (cosmetic actives) | Medium. Check sponsorship |
+| AlgoSource | Saint-Nazaire (FR) | Microalgae / spirulina extraction and phycocyanin scientist or technician | High. Spirulina and phycocyanin producer: direct thesis match. Check sponsorship |
+
+### 21d. Animal health and veterinary vaccines
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Zoetis | Melbourne (AU); Auckland (NZ); UK; Ireland; Belgium | QC Microbiologist, Manufacturing / Process Scientist, graduate roles | Medium. Large animal-health company |
+| Boehringer Ingelheim Animal Health | Lyon (FR); UK; Ireland | Vaccine Process / QC Microbiology Technician | Medium. Check sponsorship for France |
+| Elanco | Kemps Creek, NSW (AU); UK; Ireland | QC Microbiologist, Production Scientist | Medium |
+| Ceva Animal Health | Glenorie, NSW (AU); Libourne (FR) | QC Analyst / Microbiologist, Vaccine Production Technician | Medium. Hiring at Glenorie in October 2026 (SEEK) |
+| Hipra | Amer, Girona (ES) | Vaccine Bioprocess / Microbiology Technician | Low–Medium. Check sponsorship |
+| Vaxxinova | Bendigo, VIC (AU); Germany | Laboratory / Production Scientist (autogenous vaccines) | Medium. Check current site status |
+
+### 21e. Agricultural biologicals
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Andermatt Group | Grossdietwil (CH); NZ and Australia subsidiaries | Microbiologist / Fermentation Technician (biocontrol, baculovirus, microbials) | Medium. Has ANZ operations |
+| Certis Belchim | Netherlands; Belgium | Microbial biologicals R&D / production scientist | Low–Medium |
+| Biotalys | Ghent (BE) | Fermentation / Protein Production Scientist (protein biocontrols) | Medium. Precision-fermented biocontrol proteins. Check sponsorship |
+| Pivot Bio | Berkeley, CA (US) | Research Associate – microbial fermentation, strain engineering | Low–Medium. US: check H-1B history |
+| Groundwork BioAg | Israel; US | Microbiologist / Production Scientist (mycorrhizal inoculants) | Low |
+
+### 21f. Circular bioeconomy and scale-up centres
+
+| Company / organisation | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Centre for Process Innovation (CPI) | Wilton / Darlington (UK) | Scientist / Technologist – industrial biotechnology, fermentation scale-up; graduate roles | High. UK national scale-up centre with pilot fermenters; no sponsorship needed |
+| Biorenewables Development Centre | York (UK) | Research Technician / Scientist – fermentation, biorefining, waste valorisation | High. Waste-to-value fermentation: matches the kiwifruit-waste thesis |
+| Industrial Biotechnology Innovation Centre (IBioIC) | Glasgow (UK) | Scientist / Technician (scale-up centre), funded industry PhDs and MSc placements | Medium |
+| Bio Process Pilot Facility | Delft (NL) | Operator / Scientist – fermentation and DSP scale-up | Medium. Check IND register |
+| Lisheen National Bioeconomy Campus / BiOrbic | Tipperary / Dublin (IE) | Research Assistant / Technician – biorefining, fermentation | Medium. No permit needed |
+| Ecogas | Reporoa (NZ) | Process / lab technician (food-waste anaerobic digestion) | Low–Medium. Waste-to-energy; adjacent |
 
 ## 18. Master employer list
 
