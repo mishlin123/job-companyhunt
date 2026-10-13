@@ -4,6 +4,7 @@
 Usage:
     python3 scripts/update_tracker.py --date YYYY-MM-DD work/findings-*.json > work/summary.json
     (add --partial for a supplementary run that covers only part of the watchlist)
+    (the split Monday/Thursday scans add --exact plus --only/--exclude; see ROUTINE.md)
 
 Each findings file is written by one research subagent (schema in ROUTINE.md).
 The script updates tracker/roles.csv, tracker/companies.csv and tracker/news.csv
@@ -61,7 +62,9 @@ def base_company(name):
     return re.split(r" - | \(", simple_name(name), maxsplit=1)[0]
 
 
-def covered(company, checked):
+def covered(company, checked, exact=False):
+    if exact:
+        return simple_name(company) in checked
     c = base_company(company)
     return any(c == k or c.startswith(k + " ") or k.startswith(c + " ") for k in checked)
 
@@ -97,13 +100,22 @@ def write_csv(path, fields, rows):
         writer.writerows(rows)
 
 
-def watchlist_companies(path):
-    """First-column names of every table in watchlist.md, in order, deduplicated."""
+def watchlist_companies(path, only=frozenset(), exclude=frozenset()):
+    """First-column names of every table in watchlist.md, in order, deduplicated.
+
+    only / exclude are sets of section numbers ("20", "21"): a section "20e. ..." has number 20.
+    """
     if not path.exists():
         return []
-    names, in_table = [], False
+    names, in_table, number = [], False, ""
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
+        heading = re.fullmatch(r"#{2,3} (\d+)[a-z]?\. .+", line)
+        if heading:
+            number = heading.group(1)
+        if (only and number not in only) or number in exclude:
+            in_table = False
+            continue
         if not line.startswith("|"):
             in_table = False
             continue
@@ -175,13 +187,13 @@ def merge_roles(rows, batches, run_date, problems):
     return new, seen
 
 
-def age_out_roles(rows, seen, checked, today):
+def age_out_roles(rows, seen, checked, today, exact=False):
     """Mark roles missing from this scan. Returns (newly not-found, newly closed)."""
     gone, closed = [], []
     for row in rows:
         if row["id"] in seen or row["status"] in USER_STATUSES + ("closed",):
             continue
-        if not covered(row["company"], checked):
+        if not covered(row["company"], checked, exact):
             continue  # company not searched this run: leave the row alone
         closes, last = parse_date(row["closes"]), parse_date(row["last_seen"])
         if (closes and closes < today) or (last and (today - last).days >= CLOSE_AFTER_DAYS):
@@ -243,7 +255,15 @@ def main():
                         help="supplementary run over part of the watchlist: add and refresh roles, "
                              "but don't mark unseen roles not-found or closed (company names shared "
                              "with unscanned rows would otherwise age them out wrongly)")
+    parser.add_argument("--exact", action="store_true",
+                        help="age out only roles whose company name exactly matches a company checked "
+                             "this run, and limit still-open, applied and deadline lists to those "
+                             "companies (used by the split Monday and Thursday scans)")
+    parser.add_argument("--only", default="", help="watchlist sections in this run, e.g. 20,21")
+    parser.add_argument("--exclude", default="", help="watchlist sections not in this run, e.g. 20,21")
     args = parser.parse_args()
+    only = {n.strip() for n in args.only.split(",") if n.strip()}
+    exclude = {n.strip() for n in args.exclude.split(",") if n.strip()}
 
     today = parse_date(args.date)
     if today is None or len(args.date) != 10:
@@ -261,9 +281,14 @@ def main():
     problems = []
 
     entries = [e for b in batches for e in b.get("companies", []) if text(e.get("name"))]
-    checked = {base_company(e["name"]) for e in entries if is_checked(e)}
+    key = simple_name if args.exact else base_company
+    checked = {key(e["name"]) for e in entries if is_checked(e)}
     new, seen = merge_roles(rows, batches, run_date, problems)
-    gone, closed = ([], []) if args.partial else age_out_roles(rows, seen, checked, today)
+    gone, closed = ([], []) if args.partial else age_out_roles(rows, seen, checked, today, args.exact)
+    reported_names = {simple_name(e["name"]) for e in entries}
+
+    def in_run(row):
+        return not args.exact or simple_name(row["company"]) in reported_names
     merge_companies(companies, batches, run_date)
     fresh_news = merge_news(news, batches, run_date)
 
@@ -276,19 +301,19 @@ def main():
         "date": run_date,
         "baseline": baseline,
         "new_roles": [r for r in rows if r["id"] in new_ids],
-        "still_open": [r for r in rows if r["status"] == "open" and r["id"] not in new_ids],
-        "applied": [r for r in rows if r["status"] == "applied"],
+        "still_open": [r for r in rows if r["status"] == "open" and r["id"] not in new_ids and in_run(r)],
+        "applied": [r for r in rows if r["status"] == "applied" and in_run(r)],
         "no_longer_found": sorted(gone, key=role_sort),
         "closed": sorted(closed, key=role_sort),
         "deadlines_soon": sorted(
             (r for r in rows
-             if r["status"] in ("open", "applied", "not-found") and parse_date(r["closes"])
+             if r["status"] in ("open", "applied", "not-found") and parse_date(r["closes"]) and in_run(r)
              and 0 <= (parse_date(r["closes"]) - today).days <= DEADLINE_WINDOW_DAYS),
             key=lambda r: r["closes"]),
         "new_news": fresh_news,
         "companies_checked": sorted({text(e["name"]) for e in entries if is_checked(e)}),
         "companies_failed": sorted({text(e["name"]) for e in entries if not is_checked(e)}),
-        "companies_not_reported": [n for n in watchlist_companies(args.watchlist)
+        "companies_not_reported": [n for n in watchlist_companies(args.watchlist, only, exclude)
                                    if simple_name(n) not in reported],
         "problems": problems,
     }

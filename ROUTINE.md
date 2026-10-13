@@ -1,24 +1,31 @@
 # Weekly scan playbook
 
-The Monday routine follows this file step by step. It runs as a local routine in the Claude desktop app, in a clone of this repo on my computer, and commits its results to `main`. Work through everything in one go: your final message is the run's summary, so don't stop until the report is pushed.
+Two scheduled routines follow this file step by step. Both run as local routines in the Claude desktop app, in a clone of this repo on my computer, and commit their results to `main`.
+
+| Run | When | Watchlist sections | SECTION_FLAGS | Report file (REPORT) | Report title |
+|---|---|---|---|---|---|
+| **Core scan** | Monday | everything except 20 and 21 (fermentation, bioprocess and biotech employers by country, and the market sweeps) | `--exclude 20,21` | `reports/DATE.md` | Weekly job scan |
+| **Career-routes scan** | Thursday | only 20 and 21 (alternative career routes and adjacent industries) | `--only 20,21` | `reports/DATE-careers.md` | Career routes scan |
+
+The scheduled task's prompt says which run it is. If it doesn't, use the core scan on Monday to Wednesday and the career-routes scan on Thursday to Sunday. Below, RUN, SECTION_FLAGS and REPORT mean the values in this table. Work through everything in one go: your final message is the run's summary, so don't stop until the report is pushed.
 
 Use `python3` in the commands below, or `python` if that's what this computer has.
 
 ## 0. Set up
 
 1. `git checkout main && git pull origin main`. If the pull fails because of local edits, carry on with the files as they are and mention it in the final message.
-2. The run date is today's local date as `YYYY-MM-DD` (`date +%F`). Below it is called DATE. If `reports/DATE.md` already exists, the scan has already run today: stop and say so.
+2. The run date is today's local date as `YYYY-MM-DD` (`date +%F`). Below it is called DATE. If REPORT already exists, this run has already happened today: stop and say so.
 3. `mkdir -p work` (git-ignored scratch space for this run). If an earlier run left `work/findings-*.json` or `work/summary.json` behind, move them into `work/prev-<their date>/` first, so they aren't mixed into this run. Move any `work/seek-*.txt` there too.
-4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, and the newest file in `reports/` if there is one. That report's date is LAST (use "none" if there is no report yet).
+4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, and the newest earlier report of the same run type in `reports/` (core: `reports/YYYY-MM-DD.md` or `YYYY-MM-DD-anz.md`; career routes: any `reports/YYYY-MM-DD-careers*.md` or `-desk-careers.md`). That report's date is LAST (use "none" if there is none).
 5. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
 
 ## 1. Research with parallel subagents
 
 **SEEK first.** Run `python3 scripts/seek_search.py --site AU > work/seek-AU.txt` and `python3 scripts/seek_search.py --site NZ > work/seek-NZ.txt` (about a minute each; no WebSearch calls). SEEK is where Australian universities, state health and agriculture departments, research institutes and most smaller employers advertise scientist and technician roles. The script pulls every listing from the last 14 days in SEEK's Science & Technology, Research & Fellowships and Clinical/Medical Research categories, adds keyword searches across all categories, filters titles to the role families in `profile.md`, and tags each employer as `university`, `government` or `institute`. Each line reads `listed | type | employer | title | location | url`. If either file comes out empty or with only its header line, re-run it once and mention it in the report's Coverage section.
 
-Run `python3 scripts/plan_batches.py`. It splits the watchlist's tables into batches of at most 20 rows and prints one line per batch, naming the `watchlist.md` sections that batch covers. A large section can be split into row ranges such as `14a. ... (rows 1–12)`: those count only that section's table rows, header excluded. Rows of "19. Market sweeps" appear as `(row N)` and get batches of their own, at most two sweeps each, because each sweep covers a whole job market.
+Run `python3 scripts/plan_batches.py SECTION_FLAGS`. It splits the watchlist's tables into batches of at most 20 rows and prints one line per batch, naming the `watchlist.md` sections that batch covers. A large section can be split into row ranges such as `14a. ... (rows 1–12)`: those count only that section's table rows, header excluded. Rows of "19. Market sweeps" appear as `(row N)` and get batches of their own, at most two sweeps each, because each sweep covers a whole job market.
 
-**Search budget.** WebSearch is capped at about 200 calls per run, shared by all subagents. WebFetch and `curl` (careers pages, ATS job APIs, the LinkedIn guest feed) don't count. Give each company batch a budget of 3 searches and each sweep batch 7. With 47 batches (41 company, 6 sweep) that comes to about 165; batches should rely on careers pages, ATS APIs, the SEEK files and the LinkedIn guest feed, which cost nothing. Many batches hit the LinkedIn guest feed at once, so pause and retry on HTTP 429 rather than giving up. If the batch count changes a lot, rescale so the total stays under 180.
+**Search budget.** WebSearch is capped at about 200 calls per run, shared by all subagents. WebFetch and `curl` (careers pages, ATS job APIs, the LinkedIn guest feed) don't count. Core scan: give each company batch 6 searches and each sweep batch 11; with 25 batches (19 company, 6 sweep) that comes to about 180. Career-routes scan: give each batch 7; with 23 batches that comes to about 161. Batches should lean on careers pages, ATS APIs, the SEEK files and the LinkedIn guest feed, which cost nothing. Many batches hit the LinkedIn guest feed at once, so pause and retry on HTTP 429 rather than giving up. If the batch count changes a lot, rescale so the total stays under 180.
 
 Launch one general-purpose subagent per batch, all **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
 
@@ -88,19 +95,21 @@ Write `work/findings-N.json`:
 ## 2. Update the tracker
 
 ```
-python3 scripts/update_tracker.py --date DATE work/findings-*.json > work/summary.json
+python3 scripts/update_tracker.py --date DATE --exact SECTION_FLAGS work/findings-*.json > work/summary.json
 ```
+
+`--exact` ages out only roles whose company name exactly matches one checked this run, and limits the still-open, applied and deadline lists to those companies. That keeps the two runs from marking each other's roles as gone when employers share a name (e.g. Thermo Fisher's site rows and its field-application row), so batches must use the exact watchlist names.
 
 This updates `tracker/roles.csv`, `tracker/companies.csv` and `tracker/news.csv`. It writes a JSON summary with these keys: `baseline`, `new_roles`, `still_open`, `applied`, `no_longer_found`, `closed`, `deadlines_soon`, `new_news`, `companies_checked`, `companies_failed`, `companies_not_reported` and `problems`.
 
 If it exits with an error, fix the findings JSON (not the script) and run it again. Never hand-edit the CSVs.
 
-## 3. Write `reports/DATE.md`
+## 3. Write REPORT
 
 Write the report from `work/summary.json` and the subagents' notes. Keep it skimmable on a phone: short lines, and a link on every role and news item.
 
 ```markdown
-# Weekly job scan — Monday 28 September 2026
+# Weekly job scan — Monday 28 September 2026      <- career-routes scan: "# Career routes scan — Thursday 1 October 2026"
 
 (Baseline run: everything currently open is listed as new.)   <- baseline run only
 
@@ -131,11 +140,13 @@ Optional, at most five: employers found by the market sweeps that deserve their 
 Companies checked, failed or not reported; which market sweeps ran and how many off-watchlist employers they found; problems such as careers pages that wouldn't load, searches that failed, or batches that ran out of search budget.
 ```
 
+For the **career-routes scan**, keep the same structure but add an **Intake calendar** section after "Closing in the next 6 weeks": graduate and trainee intakes that aren't open yet, with when they usually open (from the batches' company notes), so nothing is missed between runs.
+
 ## 4. Commit and push to `main`
 
 ```
 git add reports/ tracker/
-git commit -m "Weekly job scan DATE"
+git commit -m "Weekly job scan DATE"      # career-routes scan: "Career routes scan DATE"
 git push origin main
 ```
 
@@ -149,7 +160,7 @@ git push origin main
 Your last message is the run's summary, the first thing I read when I open the run from its notification. Keep it under about 25 lines:
 
 ```
-Weekly job scan — Mon 28 Sep 2026
+Weekly job scan — Mon 28 Sep 2026      (career-routes scan: Career routes scan — Thu 1 Oct 2026)
 N new roles (X strong, Y possible, Z signal) · K deadlines in the next 6 weeks · J news items
 
 Top picks
@@ -161,7 +172,7 @@ Closing soon
 News
 - Company: headline — link                               (up to 5)
 
-Full report: https://github.com/mishlin123/job-companyhunt/blob/main/reports/DATE.md
+Full report: https://github.com/mishlin123/job-companyhunt/blob/main/REPORT
 ```
 
 If nothing new turned up, say so in one line, and still list deadlines and news.

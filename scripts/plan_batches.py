@@ -11,6 +11,10 @@ than that is split into row ranges. Rows in a section whose title contains
 "sweep" each cover a whole job market, so each is its own piece and counts as
 SWEEP_WEIGHT rows; sweeps are packed into batches of their own. Prints one line per batch, so new sections and rows are
 picked up without editing ROUTINE.md.
+
+--only / --exclude take comma-separated section numbers (e.g. "20,21") and keep or
+drop every section whose number starts with one of them ("20" covers 20a, 20b, ...).
+The Monday core scan uses --exclude 20,21 and the Thursday career-routes scan --only 20,21.
 """
 
 import argparse
@@ -42,6 +46,22 @@ def sections(path):
         else:
             in_table = False
     return [tuple(s) for s in found if s[2]]
+
+
+def parse_numbers(text):
+    return {n.strip() for n in text.split(",") if n.strip()}
+
+
+def section_number(label):
+    """'20e. Patent examiners' -> 20; '1. New Zealand' -> 1."""
+    return re.match(r"\d+", label).group(0)
+
+
+def in_scope(label, only, exclude):
+    number = section_number(label)
+    if only and number not in only:
+        return False
+    return number not in exclude
 
 
 def pieces(secs, max_rows):
@@ -80,13 +100,17 @@ def main():
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--max-rows", type=int, default=20, help="table rows per batch")
     parser.add_argument("--watchlist", type=Path, default=Path("watchlist.md"))
+    parser.add_argument("--only", default="", help="comma-separated section numbers to keep, e.g. 20,21")
+    parser.add_argument("--exclude", default="", help="comma-separated section numbers to drop, e.g. 20,21")
     args = parser.parse_args()
     if args.max_rows < 1:
         sys.exit("--max-rows must be at least 1")
     if not args.watchlist.exists():
         sys.exit(f"{args.watchlist} not found")
 
-    items = list(pieces(sections(args.watchlist), args.max_rows))
+    secs = [s for s in sections(args.watchlist)
+            if in_scope(s[1], parse_numbers(args.only), parse_numbers(args.exclude))]
+    items = list(pieces(secs, args.max_rows))
     sweeps = [i for i in items if "sweep" in i[1].lower()]
     # Sweeps get batches of their own, after the company batches.
     batches = (pack([i for i in items if i not in sweeps], args.max_rows)
