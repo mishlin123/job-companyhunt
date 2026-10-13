@@ -34,6 +34,13 @@ The weekly routine uses this to decide which roles are worth flagging and how we
   - Life-sciences strategy consulting and market or competitive-intelligence analyst intakes.
   - Technology transfer / commercialisation associates, fellowships and internships, and scientific publishing (assistant editor, editorial assistant).
   - Food-safety, certification and audit graduate routes (e.g. Campden BRI, food-company technical graduate schemes, trainee auditors).
+  - Clinical research operations (Clinical Trial Assistant, entry-level CRA, study start-up, clinical data) at CROs and pharma.
+  - Pharmacovigilance, drug and device safety, and medical information.
+  - Desk-based GMP quality assurance, document control and computer-system validation, including quality graduate programmes.
+  - Lab informatics and scientific data (LIMS/ELN consulting, scientific software graduate programmes, junior bioinformatics, biocuration).
+  - Health economics, evidence synthesis and market access (systematic reviewer, HEOR analyst, HTA analyst).
+  - Research management, research funding and science policy (research development officers, funder portfolio roles, graduate policy analysts).
+  - Sustainability, life-cycle assessment and carbon accounting for food, agriculture and the bioeconomy.
   - Funded or salaried PhD positions (Marie Skłodowska-Curie doctoral networks, UK studentships, ANZ industry PhDs) in interests 1–4 or microalgae/phycobiliproteins, starting in 2027.
   - Adjacent industries: HMOs and early-life nutrition, mycoprotein, cosmetic biotech ingredients, animal health and vet vaccines, agricultural biologicals, and circular-bioeconomy scale-up centres.
 
