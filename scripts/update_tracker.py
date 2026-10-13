@@ -3,6 +3,7 @@
 
 Usage:
     python3 scripts/update_tracker.py --date YYYY-MM-DD work/findings-*.json > work/summary.json
+    (add --partial for a supplementary run that covers only part of the watchlist)
 
 Each findings file is written by one research subagent (schema in ROUTINE.md).
 The script updates tracker/roles.csv, tracker/companies.csv and tracker/news.csv
@@ -238,6 +239,10 @@ def main():
     parser.add_argument("--tracker", type=Path, default=Path("tracker"), help="tracker directory")
     parser.add_argument("--watchlist", type=Path, default=Path("watchlist.md"))
     parser.add_argument("--dry-run", action="store_true", help="print the summary without writing")
+    parser.add_argument("--partial", action="store_true",
+                        help="supplementary run over part of the watchlist: add and refresh roles, "
+                             "but don't mark unseen roles not-found or closed (company names shared "
+                             "with unscanned rows would otherwise age them out wrongly)")
     args = parser.parse_args()
 
     today = parse_date(args.date)
@@ -258,7 +263,7 @@ def main():
     entries = [e for b in batches for e in b.get("companies", []) if text(e.get("name"))]
     checked = {base_company(e["name"]) for e in entries if is_checked(e)}
     new, seen = merge_roles(rows, batches, run_date, problems)
-    gone, closed = age_out_roles(rows, seen, checked, today)
+    gone, closed = ([], []) if args.partial else age_out_roles(rows, seen, checked, today)
     merge_companies(companies, batches, run_date)
     fresh_news = merge_news(news, batches, run_date)
 

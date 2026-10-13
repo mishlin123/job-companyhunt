@@ -99,6 +99,7 @@ Each run splits the tables into research batches automatically (`scripts/plan_ba
 | UNSW Recombinant Products Facility / RNA Institute | Sydney, NSW | Technical Officer (bioreactors, fed-batch, chromatography), Scientist (plasmid / mRNA production) | High. Protein, plasmid and mRNA production facilities; a Technical Officer post is fixed-term to Jul 2027, so watch for its replacement ([RPF](https://www.unsw.edu.au/research/facilities-and-infrastructure/find-a-facility/rpf)) |
 | Monash Synthetic Biology Platform | Clayton, VIC | Technical / Research Officer (protein expression, high-throughput molecular biology) | High. New platform hiring now; junior technical roles likely to follow ([posting](https://au.linkedin.com/jobs/view/senior-lecturer-practice-monash-synthetic-biology-platform-at-monash-university-4474734211)) |
 | AWRI (Australian Wine Research Institute) | Urrbrae, Adelaide, SA | Biosciences Technical Officer (wine microbiology, yeast, molecular biology) | High. Yeast and wine-microbe research institute hiring technical officers at BSc/MSc level; roles go on SEEK ([careers](https://www.awri.com.au/about_the_awri/people/careers/)) |
+| Adelaide University | Adelaide, SA (Biomanufacturing Research Group, Dr Lukas Gerstweiler) | Funded PhD (precision fermentation, continuous Pichia, DSP), Research Assistant | High. Advertises funded precision-fermentation PhDs open year-round |
 | Loam Bio | Orange, NSW | Bioproduction Officer, Liquid Bioproduction Specialist (fermentation), Research Associate, microbial library roles | High. Fungal seed inoculant with in-house microbial production and fermentation; about 80 staff ([careers](https://www.loambio.com/careers)) |
 | Bioproperties | Glenorie, NSW / Ringwood, VIC | Fermentation Laboratory Technician, Biological Processing Technician, QA/QC Associate | High. Live attenuated bacterial poultry vaccines made by in-house fermentation; hiring entry-level technicians. Staff may not keep birds or pigs at home ([careers](https://bioproperties.com.au/!Pages/Contact/Careers.html)) |
 | Number 8 Bio | Sydney, NSW | Research Associate, fermentation / strain scientist | High. Livestock-methane feed additive made by engineered-yeast fermentation; Series A Dec 2025; Australian launch planned 2027 ([news](https://www.agnavigator.com/Article/2025/12/05/number-8-bio-secures-11m-series-a-funding-for-methane-emissions-targeting-additive/)) |
@@ -501,7 +502,8 @@ Routes outside bench R&D that take MSc microbiology/biotech graduates and need n
 | Davies Collison Cave | Melbourne, Sydney, Brisbane | Trainee Patent Attorney / Patent Scientist – Life Sciences | High. Large Australian firm with a big life-sciences group |
 | FPA Patent Attorneys | Melbourne, Sydney, Brisbane, Adelaide | Trainee Patent Attorney – Life Sciences | Medium |
 | Griffith Hack | Melbourne, Sydney, Brisbane, Perth | Trainee Patent Attorney / Patent Scientist | Medium |
-| Phillips Ormonde Fitzpatrick | Melbourne, Sydney, Adelaide | Trainee Patent Attorney – Biotech | Medium |
+| Phillips Ormonde Fitzpatrick | Melbourne, Sydney, Adelaide | Trainee Patent Attorney – Biotech | Medium. PhD 'very helpful' for biotech |
+| FB Rice | Melbourne, Sydney | Trainee Patent Attorney – Life Sciences / Chemistry | Medium. Advertised a medicinal-chemistry trainee on SEEK in October 2026 |
 
 ### 20b. Government science schemes, regulators and biosecurity labs
 
@@ -527,7 +529,8 @@ Routes outside bench R&D that take MSc microbiology/biotech graduates and need n
 | Jacobs | Dublin, Cork | Graduate Validation / C&Q Engineer (life sciences) | Medium |
 | CAI (Commissioning Agents) | Cork, Dublin | Commissioning & Qualification Associate (graduate) | High. Specialist C&Q firm that hires and trains science graduates |
 | Hyde Engineering + Consulting | Cork / Ireland | Cleaning Validation / C&Q Engineer (graduate) | Medium |
-| PQE Group | Ireland (Cork) | Graduate Validation / CSV / Quality Engineer | Medium |
+| PQE Group | Ireland (Cork) | Graduate Validation / CSV / Quality Engineer | Low. No Irish roles found (Oct 2026) |
+| Ellab | Cork | Junior Validation Engineer | Medium. Validation services firm; junior role seen October 2026 |
 
 ### 20d. Bioprocess equipment and life-science tools (field application, technical and bioprocess specialist roles)
 
@@ -541,7 +544,7 @@ Routes outside bench R&D that take MSc microbiology/biotech graduates and need n
 | Repligen | UK; Ireland; Germany | Field Application Scientist – Bioprocessing | Medium |
 | INFORS HT | Bottmingen (CH); UK | Application Specialist – Bioreactors | Medium |
 | Bioengineering AG | Wald (CH) | Application Engineer – Fermentation | Low–Medium |
-| Bio-Strategy | Auckland, Wellington, Christchurch; Australia | Product / Application Specialist (life science, bioprocess) | High. ANZ distributor; no work-rights issue |
+| DKSH Scientific Solutions (formerly Bio-Strategy) | Auckland, Wellington, Christchurch; Australia | Product / Application Specialist (life science, bioprocess) | Medium. ANZ distributor (Bio-Strategy was bought by DKSH; bio-strategy.com redirects there); no work-rights issue |
 | In Vitro Technologies | Auckland; Melbourne, Sydney, Brisbane | Product / Application Specialist (life science) | Medium. ANZ distributor |
 | John Morris Group | Sydney, Melbourne; Auckland | Application Scientist / Product Specialist | Medium. ANZ distributor of lab and bioprocess equipment |
 | Thermo Fisher Scientific – BioProduction field roles | UK, Ireland, Australia | Field Application Scientist – BioProduction / Bioprocess | Medium. Field roles only; Thermo's site rows cover the rest |
@@ -567,7 +570,7 @@ Industries that use fermentation, microbiology or phycocyanin skills but weren't
 |---|---|---|---|
 | Quorn Foods | Billingham / Stokesley (UK) | Fermentation Technologist, Process Scientist, Graduate Technologist | High. Large-scale continuous fungal fermentation; UK, no sponsorship |
 | ENOUGH | Sas van Gent (NL); Scotland | Fermentation Scientist / Technologist | Low–Medium. Mycoprotein; reported financial trouble, so check status |
-| Mycorena (Naplasol) | Gothenburg area (SE) | Fermentation Scientist | Low. Check status after the acquisition |
+| Mycorena (Naplasol) | Bree (BE) | Fermentation Scientist, lab / QC technician | Low. Mycorena is now Naplasol's Promyc mycoprotein brand, made in Bree; adverts in Dutch |
 
 ### 21c. Cosmetic and personal-care biotech ingredients
 
@@ -578,7 +581,7 @@ Industries that use fermentation, microbiology or phycocyanin skills but weren't
 | Clariant – Lucas Meyer Cosmetics | France; Spain; Germany | Biotech R&D Scientist (cosmetic actives) | Medium |
 | Evonik – biosurfactants | Germany (Hanau, Essen); Slovakia (Slovenská Ľupča plant) | Fermentation / Process Development Scientist (rhamnolipids) | Medium |
 | Seppic | France (Castres, Paris area) | Biotech / Fermentation Scientist (cosmetic actives) | Medium. Check sponsorship |
-| AlgoSource | Saint-Nazaire (FR) | Microalgae / spirulina extraction and phycocyanin scientist or technician | High. Spirulina and phycocyanin producer: direct thesis match. Check sponsorship |
+| AlgoSource | Guérande (FR) | Microalgae / spirulina extraction and phycocyanin scientist or technician | High. Spirulina and phycocyanin producer (about 25 staff, no careers page): direct thesis match, speculative approach only. Check sponsorship |
 
 ### 21d. Animal health and veterinary vaccines
 
@@ -589,7 +592,8 @@ Industries that use fermentation, microbiology or phycocyanin skills but weren't
 | Elanco | Kemps Creek, NSW (AU); UK; Ireland | QC Microbiologist, Production Scientist | Medium |
 | Ceva Animal Health | Glenorie, NSW (AU); Libourne (FR) | QC Analyst / Microbiologist, Vaccine Production Technician | Medium. Hiring at Glenorie in October 2026 (SEEK) |
 | Hipra | Amer, Girona (ES) | Vaccine Bioprocess / Microbiology Technician | Low–Medium. Check sponsorship |
-| Vaxxinova | Bendigo, VIC (AU); Germany | Laboratory / Production Scientist (autogenous vaccines) | Medium. Check current site status |
+| Vaxxinova | Cuxhaven / Münster (DE) | Laboratory / Production Scientist (autogenous vaccines) | Low–Medium. No Australian site found (Oct 2026); German likely needed |
+| Apiam Animal Health – ACE Laboratory Services | Bendigo, VIC | Vaccine Production Technical Officer, lab technician (autogenous vaccines) | Medium. The Bendigo autogenous-vaccine lab; ads are rare |
 
 ### 21e. Agricultural biologicals
 
@@ -608,7 +612,7 @@ Industries that use fermentation, microbiology or phycocyanin skills but weren't
 | Centre for Process Innovation (CPI) | Wilton / Darlington (UK) | Scientist / Technologist – industrial biotechnology, fermentation scale-up; graduate roles | High. UK national scale-up centre with pilot fermenters; no sponsorship needed |
 | Biorenewables Development Centre | York (UK) | Research Technician / Scientist – fermentation, biorefining, waste valorisation | High. Waste-to-value fermentation: matches the kiwifruit-waste thesis |
 | Industrial Biotechnology Innovation Centre (IBioIC) | Glasgow (UK) | Scientist / Technician (scale-up centre), funded industry PhDs and MSc placements | Medium |
-| Bio Process Pilot Facility | Delft (NL) | Operator / Scientist – fermentation and DSP scale-up | Medium. Check IND register |
+| Bio Process Pilot Facility | Delft (NL) | Operator / Scientist – fermentation and DSP scale-up | Low–Medium. Old domain bpf.eu is no longer theirs; check Biotech Campus Delft channels. Check IND register |
 | Lisheen National Bioeconomy Campus / BiOrbic | Tipperary / Dublin (IE) | Research Assistant / Technician – biorefining, fermentation | Medium. No permit needed |
 | Ecogas | Reporoa (NZ) | Process / lab technician (food-waste anaerobic digestion) | Low–Medium. Waste-to-energy; adjacent |
 
