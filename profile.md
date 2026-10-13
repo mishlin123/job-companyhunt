@@ -27,6 +27,13 @@ The weekly routine uses this to decide which roles are worth flagging and how we
   - Graduate commissioning, qualification and validation (C&Q) roles at engineering consultancies for biopharma plants (mainly Ireland).
   - Field application scientist, application or product specialist, and bioprocess technical specialist roles at equipment and life-science tools companies and their ANZ distributors.
   - Regulatory affairs and scientific advisor roles for novel foods, precision fermentation and gene technology.
+  - Patent examiner (IPONZ, UK IPO, EPO) and IP search / IP analyst roles.
+  - R&D tax credit and innovation-funding consultant roles (technical writer of R&D claims and grant applications), including Big Four and mid-tier R&D tax graduate schemes.
+  - Regulatory affairs graduate schemes and associate roles, in industry, consultancies and medicines or chemicals regulators (e.g. HPRA, MHRA, HSE).
+  - Medical and scientific writing: medcomms associate medical writer programmes and CRO regulatory writing.
+  - Life-sciences strategy consulting and market or competitive-intelligence analyst intakes.
+  - Technology transfer / commercialisation associates, fellowships and internships, and scientific publishing (assistant editor, editorial assistant).
+  - Food-safety, certification and audit graduate routes (e.g. Campden BRI, food-company technical graduate schemes, trainee auditors).
   - Funded or salaried PhD positions (Marie Skłodowska-Curie doctoral networks, UK studentships, ANZ industry PhDs) in interests 1–4 or microalgae/phycobiliproteins, starting in 2027.
   - Adjacent industries: HMOs and early-life nutrition, mycoprotein, cosmetic biotech ingredients, animal health and vet vaccines, agricultural biologicals, and circular-bioeconomy scale-up centres.
 
@@ -55,4 +62,4 @@ The weekly routine uses this to decide which roles are worth flagging and how we
 - **strong**: entry-level or MSc-level role in interests 1–4, or a relevant graduate programme (including the trainee or graduate intakes of the other career routes above, e.g. a life-sciences trainee patent attorney intake or a C&Q graduate programme starting July–October 2027); start timing can work for July 2027; no obvious work-rights blocker.
 - **possible**: relevant, but with a real caveat. For example: asks for 2–4 years' experience, an adjacent field (cell therapy, analytical chemistry, QC), tight timing, or unclear sponsorship.
 - **signal**: not applicable as it stands (senior, PhD required, 5+ years, must start now), but shows the company is hiring in a relevant team. Useful for a speculative application.
-- **Leave out**: summer internships and other roles that need work before July 2027 (but note a recurring internship or graduate intake as a lead for the next cycle); roles outside science and process (sales, finance, HR, IT, marketing, legal, admin, senior leadership; but keep the other career routes above: patent attorney trainees, regulatory and scientific advisor roles, field application and technical specialist roles, and government science schemes), and unrelated sites or functions at the big multinationals.
+- **Leave out**: summer internships and other roles that need work before July 2027 (but note a recurring internship or graduate intake as a lead for the next cycle); roles outside science and process (sales, finance, HR, IT, marketing, legal, admin, senior leadership; but keep the other career routes above: patent attorney trainees, regulatory and scientific advisor roles, field application and technical specialist roles, government science schemes, and the other routes listed above), and unrelated sites or functions at the big multinationals.
