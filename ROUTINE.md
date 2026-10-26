@@ -17,7 +17,8 @@ Use `python3` in the commands below, or `python` if that's what this computer ha
 2. The run date is today's local date as `YYYY-MM-DD` (`date +%F`). Below it is called DATE. If REPORT already exists, this run has already happened today: stop and say so.
 3. `mkdir -p work` (git-ignored scratch space for this run). If an earlier run left `work/findings-*.json` or `work/summary.json` behind, move them into `work/prev-<their date>/` first, so they aren't mixed into this run. Move any `work/seek-*.txt` there too.
 4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, `tracker/decisions.csv`, and the newest earlier report of the same run type in `reports/` (core: `reports/YYYY-MM-DD.md` or `YYYY-MM-DD-anz.md`; career routes: any `reports/YYYY-MM-DD-careers*.md` or `-desk-careers.md`). That report's date is LAST (use "none" if there is none).
-5. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
+5. **Pull in my clicks from the job board** (https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy) before anything reads the tracker: read its database with the `ArtifactData` tool, `action: "list"`, `collection: "decisions"`, `query: {limit: 1000}`, `out_dir: "work/board-clicks"`, then run `python3 scripts/board.py import work/board-clicks/decisions`. It appends only decisions that changed to `tracker/decisions.csv` and updates `tracker/roles.csv`. If the read fails, carry on and mention it in the report's Coverage section.
+6. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
 
 ## 1. Research with parallel subagents
 
@@ -106,6 +107,10 @@ This updates `tracker/roles.csv`, `tracker/companies.csv` and `tracker/news.csv`
 
 If it exits with an error, fix the findings JSON (not the script) and run it again. Never hand-edit the CSVs. My own decisions go in `tracker/decisions.csv` through `scripts/mark.py` (see the next section).
 
+### Refresh the job board
+
+Run `python3 scripts/board.py export` (writes `work/board/roles.json`), then republish the board with the `Artifact` tool: `file_path: "board/index.html"`, `url: "https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy"`, `files: {"roles.json": "work/board/roles.json"}`, and no `capabilities` or `icon` (both are kept). The board's saved clicks live in its database and survive the republish. If the publish fails, say so in Coverage.
+
 ## 3. Write REPORT
 
 Write the report from `work/summary.json` and the subagents' notes. Keep it skimmable on a phone: short lines, and a link on every role and news item.
@@ -114,6 +119,8 @@ Write the report from `work/summary.json` and the subagents' notes. Keep it skim
 # Weekly job scan — Monday 28 September 2026      <- career-routes scan: "# Career routes scan — Thursday 1 October 2026"
 
 (Baseline run: everything currently open is listed as new.)   <- baseline run only
+
+Mark roles on the [job board](https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy)
 
 **TL;DR**: two or three sentences. Counts of new roles by fit, the most urgent deadline, and the single most important thing to do this week.
 
@@ -149,7 +156,7 @@ For the **career-routes scan**, keep the same structure but add an **Intake cale
 
 ## Recording my decisions
 
-When I say I've applied for something, or that I'm not eligible or not interested, record it with `scripts/mark.py` (in any session, not only scan runs):
+Usually I'll just tap Applied, Not eligible or Not interested on the job board (link in step 0.5); the next scan imports those clicks. When I say I've applied for something, or that I'm not eligible or not interested, record it with `scripts/mark.py` (in any session, not only scan runs):
 
 ```
 python3 scripts/mark.py find kerry food safety          # look up the role id

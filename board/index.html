@@ -1,0 +1,297 @@
+<title>Job Shortlist</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one sticky control bar (search + status filters), then a single column of role rows,
+   each with a fit stripe on the left and its decision buttons underneath. Accent is phycocyanin blue. */
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --ink: #16202e;
+  --muted: #5d6b7e;
+  --line: #dde3ec;
+  --accent: #1b5fd1;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4edfc;
+  --strong: #1b5fd1;
+  --possible: #2f9a8a;
+  --signal: #a6b0bf;
+  --applied: #1e8a4c;
+  --applied-soft: #e2f4ea;
+  --hidden: #8a93a1;
+  --warn: #b5560f;
+  --warn-soft: #fcefe3;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f141c; --surface: #171e29; --ink: #e6ebf3; --muted: #93a0b3; --line: #2a3443;
+    --accent: #6d9ef2; --accent-ink: #0b1220; --accent-soft: #1d2c46;
+    --strong: #6d9ef2; --possible: #4fc0ad; --signal: #5b6676;
+    --applied: #52c785; --applied-soft: #16301f; --hidden: #7d8796;
+    --warn: #f0a15e; --warn-soft: #3a2614;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f141c; --surface: #171e29; --ink: #e6ebf3; --muted: #93a0b3; --line: #2a3443;
+  --accent: #6d9ef2; --accent-ink: #0b1220; --accent-soft: #1d2c46;
+  --strong: #6d9ef2; --possible: #4fc0ad; --signal: #5b6676;
+  --applied: #52c785; --applied-soft: #16301f; --hidden: #7d8796;
+  --warn: #f0a15e; --warn-soft: #3a2614;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 20px 48px; }
+header.top h1 { font-family: var(--display); font-size: 28px; line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+header.top p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  padding-block: 14px 10px; display: grid; gap: 10px; border-bottom: 1px solid var(--line);
+}
+.search { width: 100%; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.search:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font: 500 13px/1 var(--body); padding: 8px 11px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); cursor: pointer; display: inline-flex; gap: 6px; align-items: center;
+}
+.chip .n { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.75; }
+.status-line { font-size: 13px; color: var(--muted); min-height: 1.4em; }
+.status-line.err { color: var(--warn); }
+.list { display: grid; gap: 10px; margin-top: 14px; }
+.empty { padding: 28px 4px; color: var(--muted); text-align: center; }
+.role {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--signal);
+  border-radius: 10px; padding: 12px 14px; display: grid; gap: 8px; min-width: 0;
+}
+.role[data-fit="strong"] { border-left-color: var(--strong); }
+.role[data-fit="possible"] { border-left-color: var(--possible); }
+.role.decided { opacity: 0.92; }
+.role .co { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.role h2 { font-family: var(--display); font-weight: 600; font-size: 17px; line-height: 1.25; margin: 2px 0 0; overflow-wrap: anywhere; }
+.role h2 a { color: inherit; text-decoration: none; }
+.role h2 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+.meta .fit { font-family: var(--mono); font-size: 12px; text-transform: lowercase; }
+.meta .soon { color: var(--warn); font-weight: 600; }
+.notes { font-size: 13px; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); width: fit-content; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.btn {
+  font: 500 13px/1 var(--body); padding: 9px 12px; border-radius: 8px; border: 1px solid var(--line);
+  background: transparent; color: var(--ink); cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.quiet { border-color: transparent; color: var(--muted); padding-inline: 6px; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.pill { font: 600 12px/1 var(--body); padding: 6px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.pill.applied, .pill.interviewing, .pill.offer { background: var(--applied-soft); color: var(--applied); }
+.pill.ineligible, .pill.ignore, .pill.rejected { background: var(--line); color: var(--muted); }
+.pill.notfound { background: var(--warn-soft); color: var(--warn); }
+.confirm { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.more-btn { justify-self: center; margin-top: 6px; }
+@media (prefers-reduced-motion: no-preference) { .role { transition: opacity .15s ease; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Job Shortlist</h1>
+    <p id="sub">Mark what you've applied for and what you can't or won't do. Next Monday's scan picks it up and stops reporting those roles.</p>
+  </header>
+
+  <div class="bar">
+    <input id="q" class="search" type="search" placeholder="Search company, role or place" autocomplete="off" aria-label="Search roles">
+    <div class="chips" id="chips" role="group" aria-label="Show"></div>
+    <div class="status-line" id="status" aria-live="polite">Loading roles…</div>
+  </div>
+
+  <div class="list" id="list"></div>
+  <button class="btn more-btn" id="more" hidden>Show more</button>
+</div>
+
+<script>
+(() => {
+  const LABEL = { applied: "Applied", interviewing: "Interviewing", offer: "Offer", rejected: "Rejected",
+                  ineligible: "Not eligible", ignore: "Not interested" };
+  const FILTERS = [
+    { id: "todo", label: "To decide", test: r => r.dec === "open" && r.fit !== "signal" },
+    { id: "signal", label: "Signal", test: r => r.dec === "open" && r.fit === "signal" },
+    { id: "applied", label: "Applied", test: r => ["applied", "interviewing", "offer", "rejected"].includes(r.dec) },
+    { id: "hidden", label: "Hidden", test: r => ["ineligible", "ignore"].includes(r.dec) },
+  ];
+  const PAGE = 60;
+  const state = { roles: [], decisions: new Map(), filter: "todo", q: "", shown: PAGE, db: null, canWrite: true, confirming: null };
+  const $ = id => document.getElementById(id);
+  try { const f = localStorage.getItem("board-filter"); if (FILTERS.some(x => x.id === f)) state.filter = f; } catch (e) {}
+
+  const companyKey = name => "company:" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 180);
+
+  function decisionFor(r) {
+    const own = state.decisions.get(r.id);
+    if (own) return own.status;
+    const co = state.decisions.get(companyKey(r.company));
+    if (co && co.status !== "open") return co.status;
+    if (["applied", "interviewing", "offer", "rejected", "ineligible", "ignore"].includes(r.status)) return r.status;
+    return "open";
+  }
+
+  function daysTo(d) {
+    if (!d) return null;
+    const t = Date.parse(d + "T23:59:59");
+    return isNaN(t) ? null : Math.ceil((t - Date.now()) / 86400000);
+  }
+  const fmtDate = d => { const t = new Date(d + "T12:00:00"); return isNaN(t) ? d : t.toLocaleDateString("en-NZ", { day: "numeric", month: "short" }); };
+
+  function el(tag, attrs = {}, ...kids) {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === "class") n.className = v; else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+      else if (v !== undefined && v !== null && v !== false) n.setAttribute(k, v === true ? "" : v);
+    }
+    for (const k of kids.flat()) if (k !== null && k !== undefined && k !== false) n.append(k);
+    return n;
+  }
+
+  function matches(r) {
+    if (!state.q) return true;
+    const hay = (r.company + " " + r.role + " " + (r.location || "")).toLowerCase();
+    return state.q.split(/\s+/).every(w => hay.includes(w));
+  }
+
+  function renderChips() {
+    const counts = Object.fromEntries(FILTERS.map(f => [f.id, 0]));
+    for (const r of state.roles) { r.dec = decisionFor(r); for (const f of FILTERS) if (f.test(r)) counts[f.id]++; }
+    $("chips").replaceChildren(...FILTERS.map(f => el("button", {
+      class: "chip", "aria-pressed": String(state.filter === f.id),
+      onclick: () => { state.filter = f.id; state.shown = PAGE; state.confirming = null; try { localStorage.setItem("board-filter", f.id); } catch (e) {} render(); }
+    }, f.label, el("span", { class: "n" }, String(counts[f.id])))));
+  }
+
+  async function save(key, body) {
+    if (!state.db) return;
+    const prev = state.decisions.get(key);
+    state.decisions.set(key, body);
+    render();
+    try {
+      await state.db.collection("decisions").doc(key).set(body);
+      setStatus("Saved. The next scan will pick this up.");
+    } catch (e) {
+      if (prev) state.decisions.set(key, prev); else state.decisions.delete(key);
+      if (e && e.code === "invalid_argument") state.canWrite = false;
+      setStatus(e && e.code === "invalid_argument" ? "You can view this list but not change it." : "Couldn't save that. Check your connection and try again.", true);
+      render();
+    }
+  }
+  const decide = (r, status) => save(r.id, { status, role_id: r.id, company: r.company, role: r.role, at: new Date().toISOString() });
+  const decideCompany = (r, status) => save(companyKey(r.company), { status, scope: "company", company: r.company, at: new Date().toISOString() });
+
+  function actionsFor(r) {
+    const off = !state.db || !state.canWrite;
+    if (state.confirming === r.id) {
+      return el("div", { class: "confirm" }, `Hide every role at ${r.company}, including future ones?`,
+        el("button", { class: "btn primary", disabled: off, onclick: () => { state.confirming = null; decideCompany(r, "ignore"); } }, "Hide company"),
+        el("button", { class: "btn quiet", onclick: () => { state.confirming = null; render(); } }, "Cancel"));
+    }
+    const co = state.decisions.get(companyKey(r.company));
+    if (r.dec === "open") {
+      return el("div", { class: "actions" },
+        el("button", { class: "btn primary", disabled: off, onclick: () => decide(r, "applied") }, "Applied"),
+        el("button", { class: "btn", disabled: off, onclick: () => decide(r, "ineligible") }, "Not eligible"),
+        el("button", { class: "btn", disabled: off, onclick: () => decide(r, "ignore") }, "Not interested"),
+        el("button", { class: "btn quiet", disabled: off, onclick: () => { state.confirming = r.id; render(); } }, "Hide company"));
+    }
+    const viaCompany = !state.decisions.get(r.id) && co && co.status !== "open";
+    const kids = [el("span", { class: "pill " + r.dec }, LABEL[r.dec] + (viaCompany ? " (whole company)" : ""))];
+    if (["applied", "interviewing"].includes(r.dec)) {
+      if (r.dec === "applied") kids.push(el("button", { class: "btn", disabled: off, onclick: () => decide(r, "interviewing") }, "Interviewing"));
+      kids.push(el("button", { class: "btn", disabled: off, onclick: () => decide(r, "offer") }, "Offer"));
+      kids.push(el("button", { class: "btn", disabled: off, onclick: () => decide(r, "rejected") }, "Rejected"));
+    }
+    kids.push(viaCompany
+      ? el("button", { class: "btn quiet", disabled: off, onclick: () => decideCompany(r, "open") }, "Show company again")
+      : el("button", { class: "btn quiet", disabled: off, onclick: () => decide(r, "open") }, "Undo"));
+    return el("div", { class: "actions" }, kids);
+  }
+
+  function row(r) {
+    const days = daysTo(r.closes);
+    const meta = [el("span", { class: "fit" }, r.fit)];
+    if (r.location) meta.push(el("span", {}, r.location));
+    if (r.closes && days !== null && days >= 0) meta.push(el("span", { class: days <= 7 ? "soon" : "" }, `closes ${fmtDate(r.closes)}` + (days <= 7 ? ` (${days === 0 ? "today" : days + "d"})` : "")));
+    else if (r.closes) meta.push(el("span", {}, `closed ${fmtDate(r.closes)}?`));
+    if (r.starts) meta.push(el("span", {}, `starts ${r.starts}`));
+    if (r.status === "not-found") meta.push(el("span", { class: "pill notfound" }, "not seen last scan"));
+    return el("article", { class: "role" + (r.dec !== "open" ? " decided" : ""), "data-fit": r.fit },
+      el("div", {}, el("div", { class: "co" }, r.company),
+        el("h2", {}, r.url ? el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.role) : r.role)),
+      el("div", { class: "meta" }, meta),
+      r.notes ? el("details", { class: "more" }, el("summary", {}, "Why it was flagged"), el("p", { class: "notes" }, r.notes)) : null,
+      actionsFor(r));
+  }
+
+  function render() {
+    renderChips();
+    const f = FILTERS.find(x => x.id === state.filter);
+    const items = state.roles.filter(r => f.test(r) && matches(r));
+    // Soonest deadline first, then no deadline, then deadlines that have already passed.
+    const urgency = r => { const d = daysTo(r.closes); return d === null ? 999 : d < 0 ? 2000 - d : d; };
+    if (state.filter === "todo") items.sort((a, b) => (a.fit === b.fit ? 0 : a.fit === "strong" ? -1 : 1) || urgency(a) - urgency(b));
+    const list = $("list");
+    if (!items.length) {
+      const msg = state.q ? "Nothing matches that search." : {
+        todo: "Nothing left to decide. New roles appear here after each scan.",
+        signal: "No signal-level roles open.", applied: "Nothing marked as applied yet. Tap Applied on a role once you've sent an application.",
+        hidden: "Nothing hidden yet. Roles you mark Not eligible or Not interested move here." }[state.filter];
+      list.replaceChildren(el("p", { class: "empty" }, msg));
+    } else list.replaceChildren(...items.slice(0, state.shown).map(row));
+    const more = $("more");
+    more.hidden = items.length <= state.shown;
+    more.textContent = `Show more (${items.length - state.shown} left)`;
+  }
+
+  function setStatus(text, err = false) { const s = $("status"); s.textContent = text; s.classList.toggle("err", err); }
+
+  $("q").addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); state.shown = PAGE; render(); });
+  $("more").addEventListener("click", () => { state.shown += PAGE; render(); });
+
+  async function boot() {
+    try {
+      const res = await fetch("roles.json");
+      const data = await res.json();
+      state.roles = data.roles;
+      setStatus(`${state.roles.length} roles from the scan of ${fmtDate(data.exported)}.`);
+    } catch (e) {
+      setStatus("Couldn't load the role list. Reload the page to try again.", true);
+    }
+    render();
+    const claude = window.claude;
+    const db = claude && claude.use ? await claude.use("db") : null;
+    if (!db) {
+      setStatus("Your choices can't be saved in this view. Open the page on claude.ai while signed in.", true);
+      render();
+      return;
+    }
+    state.db = db;
+    db.collection("decisions").onSnapshot(snap => {
+      state.decisions = new Map(snap.docs.map(d => [d.id, d.data()]));
+      render();
+    }, () => setStatus("Lost the connection to your saved choices. Reload the page.", true));
+    render();
+  }
+  boot();
+})();
+</script>

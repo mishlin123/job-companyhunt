@@ -220,23 +220,31 @@ def apply_decisions(rows, decisions, problems):
     """Set each decided role's status; a company-only decision covers all that company's roles.
 
     Later rows in decisions.csv win, so a role can move applied -> interviewing -> rejected.
+    "open" undoes an earlier decision; the next scan then refreshes the role as usual.
     """
     by_id = {r["id"]: r for r in rows}
+
+    def set_status(row, status):
+        if status != "open":
+            row["status"] = status
+        elif row["status"] in USER_STATUSES:
+            row["status"] = "open"
+
     for d in decisions:
         status = d["status"].lower()
-        if status not in USER_STATUSES:
-            problems.append(f"decisions.csv: status {d['status']!r} is not one of {USER_STATUSES}")
+        if status not in USER_STATUSES + ("open",):
+            problems.append(f"decisions.csv: status {d['status']!r} is not one of {USER_STATUSES + ('open',)}")
             continue
         if d["role_id"]:
             row = by_id.get(d["role_id"])
             if row is None:
                 problems.append(f"decisions.csv: role id {d['role_id']!r} is not in the tracker")
             else:
-                row["status"] = status
+                set_status(row, status)
         elif d["company"]:
             for row in rows:
                 if simple_name(row["company"]) == simple_name(d["company"]):
-                    row["status"] = status
+                    set_status(row, status)
 
 
 def merge_companies(companies, batches, run_date):
