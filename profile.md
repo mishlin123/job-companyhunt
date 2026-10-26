@@ -70,6 +70,14 @@ Categories of role I can't or won't do. Leave these out entirely (don't list the
 
 - **Starts before July 2027.** Anything whose posting says it starts now, ASAP, immediately, or on a date before July 2027 (including fixed-term contracts and PhDs with an early start). An ordinary vacancy that gives no start date counts as starting now. Keep only graduate programmes, PhDs and other intakes, open applications and talent pools, and postings that offer a flexible start I could set to July 2027 or later.
 - **No work rights and no sponsorship.** Outside NZ, Australia, the UK and Ireland: any role whose posting clearly says it won't sponsor a visa, needs existing work authorisation, or is for citizens/permanent residents/local residents only. Also any Australian role limited to Australian citizens or PR. "Sponsorship unknown" is not a reason to leave a role out.
+- **Career routes I've ruled out** (chosen 27 Oct 2026):
+  - Environmental, climate, carbon and sustainability consulting (environmental assessment, building sustainability, emissions reporting).
+  - Clinical research associate (CRA) and medical-information roles.
+  - QA, QC, validation, compliance and manufacturing-operations graduate roles in pharma and medtech.
+  - Food product-development (NPD) and food-plant FSQ or operations graduate programmes. Food and dairy R&D programmes are still in.
+  - Graduate roles that ask for a chemistry, polymer or materials-science degree.
+  - Roles that need French or another language besides English.
+  - Singapore roles: I'm not pursuing a Singapore work pass.
 
 ## How to judge fit
 
