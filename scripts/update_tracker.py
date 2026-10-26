@@ -16,7 +16,7 @@ Role statuses in tracker/roles.csv:
     closed     closing date passed, or not seen for 3+ weeks
     applied, interviewing, offer, rejected
                set from tracker/decisions.csv: kept up to date, never flagged as new again
-    ineligible, ignore
+    ineligible, off-path, ignore
                set from tracker/decisions.csv: never reported again
 
 tracker/decisions.csv is where my own calls live (written by scripts/mark.py, or by hand).
@@ -41,10 +41,10 @@ DECISION_FIELDS = ["date", "status", "role_id", "company", "note"]
 
 FITS = ("strong", "possible", "signal")
 APPLIED_STATUSES = ("applied", "interviewing", "offer", "rejected")
-HIDDEN_STATUSES = ("ineligible", "ignore")
+HIDDEN_STATUSES = ("ineligible", "off-path", "ignore")
 USER_STATUSES = APPLIED_STATUSES + HIDDEN_STATUSES
 STATUS_ORDER = {"open": 0, "offer": 1, "interviewing": 1, "applied": 1, "not-found": 2,
-                "closed": 3, "rejected": 4, "ineligible": 5, "ignore": 5}
+                "closed": 3, "rejected": 4, "ineligible": 5, "off-path": 5, "ignore": 5}
 FIT_ORDER = {fit: i for i, fit in enumerate(FITS)}
 CLOSE_AFTER_DAYS = 21
 DEADLINE_WINDOW_DAYS = 42

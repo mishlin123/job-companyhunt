@@ -48,7 +48,8 @@ For **each** row in your part of the watchlist:
 6. **Sponsorship.** For roles outside NZ, Australia, the UK and Ireland, say in `notes` whether the employer sponsors visas: what the posting says, or the evidence recorded in the watchlist row (e.g. "IND recognised sponsor", "recent H-1B filings for RAs"). If neither says, write "sponsorship unknown". Follow the work-rights rules in `profile.md`.
 7. **Fit.** Rate each relevant role `strong`, `possible` or `signal` using "How to judge fit" in `profile.md`. Leave out anything below `signal`.
 8. **Tracker.** If a role is already in `tracker/roles.csv`, put that row's `id` in your entry, even if the title or link has changed slightly. Don't list a tracked role you can't find again; the script marks it.
-   - **My decisions** (`tracker/decisions.csv`, also shown as the role's `status`). Roles marked `ineligible` or `ignore` are settled: don't re-check, re-rate or list them. A decision with a company but no `role_id` rules out that whole company: list it in `companies` with `checked: true` and the note "ruled out in decisions.csv", and skip it. Roles marked `applied` or `interviewing`: do re-check them and list them (with their `id`) if still open, noting any change such as a new closing date or the posting disappearing.
+   - **My decisions** (`tracker/decisions.csv`, also shown as the role's `status`). Roles marked `ineligible`, `off-path` or `ignore` are settled: don't re-check, re-rate or list them. A decision with a company but no `role_id` rules out that whole company: list it in `companies` with `checked: true` and the note "ruled out in decisions.csv", and skip it. Roles marked `applied` or `interviewing`: do re-check them and list them (with their `id`) if still open, noting any change such as a new closing date or the posting disappearing.
+   - **`off-path` roles teach fit.** They are roles I judged wrong for my skills or direction. Before rating, look at the `off-path` roles in `tracker/roles.csv` (any company): rate new roles that closely resemble them (same kind of work, same seniority) one level lower, and leave them out if they would only be `signal`.
    - **Ruled out in `profile.md`**: leave out any role that hits a rule in its "Ruled out" list.
 9. **Accuracy.**
    - Every role needs a URL. Prefer the company's own posting over aggregators.
@@ -162,10 +163,11 @@ Usually I'll just tap Applied, Not eligible or Not interested on the job board (
 python3 scripts/mark.py find kerry food safety          # look up the role id
 python3 scripts/mark.py applied <id> --note "submitted 27 Oct"
 python3 scripts/mark.py ineligible <id> --note "needs fluent German"
+python3 scripts/mark.py off-path <id> --note "too far from fermentation"
 python3 scripts/mark.py ignore --company "<company>" --note "not interested"
 ```
 
-Statuses: `applied`, `interviewing`, `offer`, `rejected` stay in the report under "Your applications"; `ineligible` and `ignore` are never reported again. A `--company` decision covers every role there, including future ones. If I describe a whole category I can't do ("anything needing Australian PR"), add it to the "Ruled out" list in `profile.md` instead, so the batches stop finding those roles at all. Commit `tracker/decisions.csv`, `tracker/roles.csv` and `profile.md` afterwards.
+Statuses: `applied`, `interviewing`, `offer`, `rejected` stay in the report under "Your applications"; `ineligible`, `off-path` (doesn't fit my skills or direction) and `ignore` are never reported again. A `--company` decision covers every role there, including future ones. If I describe a whole category I can't do ("anything needing Australian PR"), add it to the "Ruled out" list in `profile.md` instead, so the batches stop finding those roles at all. Commit `tracker/decisions.csv`, `tracker/roles.csv` and `profile.md` afterwards.
 
 ## 4. Commit and push to `main`
 

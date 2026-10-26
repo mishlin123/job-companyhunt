@@ -5,11 +5,12 @@ Usage:
     python3 scripts/mark.py find kerry food safety        # search the tracker for role ids
     python3 scripts/mark.py applied ID [ID ...] [--note "submitted 27 Oct"]
     python3 scripts/mark.py ineligible ID [ID ...] --note "needs fluent German"
+    python3 scripts/mark.py off-path ID --note "too analytical-chemistry"
     python3 scripts/mark.py ignore --company "Richter BioLogics" --note "not interested"
     python3 scripts/mark.py list                          # show every decision so far
 
 Statuses: applied, interviewing, offer, rejected (tracked and shown in the report),
-ineligible, ignore (never reported again). With --company and no ids, the decision covers
+ineligible, off-path (doesn't fit my skills or direction), ignore (never reported again). With --company and no ids, the decision covers
 every role at that company, including ones found in later scans.
 
 Each decision is appended to tracker/decisions.csv and applied to tracker/roles.csv at once;
