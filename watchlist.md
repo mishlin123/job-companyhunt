@@ -405,31 +405,6 @@ The major constraint here is US work authorisation/sponsorship. The US is split 
 | KBI Biopharma | Scientist I; Senior Research Associate; PD Scientist | Medium. Durham, NC. Biologics CDMO process development. Sponsorship: 2025 filings ([LCA](https://h1bdata.info/index.php?em=KBI+Biopharma&job=&city=&year=2025)) |
 | AGC Biologics (US) | MSAT Specialist; PD associate roles | Medium. Bothell, WA (Boulder microbial site unverified). Sponsorship: MSAT filings 2026 ([LCA](https://h1bdata.info/index.php?em=AGC+Biologics&job=&city=&year=2026)) |
 
-## 15. Singapore
-
-| Company / organisation | Opportunity | Relevance |
-|---|---|---|
-| GSK | Singapore Graduate Programme – 2027 intake | Jul 2027; one of the strongest explicit 2027 Asian options |
-| GSK Singapore | Biotechnologist | Current/recent type of direct role |
-| KINNVA | C1 Fermentation Scientist | C1 microbes, methane/methanol/CO₂, benchtop fermentation; Master's accepted |
-| A*STAR / SIFBI | Scientist – Biotransformation and Engineering | Fermentation/waste valorisation; specific Scientist vacancy required PhD |
-| A*STAR / SIFBI | Research Officer / Research Engineer | Better MSc-level target |
-| ScaleUp Bio | Fermentation / process-development / scale-up roles | PF CDMO/infrastructure |
-| TurtleTree | Fermentation Scientist / Strain Engineer / Molecular Biology Scientist | Biotech / PF |
-| TurtleTree | Open talent application | Explicitly covers fermentation/strain engineering/molecular biology |
-| Allozymes | Enzyme engineering / biotransformation scientist roles | Strong molecular-engineering adjacency |
-| Lonza | Development Services / Cell Culture / bioprocess roles | Biopharma |
-| Takeda | Process Science Engineer II | Recent/current type of role |
-| Roche | Manufacturing Biotechnologist | Recent/current type of role |
-| Sanofi | Biotechnologist | Recent/current type of role |
-| Novonesis Singapore | Industrial-biotech / fermentation opportunities | Watch |
-| BiomeMega | Fermentation Specialist | Microbial bioactives, pilot-scale optimisation and scale-up toward 30,000 L; MSc candidates can be considered ([posting](https://sg.linkedin.com/jobs/view/fermentation-specialist-at-biomemega-4324223353)) |
-| GenScript | Research Assistant / Associate – Protein Sciences | Singapore/global. Currently open: protein purification, SDS-PAGE, characterisation, process development and tech transfer; a very plausible MSc-level molecular/protein R&D route ([posting](https://sg.linkedin.com/jobs/view/research-associate-protein-sciences-at-genscript-4460966037)) |
-| Performance Labs | Research Scientist – Fermentation | Tuas. MSc accepted: fungal/plant fermentation, bioreactor operation, strain optimisation and lab-to-production scale-up ([posting](https://sg.linkedin.com/jobs/view/research-scientist-fermentation-at-performance-labs-4243242291)) |
-| SCELSE (NTU/NUS) | Research Associate / Research Assistant in bioprocessing, circular economy and food microbiomes | High. Close fit to the kiwifruit-waste valorisation thesis; university centres routinely hire foreign RAs on Employment Passes ([careers](https://scelse.sg/opportunities/careers/research/)) |
-| WuXi Biologics – Singapore CRDMO Center | Drug-substance process / manufacturing associate roles | Medium. Greenfield Tuas site expected to employ about 1,500 ([facilities](https://www.wuxibiologics.com/locations-facilities/)) |
-| Wilmar International | Fresh-graduate trainee programme; Wilmar Innovation Centre R&D | Medium. Trainee recruitment targets graduates of universities worldwide; trainee track may be commercial ([careers](https://www.wilmar-international.com/careers)) |
-
 ## 16. Other international 2027 graduate programmes
 
 | Company | Programme | Notes |
@@ -470,7 +445,7 @@ These rows aren't companies. Each one tells a research batch to search a whole j
 | Australia – South Australia and Western Australia | SEEK (`work/seek-AU.txt`, made by `scripts/seek_search.py`; universities, state health/pathology services, agriculture departments and research institutes advertise here), au.linkedin.com, uniroles.com.au, university job boards (Adelaide, Flinders, UniSA, UWA, Murdoch, Curtin), SA and WA government boards (check citizenship rules) | As above |
 | Australia and NZ graduate programmes | au.gradconnection.com, au.prosple.com, nz.prosple.com, company graduate pages | 2027 and 2028 intakes in science, R&D, quality microbiology, biotech manufacturing and brewing that start July 2027 or later and accept NZ citizens |
 | Visa-sponsoring employers – Europe | LinkedIn and EURAXESS searches combining fermentation / bioprocess / microbiology with "visa sponsorship" or "relocation"; jobindex.dk, thehub.io, welcometothejungle.com, stepstone.de; the [IND recognised-sponsor register](https://ind.nl/en/public-register-recognised-sponsors/public-register-regular-labour-and-highly-skilled-migrants) and the [SIRI Fast-track list](https://www.nyidanmark.dk/en-GB/Words-and-concepts/SIRI/Certified-companies) to check employers | Entry-level fermentation, bioprocess, microbiology, strain-engineering and natural-colour roles where the posting offers sponsorship or relocation, or the employer is on a sponsor register |
-| Visa-sponsoring employers – US, Canada and Singapore | LinkedIn, Greenhouse / Lever / Ashby boards, mycareersfuture.gov.sg, Canada Job Bank; [h1bdata.info](https://h1bdata.info/) to check an employer's H-1B history | Entry-level roles at employers with sponsorship evidence; cap-exempt university and national-lab Research Associate posts (no H-1B lottery); J-1 internship hosts; Singapore roles that match "Novel food biotechnologist" on the Shortage Occupation List |
+| Visa-sponsoring employers – US and Canada | LinkedIn, Greenhouse / Lever / Ashby boards, Canada Job Bank; [h1bdata.info](https://h1bdata.info/) to check an employer's H-1B history | Entry-level roles at employers with sponsorship evidence; cap-exempt university and national-lab Research Associate posts (no H-1B lottery); J-1 internship hosts |
 | Microalgae, phycocyanin and natural colours – worldwide | LinkedIn, company career pages, the Algae Biomass Organization and EABA job boards, natural-colour companies (Oterra, GNT, Givaudan Sense Colour, Sensient, DIC) | Any role in microalgae cultivation or fermentation, spirulina / phycocyanin / phycobiliproteins, or natural-colour R&D, anywhere. These are the strongest fits to the thesis |
 | Funded PhDs – Europe and UK | EURAXESS and the Marie Skłodowska-Curie doctoral network listings, FindAPhD and jobs.ac.uk (BBSRC doctoral training partnerships, industrial CASE studentships), university PhD pages | Salaried or fully funded PhD positions in fermentation, bioprocess, microbial or metabolic engineering, microalgae and phycobiliproteins, starting 2027. Note the deadline, the start date and the eligibility rules (MSCA mobility rule; UK home-fee status) |
 | Funded PhDs – Australia and NZ | University scholarship pages, CRC and ARC Training Centre listings, Riddet Institute, industry-PhD schemes, findaphd.com | Funded PhD or industry-PhD positions in the same fields, plus research-assistant-to-PhD programmes (e.g. the Heart Research Institute's NZ pathway), starting 2027 |
