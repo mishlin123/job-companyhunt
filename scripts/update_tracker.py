@@ -14,8 +14,14 @@ Role statuses in tracker/roles.csv:
     open       seen in the latest scan
     not-found  missing from the latest scan although its company was checked
     closed     closing date passed, or not seen for 3+ weeks
-    applied    set by hand: kept up to date, never flagged as new again
-    ignore     set by hand: never reported again
+    applied, interviewing, offer, rejected
+               set from tracker/decisions.csv: kept up to date, never flagged as new again
+    ineligible, ignore
+               set from tracker/decisions.csv: never reported again
+
+tracker/decisions.csv is where my own calls live (written by scripts/mark.py, or by hand).
+Each row names a role id, or only a company to rule out every role there, now and later.
+Decisions are re-applied on every run, so they survive the tracker being rebuilt.
 """
 
 import argparse
@@ -31,10 +37,14 @@ ROLE_FIELDS = ["id", "company", "role", "location", "url", "fit", "status",
                "first_seen", "last_seen", "closes", "starts", "notes"]
 COMPANY_FIELDS = ["company", "careers_url", "last_checked", "notes"]
 NEWS_FIELDS = ["reported_on", "company", "date", "headline", "url"]
+DECISION_FIELDS = ["date", "status", "role_id", "company", "note"]
 
 FITS = ("strong", "possible", "signal")
-USER_STATUSES = ("applied", "ignore")
-STATUS_ORDER = {"open": 0, "applied": 1, "not-found": 2, "closed": 3, "ignore": 4}
+APPLIED_STATUSES = ("applied", "interviewing", "offer", "rejected")
+HIDDEN_STATUSES = ("ineligible", "ignore")
+USER_STATUSES = APPLIED_STATUSES + HIDDEN_STATUSES
+STATUS_ORDER = {"open": 0, "offer": 1, "interviewing": 1, "applied": 1, "not-found": 2,
+                "closed": 3, "rejected": 4, "ineligible": 5, "ignore": 5}
 FIT_ORDER = {fit: i for i, fit in enumerate(FITS)}
 CLOSE_AFTER_DAYS = 21
 DEADLINE_WINDOW_DAYS = 42
@@ -206,6 +216,29 @@ def age_out_roles(rows, seen, checked, today, exact=False):
     return gone, closed
 
 
+def apply_decisions(rows, decisions, problems):
+    """Set each decided role's status; a company-only decision covers all that company's roles.
+
+    Later rows in decisions.csv win, so a role can move applied -> interviewing -> rejected.
+    """
+    by_id = {r["id"]: r for r in rows}
+    for d in decisions:
+        status = d["status"].lower()
+        if status not in USER_STATUSES:
+            problems.append(f"decisions.csv: status {d['status']!r} is not one of {USER_STATUSES}")
+            continue
+        if d["role_id"]:
+            row = by_id.get(d["role_id"])
+            if row is None:
+                problems.append(f"decisions.csv: role id {d['role_id']!r} is not in the tracker")
+            else:
+                row["status"] = status
+        elif d["company"]:
+            for row in rows:
+                if simple_name(row["company"]) == simple_name(d["company"]):
+                    row["status"] = status
+
+
 def merge_companies(companies, batches, run_date):
     by_name = {r["company"]: r for r in companies}
     for batch in batches:
@@ -277,6 +310,7 @@ def main():
     rows = read_csv(roles_path, ROLE_FIELDS)
     companies = read_csv(companies_path, COMPANY_FIELDS)
     news = read_csv(news_path, NEWS_FIELDS)
+    decisions = read_csv(args.tracker / "decisions.csv", DECISION_FIELDS)
     baseline = not rows
     problems = []
 
@@ -284,6 +318,7 @@ def main():
     key = simple_name if args.exact else base_company
     checked = {key(e["name"]) for e in entries if is_checked(e)}
     new, seen = merge_roles(rows, batches, run_date, problems)
+    apply_decisions(rows, decisions, problems)
     gone, closed = ([], []) if args.partial else age_out_roles(rows, seen, checked, today, args.exact)
     reported_names = {simple_name(e["name"]) for e in entries}
 
@@ -296,18 +331,18 @@ def main():
     rows.sort(key=role_sort)
     companies.sort(key=lambda r: r["company"].lower())
     news.sort(key=lambda r: (r["reported_on"], r["date"]), reverse=True)
-    new_ids = {r["id"] for r in new}
+    new_ids = {r["id"] for r in new if r["status"] == "open"}
     summary = {
         "date": run_date,
         "baseline": baseline,
         "new_roles": [r for r in rows if r["id"] in new_ids],
         "still_open": [r for r in rows if r["status"] == "open" and r["id"] not in new_ids and in_run(r)],
-        "applied": [r for r in rows if r["status"] == "applied" and in_run(r)],
+        "applied": [r for r in rows if r["status"] in APPLIED_STATUSES and in_run(r)],
         "no_longer_found": sorted(gone, key=role_sort),
         "closed": sorted(closed, key=role_sort),
         "deadlines_soon": sorted(
             (r for r in rows
-             if r["status"] in ("open", "applied", "not-found") and parse_date(r["closes"]) and in_run(r)
+             if r["status"] in ("open", "applied", "interviewing", "not-found") and parse_date(r["closes"]) and in_run(r)
              and 0 <= (parse_date(r["closes"]) - today).days <= DEADLINE_WINDOW_DAYS),
             key=lambda r: r["closes"]),
         "new_news": fresh_news,

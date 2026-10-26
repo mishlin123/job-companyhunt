@@ -64,6 +64,12 @@ The weekly routine uses this to decide which roles are worth flagging and how we
 - **Routes that need the employer's help**: the **Netherlands** (an IND recognised sponsor and at least €4,357 a month under 30), **Denmark** (Pay Limit scheme or a SIRI Fast-track certified employer), **Sweden** (90% of median salary and 10 days' advertising), **Belgium, France and Austria** (national highly-qualified permits). NZ working-holiday visas for these countries cap work at 3–6 months per employer, so they are only a bridge.
 - **Sponsorship evidence**: everywhere except NZ, Australia, the UK and Ireland, note in a role's notes whether the employer sponsors visas (the posting says so, or the watchlist row records it, e.g. a recognised-sponsor register or recent H-1B filings). A posting that says it offers no sponsorship is a blocker. Rate such roles `signal` at most.
 
+## Ruled out
+
+Categories of role I can't or won't do. Leave these out entirely (don't list them even as `signal`). Single roles and whole companies are recorded in `tracker/decisions.csv` instead.
+
+- (none yet)
+
 ## How to judge fit
 
 - **strong**: entry-level or MSc-level role in interests 1–4, or a relevant graduate programme (including the trainee or graduate intakes of the other career routes above, e.g. a life-sciences trainee patent attorney intake or a C&Q graduate programme starting July–October 2027); start timing can work for July 2027; no obvious work-rights blocker.

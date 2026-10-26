@@ -16,7 +16,7 @@ Use `python3` in the commands below, or `python` if that's what this computer ha
 1. `git checkout main && git pull origin main`. If the pull fails because of local edits, carry on with the files as they are and mention it in the final message.
 2. The run date is today's local date as `YYYY-MM-DD` (`date +%F`). Below it is called DATE. If REPORT already exists, this run has already happened today: stop and say so.
 3. `mkdir -p work` (git-ignored scratch space for this run). If an earlier run left `work/findings-*.json` or `work/summary.json` behind, move them into `work/prev-<their date>/` first, so they aren't mixed into this run. Move any `work/seek-*.txt` there too.
-4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, and the newest earlier report of the same run type in `reports/` (core: `reports/YYYY-MM-DD.md` or `YYYY-MM-DD-anz.md`; career routes: any `reports/YYYY-MM-DD-careers*.md` or `-desk-careers.md`). That report's date is LAST (use "none" if there is none).
+4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, `tracker/decisions.csv`, and the newest earlier report of the same run type in `reports/` (core: `reports/YYYY-MM-DD.md` or `YYYY-MM-DD-anz.md`; career routes: any `reports/YYYY-MM-DD-careers*.md` or `-desk-careers.md`). That report's date is LAST (use "none" if there is none).
 5. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
 
 ## 1. Research with parallel subagents
@@ -29,7 +29,7 @@ Run `python3 scripts/plan_batches.py SECTION_FLAGS`. It splits the watchlist's t
 
 Launch one general-purpose subagent per batch, all **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
 
-> You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, these parts of `watchlist.md`: SECTIONS, and the rows for your companies in `tracker/roles.csv` and `tracker/companies.csv`. Today is DATE; the last report was LAST. Your WebSearch budget is BUDGET calls: spend it where WebFetch can't answer, and stop searching once it is used. Research every row in your part of the watchlist and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
+> You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, these parts of `watchlist.md`: SECTIONS, and the rows for your companies in `tracker/roles.csv`, `tracker/companies.csv` and `tracker/decisions.csv`. Today is DATE; the last report was LAST. Your WebSearch budget is BUDGET calls: spend it where WebFetch can't answer, and stop searching once it is used. Research every row in your part of the watchlist and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
 
 When they have all returned, check that each `work/findings-N.json` exists and parses (`python3 -m json.tool work/findings-N.json`). Re-run a failed batch once. If it fails again, carry on without it and say so in the report.
 
@@ -47,6 +47,8 @@ For **each** row in your part of the watchlist:
 6. **Sponsorship.** For roles outside NZ, Australia, the UK and Ireland, say in `notes` whether the employer sponsors visas: what the posting says, or the evidence recorded in the watchlist row (e.g. "IND recognised sponsor", "recent H-1B filings for RAs"). If neither says, write "sponsorship unknown". Follow the work-rights rules in `profile.md`.
 7. **Fit.** Rate each relevant role `strong`, `possible` or `signal` using "How to judge fit" in `profile.md`. Leave out anything below `signal`.
 8. **Tracker.** If a role is already in `tracker/roles.csv`, put that row's `id` in your entry, even if the title or link has changed slightly. Don't list a tracked role you can't find again; the script marks it.
+   - **My decisions** (`tracker/decisions.csv`, also shown as the role's `status`). Roles marked `ineligible` or `ignore` are settled: don't re-check, re-rate or list them. A decision with a company but no `role_id` rules out that whole company: list it in `companies` with `checked: true` and the note "ruled out in decisions.csv", and skip it. Roles marked `applied` or `interviewing`: do re-check them and list them (with their `id`) if still open, noting any change such as a new closing date or the posting disappearing.
+   - **Ruled out in `profile.md`**: leave out any role that hits a rule in its "Ruled out" list.
 9. **Accuracy.**
    - Every role needs a URL. Prefer the company's own posting over aggregators.
    - Never invent roles, dates, salaries or requirements. If a detail comes only from a search snippet, keep it but add "(unverified)" to its notes.
@@ -102,7 +104,7 @@ python3 scripts/update_tracker.py --date DATE --exact SECTION_FLAGS work/finding
 
 This updates `tracker/roles.csv`, `tracker/companies.csv` and `tracker/news.csv`. It writes a JSON summary with these keys: `baseline`, `new_roles`, `still_open`, `applied`, `no_longer_found`, `closed`, `deadlines_soon`, `new_news`, `companies_checked`, `companies_failed`, `companies_not_reported` and `problems`.
 
-If it exits with an error, fix the findings JSON (not the script) and run it again. Never hand-edit the CSVs.
+If it exits with an error, fix the findings JSON (not the script) and run it again. Never hand-edit the CSVs. My own decisions go in `tracker/decisions.csv` through `scripts/mark.py` (see the next section).
 
 ## 3. Write REPORT
 
@@ -127,6 +129,9 @@ Company | Role | Closes | Link
 ## Company news
 - **Company** (date): headline. Why it matters. [source](url)
 
+## Your applications
+From `applied` in the summary (applied, interviewing, offer, rejected): Company: Role (status, since DATE). Flag anything that changed: a posting that disappeared, a closing date, a new role at the same employer. Omit the section if empty.
+
 ## Still open from earlier weeks
 - Company: Role (fit, first seen DATE) [link](url)
 
@@ -141,6 +146,19 @@ Companies checked, failed or not reported; which market sweeps ran and how many 
 ```
 
 For the **career-routes scan**, keep the same structure but add an **Intake calendar** section after "Closing in the next 6 weeks": graduate and trainee intakes that aren't open yet, with when they usually open (from the batches' company notes), so nothing is missed between runs.
+
+## Recording my decisions
+
+When I say I've applied for something, or that I'm not eligible or not interested, record it with `scripts/mark.py` (in any session, not only scan runs):
+
+```
+python3 scripts/mark.py find kerry food safety          # look up the role id
+python3 scripts/mark.py applied <id> --note "submitted 27 Oct"
+python3 scripts/mark.py ineligible <id> --note "needs fluent German"
+python3 scripts/mark.py ignore --company "<company>" --note "not interested"
+```
+
+Statuses: `applied`, `interviewing`, `offer`, `rejected` stay in the report under "Your applications"; `ineligible` and `ignore` are never reported again. A `--company` decision covers every role there, including future ones. If I describe a whole category I can't do ("anything needing Australian PR"), add it to the "Ruled out" list in `profile.md` instead, so the batches stop finding those roles at all. Commit `tracker/decisions.csv`, `tracker/roles.csv` and `profile.md` afterwards.
 
 ## 4. Commit and push to `main`
 
