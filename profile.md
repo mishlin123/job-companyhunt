@@ -62,17 +62,18 @@ The weekly routine uses this to decide which roles are worth flagging and how we
   - **Singapore**: the Work Holiday Programme (graduates aged 18–25, apply before turning 26; 6 months), then an Employment Pass. "Novel food biotechnologist" is on the Shortage Occupation List.
   - **US**: a J-1 internship (within 12 months of graduating, up to 12 months) or a cap-exempt employer (universities, national labs). The H-1B lottery is a poor bet for a new graduate.
 - **Routes that need the employer's help**: the **Netherlands** (an IND recognised sponsor and at least €4,357 a month under 30), **Denmark** (Pay Limit scheme or a SIRI Fast-track certified employer), **Sweden** (90% of median salary and 10 days' advertising), **Belgium, France and Austria** (national highly-qualified permits). NZ working-holiday visas for these countries cap work at 3–6 months per employer, so they are only a bridge.
-- **Sponsorship evidence**: everywhere except NZ, Australia, the UK and Ireland, note in a role's notes whether the employer sponsors visas (the posting says so, or the watchlist row records it, e.g. a recognised-sponsor register or recent H-1B filings). A posting that says it offers no sponsorship is a blocker. Rate such roles `signal` at most.
+- **Sponsorship evidence**: everywhere except NZ, Australia, the UK and Ireland, note in a role's notes whether the employer sponsors visas (the posting says so, or the watchlist row records it, e.g. a recognised-sponsor register or recent H-1B filings). A posting that says it offers no sponsorship is a blocker: leave it out (see Ruled out).
 
 ## Ruled out
 
 Categories of role I can't or won't do. Leave these out entirely (don't list them even as `signal`). Single roles and whole companies are recorded in `tracker/decisions.csv` instead.
 
-- (none yet)
+- **Starts before July 2027.** Anything whose posting says it starts now, ASAP, immediately, or on a date before July 2027 (including fixed-term contracts and PhDs with an early start). An ordinary vacancy that gives no start date counts as starting now. Keep only graduate programmes, PhDs and other intakes, open applications and talent pools, and postings that offer a flexible start I could set to July 2027 or later.
+- **No work rights and no sponsorship.** Outside NZ, Australia, the UK and Ireland: any role whose posting clearly says it won't sponsor a visa, needs existing work authorisation, or is for citizens/permanent residents/local residents only. Also any Australian role limited to Australian citizens or PR. "Sponsorship unknown" is not a reason to leave a role out.
 
 ## How to judge fit
 
 - **strong**: entry-level or MSc-level role in interests 1–4, or a relevant graduate programme (including the trainee or graduate intakes of the other career routes above, e.g. a life-sciences trainee patent attorney intake or a C&Q graduate programme starting July–October 2027); start timing can work for July 2027; no obvious work-rights blocker.
 - **possible**: relevant, but with a real caveat. For example: asks for 2–4 years' experience, an adjacent field (cell therapy, analytical chemistry, QC), tight timing, or unclear sponsorship.
-- **signal**: not applicable as it stands (senior, PhD required, 5+ years, must start now), but shows the company is hiring in a relevant team. Useful for a speculative application.
+- **signal**: not applicable as it stands (senior, PhD required, 5+ years), but shows the company is hiring in a relevant team. Useful for a speculative application.
 - **Leave out**: summer internships and other roles that need work before July 2027 (but note a recurring internship or graduate intake as a lead for the next cycle); roles outside science and process (sales, finance, HR, IT, marketing, legal, admin, senior leadership; but keep the other career routes above: patent attorney trainees, regulatory and scientific advisor roles, field application and technical specialist roles, government science schemes, and the other routes listed above), and unrelated sites or functions at the big multinationals.
