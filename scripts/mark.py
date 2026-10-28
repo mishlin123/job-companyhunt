@@ -9,6 +9,9 @@ Usage:
     python3 scripts/mark.py ignore --company "Richter BioLogics" --note "not interested"
     python3 scripts/mark.py list                          # show every decision so far
 
+`find` also searches tracker/pipeline.csv (programmes opening soon), and a decision can name a
+pipeline id the same way, e.g. `mark.py ignore novo-nordisk-graduate-programme-2027-... --note "..."`.
+
 Statuses: applied, interviewing, offer, rejected (tracked and shown in the report),
 ineligible, off-path (doesn't fit my skills or direction), ignore (never reported again). With --company and no ids, the decision covers
 every role at that company, including ones found in later scans.
@@ -23,19 +26,25 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from update_tracker import (DECISION_FIELDS, ROLE_FIELDS, USER_STATUSES, apply_decisions,  # noqa: E402
-                            read_csv, role_sort, simple_name, write_csv)
+from update_tracker import (DECISION_FIELDS, PIPELINE_FIELDS, ROLE_FIELDS, USER_STATUSES,  # noqa: E402
+                            apply_decisions, pipeline_sort, read_csv, role_sort, simple_name, write_csv)
 
 
-def find(rows, words):
+def find(rows, pipeline, words):
     words = [w.lower() for w in words]
     hits = [r for r in rows
             if all(w in " ".join((r["id"], r["company"], r["role"], r["location"])).lower() for w in words)]
     for r in sorted(hits, key=role_sort):
         closes = f" · closes {r['closes']}" if r["closes"] else ""
         print(f"{r['id']}\n    {r['company']} — {r['role']} ({r['location']}) [{r['status']}, {r['fit']}{closes}]")
-    if not hits:
-        print("no matching roles")
+    soon = [r for r in pipeline
+            if all(w in " ".join((r["id"], r["company"], r["programme"], r["location"])).lower() for w in words)]
+    for r in sorted(soon, key=pipeline_sort):
+        opens = f" · opens {r['opens']}" if r["opens"] else ""
+        print(f"{r['id']}\n    {r['company']} — {r['programme']} ({r['location']}) "
+              f"[pipeline, {r['status']}, {r['fit']}{opens}]")
+    if not hits and not soon:
+        print("no matching roles or pipeline entries")
 
 
 def main():
@@ -49,11 +58,13 @@ def main():
     args = parser.parse_args()
 
     roles_path, decisions_path = args.tracker / "roles.csv", args.tracker / "decisions.csv"
+    pipeline_path = args.tracker / "pipeline.csv"
     rows = read_csv(roles_path, ROLE_FIELDS)
+    pipeline = read_csv(pipeline_path, PIPELINE_FIELDS)
     decisions = read_csv(decisions_path, DECISION_FIELDS)
 
     if args.action == "find":
-        return find(rows, args.args)
+        return find(rows, pipeline, args.args)
     if args.action == "list":
         for d in decisions:
             print(f"{d['date']}  {d['status']:<12} {d['role_id'] or 'ALL ROLES AT ' + d['company']}"
@@ -64,14 +75,14 @@ def main():
     if args.company:
         if args.args:
             sys.exit("give role ids or --company, not both")
-        names = {simple_name(r["company"]) for r in rows}
+        names = {simple_name(r["company"]) for r in rows + pipeline}
         if simple_name(args.company) not in names:
             print(f"note: no tracked roles at {args.company!r} yet; the rule will apply when one appears")
         added = [dict(date=today, status=args.action, role_id="", company=args.company, note=args.note)]
     else:
         if not args.args:
             sys.exit("give at least one role id (use 'find' to look them up) or --company")
-        by_id = {r["id"]: r for r in rows}
+        by_id = {r["id"]: r for r in rows + pipeline}
         unknown = [i for i in args.args if i not in by_id]
         if unknown:
             sys.exit("not in the tracker: " + ", ".join(unknown) + " (use 'find' to look up ids)")
@@ -79,11 +90,13 @@ def main():
                  for i in args.args]
 
     problems = []
-    apply_decisions(rows, added, problems)
+    apply_decisions(rows, added, problems, extra=pipeline)
     if problems:
         sys.exit("\n".join(problems))
     write_csv(decisions_path, DECISION_FIELDS, decisions + added)
     write_csv(roles_path, ROLE_FIELDS, sorted(rows, key=role_sort))
+    if pipeline:
+        write_csv(pipeline_path, PIPELINE_FIELDS, sorted(pipeline, key=pipeline_sort))
     for d in added:
         print(f"{d['status']}: {d['role_id'] or 'all roles at ' + d['company']}")
 

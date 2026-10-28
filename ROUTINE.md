@@ -30,7 +30,7 @@ Run `python3 scripts/plan_batches.py SECTION_FLAGS`. It splits the watchlist's t
 
 Launch one general-purpose subagent per batch, all **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
 
-> You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, these parts of `watchlist.md`: SECTIONS, and the rows for your companies in `tracker/roles.csv`, `tracker/companies.csv` and `tracker/decisions.csv`. Today is DATE; the last report was LAST. Your WebSearch budget is BUDGET calls: spend it where WebFetch can't answer, and stop searching once it is used. Research every row in your part of the watchlist and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
+> You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, these parts of `watchlist.md`: SECTIONS, and the rows for your companies in `tracker/roles.csv`, `tracker/companies.csv`, `tracker/pipeline.csv` and `tracker/decisions.csv`. Today is DATE; the last report was LAST. Your WebSearch budget is BUDGET calls: spend it where WebFetch can't answer, and stop searching once it is used. Research every row in your part of the watchlist and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
 
 When they have all returned, check that each `work/findings-N.json` exists and parses (`python3 -m json.tool work/findings-N.json`). Re-run a failed batch once. If it fails again, carry on without it and say so in the report.
 
@@ -45,13 +45,19 @@ For **each** row in your part of the watchlist:
    For big multinationals (Pfizer, Amgen, AstraZeneca, GSK, MSD, Sanofi, Eli Lilly, BMS, Regeneron, Thermo Fisher, Lonza, Takeda, Roche, Gilead, Grifols, Abbott, J&J, Novonesis, ADM, CSL, Kerry, IFF, dsm-firmenich, Corbion, Lesaffre, Lallemand, AB Enzymes, Syngenta, Ferring, Croda, GenScript, Agilent, Accord Healthcare, Zoetis, Boehringer Ingelheim, Elanco, Nestlé, Reckitt, FrieslandCampina, Givaudan, Symrise, Clariant, Evonik, Sartorius, Cytiva, Eppendorf, Merck, Repligen, Jacobs, Arcadis, Deloitte, EY, KPMG, PwC, Grant Thornton, BDO, RSM, IQVIA, ICON, Parexel, Fortrea, Clarivate, Springer Nature, Elsevier, SGS, Bureau Veritas, Intertek, BSI), look only for the programmes, sites and role types named in the watchlist.
    **Career-route rows (watchlist sections 20–21).** Patent firms, patent offices, government schemes and regulators, C&Q and R&D tax consultancies, medcomms agencies, strategy consultancies, publishers and equipment makers often run one yearly trainee or graduate intake rather than standing vacancies. For each, find the current intake page: report it as a role if it is open (with its deadline and start date), and if it isn't open yet, say in that company's `notes` when it usually opens and for which start, so the report can flag it. For government employers, check citizenship or nationality rules (UK Civil Service: UK nationals are fine; Australian Public Service: usually Australian citizens only).
 5. **News.** Within your budget, search for news, favouring rows tagged High and anything with a live role, published since LAST (the last 14 days on a baseline run): funding, layoffs or closures, new plants or scale-up, regulatory approvals, partnerships or acquisitions, leadership changes, graduate-intake announcements, hiring pushes. Skip older items and evergreen pages.
-6. **Sponsorship.** For roles outside NZ, Australia, the UK and Ireland, say in `notes` whether the employer sponsors visas: what the posting says, or the evidence recorded in the watchlist row (e.g. "IND recognised sponsor", "recent H-1B filings for RAs"). If neither says, write "sponsorship unknown". Follow the work-rights rules in `profile.md`.
-7. **Fit.** Rate each relevant role `strong`, `possible` or `signal` using "How to judge fit" in `profile.md`. Leave out anything below `signal`.
-8. **Tracker.** If a role is already in `tracker/roles.csv`, put that row's `id` in your entry, even if the title or link has changed slightly. Don't list a tracked role you can't find again; the script marks it.
+6. **Opening soon.** Programmes that are not open for applications yet are the ones I can prepare for, so find them. For your companies, look for graduate and trainee intakes, PhD rounds, fellowships and open days that are not open yet but will open in the next few months (or that the company says it will run again), and for talent pools and open applications I could use for a speculative approach. Sources: the company's graduate page ("applications open in...", "register your interest", "coming soon"), gradireland, gradcracker, prosple, targetjobs, university PhD pages and last year's dates. Re-check every row for your companies in `tracker/pipeline.csv` too. For each, add an `opening_soon` entry:
+   - `opens` is a `YYYY-MM-DD` date: the stated opening date, or your best estimate (first of the month) with `confidence: "inferred"`. Use `""` when there is no date at all, and `confidence: "unverified"` when the date comes only from a search snippet.
+   - Set `status: "open"` once applications are live (and list the programme in `roles` as well), `"not-running"` if the company says there is no intake this cycle, and `"closed"` if the window has passed. Otherwise leave it `"upcoming"`.
+   - Only intakes I could actually take up: a start of July 2027 or later, or a flexible start. A programme that starts in 2028 still counts if its application window falls in 2027, but mark it clearly in `starts`.
+   - `prep` is one or two sentences on how to get a head start: which kinds of people to connect with on LinkedIn (for example current graduates on the programme, early-talent recruiters, team members in the relevant function, supervisors for a PhD project) and what to ask them. Name roles and teams, never individuals. Don't open or scrape LinkedIn profiles; the report adds a people-search link for me to click.
+   - Don't repeat a programme that is already open and listed in `roles`; list it only if its status was `upcoming` last time.
+7. **Sponsorship.** For roles outside NZ, Australia, the UK and Ireland, say in `notes` whether the employer sponsors visas: what the posting says, or the evidence recorded in the watchlist row (e.g. "IND recognised sponsor", "recent H-1B filings for RAs"). If neither says, write "sponsorship unknown". Follow the work-rights rules in `profile.md`.
+8. **Fit.** Rate each relevant role `strong`, `possible` or `signal` using "How to judge fit" in `profile.md`. Leave out anything below `signal`.
+9. **Tracker.** If a role is already in `tracker/roles.csv`, put that row's `id` in your entry, even if the title or link has changed slightly. Don't list a tracked role you can't find again; the script marks it.
    - **My decisions** (`tracker/decisions.csv`, also shown as the role's `status`). Roles marked `ineligible`, `off-path` or `ignore` are settled: don't re-check, re-rate or list them. A decision with a company but no `role_id` rules out that whole company: list it in `companies` with `checked: true` and the note "ruled out in decisions.csv", and skip it. Roles marked `applied` or `interviewing`: do re-check them and list them (with their `id`) if still open, noting any change such as a new closing date or the posting disappearing.
    - **`off-path` roles teach fit.** They are roles I judged wrong for my skills or direction. Before rating, look at the `off-path` roles in `tracker/roles.csv` (any company): rate new roles that closely resemble them (same kind of work, same seniority) one level lower, and leave them out if they would only be `signal`.
    - **Ruled out in `profile.md`**: leave out any role that hits a rule in its "Ruled out" list.
-9. **Accuracy.**
+10. **Accuracy.**
    - Every role needs a URL. Prefer the company's own posting over aggregators.
    - Never invent roles, dates, salaries or requirements. If a detail comes only from a search snippet, keep it but add "(unverified)" to its notes.
    - Leave out postings whose closing date has passed, or that look stale (older than about 60 days with no sign they're still open).
@@ -88,6 +94,14 @@ Write `work/findings-N.json`:
   "news": [
     {"company": "Vivici", "date": "2026-09-21", "headline": "...", "url": "https://...",
      "why": "one line on why it matters for the job hunt"}
+  ],
+  "opening_soon": [
+    {"company": "Novo Nordisk", "programme": "Graduate Programme 2027 (non-US tracks)",
+     "location": "Copenhagen and affiliates", "url": "https://...", "opens": "2026-12-16",
+     "closes": "2027-01-05", "starts": "2027-09-01", "confidence": "stated", "fit": "possible",
+     "status": "upcoming",
+     "prep": "Connect with current graduates and early-talent recruiters; ask which track fits an MSc in microbiology.",
+     "notes": "what the page says, caveats"}
   ]
 }
 ```
@@ -95,6 +109,7 @@ Write `work/findings-N.json`:
 - `companies`: one entry for every row name in your part of the watchlist, including rows where nothing was found. Use the name exactly as it appears in the first column of `watchlist.md`. Set `checked: false` only if you couldn't search that company at all.
 - `roles[].company`: use the same watchlist name.
 - `closes`: `YYYY-MM-DD` if known, otherwise `""`. `starts`: free text, or `""`.
+- `opening_soon` is optional (use `[]` when there is nothing). `confidence` is `stated`, `inferred` or `unverified`; `fit` is judged like a role's fit. See "Opening soon" in the research brief.
 
 ## 2. Update the tracker
 
@@ -104,7 +119,9 @@ python3 scripts/update_tracker.py --date DATE --exact SECTION_FLAGS work/finding
 
 `--exact` ages out only roles whose company name exactly matches one checked this run, and limits the still-open, applied and deadline lists to those companies. That keeps the two runs from marking each other's roles as gone when employers share a name (e.g. Thermo Fisher's site rows and its field-application row), so batches must use the exact watchlist names.
 
-This updates `tracker/roles.csv`, `tracker/companies.csv` and `tracker/news.csv`. It writes a JSON summary with these keys: `baseline`, `new_roles`, `still_open`, `applied`, `no_longer_found`, `closed`, `deadlines_soon`, `new_news`, `companies_checked`, `companies_failed`, `companies_not_reported` and `problems`.
+This updates `tracker/roles.csv`, `tracker/companies.csv` and `tracker/news.csv`. It writes a JSON summary with these keys: `baseline`, `new_roles`, `still_open`, `applied`, `no_longer_found`, `closed`, `deadlines_soon`, `new_news`, `opening_soon`, `later_cycles`, `just_opened`, `pipeline_to_recheck`, `companies_checked`, `companies_failed`, `companies_not_reported` and `problems`.
+
+`opening_soon` lists the upcoming programmes (from `tracker/pipeline.csv`) that open within about six months or have no date yet, soonest first, each with a `linkedin_search` link; `later_cycles` lists those that open further out; `just_opened` lists programmes reported as open this run; `pipeline_to_recheck` lists upcoming programmes whose expected opening date passed more than a week ago without being reported open. `update_tracker.py` also writes `tracker/pipeline.csv`. In a split run it lists only the programmes whose company is in that run's watchlist sections (employers found by a sweep go with the core scan).
 
 If it exits with an error, fix the findings JSON (not the script) and run it again. Never hand-edit the CSVs. My own decisions go in `tracker/decisions.csv` through `scripts/mark.py` (see the next section).
 
@@ -126,13 +143,19 @@ Mark roles on the [job board](https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy)
 **TL;DR**: two or three sentences. Counts of new roles by fit, the most urgent deadline, and the single most important thing to do this week.
 
 ## Suggested actions
-Up to five concrete, prioritised actions, e.g. "Apply to X (closes 30 Nov)" or "Speculative note to Y: just raised a Series B and is scaling fermentation". Omit the section if nothing warrants action.
+Up to five concrete, prioritised actions, e.g. "Apply to X (closes 30 Nov)", "Speculative note to Y: just raised a Series B and is scaling fermentation" or "Start connecting with current Z graduates now: applications open 16 Dec". Include one line for the soonest `opening_soon` entry. Omit the section if nothing warrants action.
 
 ## New opportunities
 One table per fit level, strong first: Company | Role | Location | Starts / closes | Why it fits (caveats) | Link
 
 ## Closing in the next 6 weeks
 Company | Role | Closes | Link
+
+## Opening soon: prepare now
+From `opening_soon` in the summary, soonest first. One block per programme, so it reads well on a phone:
+- **Company: Programme**, opens DATE (stated or inferred), closes DATE, starts DATE. Fit. [programme page](url)
+  Prepare: the `prep` line. [LinkedIn people search](linkedin_search) · Caveats from `notes`.
+Put `pipeline_to_recheck` and `just_opened` entries first, with a note ("expected to open DATE, not confirmed; check now" or "now open, apply by DATE"). Then one line for each `later_cycles` entry (Company: Programme, opens about DATE) so nothing is forgotten. Omit the section if all four lists are empty.
 
 ## Company news
 - **Company** (date): headline. Why it matters. [source](url)
@@ -153,7 +176,7 @@ Optional, at most five: employers found by the market sweeps that deserve their 
 Companies checked, failed or not reported; which market sweeps ran and how many off-watchlist employers they found; problems such as careers pages that wouldn't load, searches that failed, or batches that ran out of search budget.
 ```
 
-For the **career-routes scan**, keep the same structure but add an **Intake calendar** section after "Closing in the next 6 weeks": graduate and trainee intakes that aren't open yet, with when they usually open (from the batches' company notes), so nothing is missed between runs.
+For the **career-routes scan**, keep the same structure. Its "Opening soon: prepare now" section is the intake calendar: graduate and trainee intakes that aren't open yet and when they usually open, so nothing is missed between runs. Also mention in each company's `notes` anything the pipeline can't hold.
 
 ## Recording my decisions
 
@@ -195,6 +218,9 @@ Top picks
 
 Closing soon
 - Company — Role — DATE — link
+
+Opening soon
+- Company — Programme — opens DATE — link                (up to 5, soonest first)
 
 News
 - Company: headline — link                               (up to 5)

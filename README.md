@@ -20,6 +20,7 @@ A watchlist of about 160 biotech and precision-fermentation employers for jobs s
   - `reports/YYYY-MM-DD.md`: the full weekly report.
   - `tracker/roles.csv`: every relevant role seen so far, with first-seen and last-seen dates and a status.
   - `tracker/news.csv`: news already reported, so it isn't repeated.
+  - `tracker/pipeline.csv`: programmes that aren't open yet but will be (graduate intakes, PhD rounds, open days), with when they open, how to prepare, and who to connect with on LinkedIn. The report's "Opening soon: prepare now" section comes from it.
   - `tracker/companies.csv`: the careers page found for each company.
   - A desktop notification when a run starts. The run's summary is in its session under **Scheduled** in the app's sidebar.
 
@@ -28,6 +29,7 @@ A watchlist of about 160 biotech and precision-fermentation employers for jobs s
 | To... | Do this |
 |---|---|
 | Add or remove a company | Edit `watchlist.md`; new rows and sections are picked up automatically |
+| Add a programme to prepare for | Ask Claude, or add an `opening_soon` entry (or a row in `tracker/pipeline.csv`); the weekly scans then keep its dates fresh |
 | Stop hearing about a role | Set its `status` to `ignore` in `tracker/roles.csv` |
 | Record an application | Set its `status` to `applied` (still tracked, never re-flagged as new) |
 | Change how fit is judged | Edit `profile.md` |
