@@ -57,6 +57,7 @@ For **each** row in your part of the watchlist:
    - **My decisions** (`tracker/decisions.csv`, also shown as the role's `status`). Roles marked `ineligible`, `off-path` or `ignore` are settled: don't re-check, re-rate or list them. A decision with a company but no `role_id` rules out that whole company: list it in `companies` with `checked: true` and the note "ruled out in decisions.csv", and skip it. Roles marked `applied` or `interviewing`: do re-check them and list them (with their `id`) if still open, noting any change such as a new closing date or the posting disappearing.
    - **`off-path` roles teach fit.** They are roles I judged wrong for my skills or direction. Before rating, look at the `off-path` roles in `tracker/roles.csv` (any company): rate new roles that closely resemble them (same kind of work, same seniority) one level lower, and leave them out if they would only be `signal`.
    - **Ruled out in `profile.md`**: leave out any role that hits a rule in its "Ruled out" list.
+   - **While studying**: part-time or casual roles in Christchurch, or remote from NZ, that meet "While studying" in `profile.md` are the one kind of role that may start now. Report them, and start their `notes` with `Study-time:`.
 10. **Accuracy.**
    - Every role needs a URL. Prefer the company's own posting over aggregators.
    - Never invent roles, dates, salaries or requirements. If a detail comes only from a search snippet, keep it but add "(unverified)" to its notes.
@@ -150,6 +151,9 @@ One table per fit level, strong first: Company | Role | Location | Starts / clos
 
 ## Closing in the next 6 weeks
 Company | Role | Closes | Link
+
+## While studying
+Roles whose `notes` start with `Study-time:` (part-time or casual roles I can do alongside the MSc; see "While studying" in `profile.md`), new and still open: Company | Role | Location | Hours / pay | Link. List them here instead of under "New opportunities". Omit the section if empty.
 
 ## Opening soon: prepare now
 From `opening_soon` in the summary, soonest first. One block per programme, so it reads well on a phone:
