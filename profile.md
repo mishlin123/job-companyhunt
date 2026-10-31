@@ -54,6 +54,16 @@ Added 29 Oct 2026. Alongside the full-time MSc I can take small roles that fit a
   - Funded or salaried PhD positions (Marie Skłodowska-Curie doctoral networks, UK studentships, ANZ industry PhDs) in interests 1–4 or microalgae/phycobiliproteins, starting in 2027.
   - Adjacent industries: HMOs and early-life nutrition, mycoprotein, cosmetic biotech ingredients, animal health and vet vaccines, agricultural biologicals, and circular-bioeconomy scale-up centres.
 
+## Skills
+
+My level in the skills employers ask for most, used by `scripts/skills_gap.py` (have, some or none). Pre-filled on 31 Oct 2026 from what the repo records; correct anything that's wrong and add the rest the report lists.
+
+- Microbiology lab techniques / aseptic: have
+- Techno-economic / cost modelling: have
+- Scientific and technical writing: have
+- Fermentation / bioreactor operation: some
+- Excel modelling / market sizing / slides: some
+
 ## Work rights
 
 - Dual **New Zealand and British** citizen (NZ and UK passports). Age 22 (23 from December 2026), which matters for working-holiday and youth schemes.

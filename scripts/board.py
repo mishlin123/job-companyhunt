@@ -4,12 +4,17 @@
 Usage:
     python3 scripts/board.py export                 # write work/board/roles.json for publishing
     python3 scripts/board.py import DIR_OR_JSON      # record clicks made on the page
+    python3 scripts/board.py import work/board-clicks # ...or the folder holding all three collections
 
 The page lists every role that isn't closed and saves each click to its own database
 collection "decisions" (one document per role id, or "company:<name>" for a whole company).
 `import` takes that collection as the folder ArtifactData `list` writes with `out_dir`
 (one <doc_id>.json per document), or as a JSON list of {id, data} or plain bodies, and appends each changed decision to
 tracker/decisions.csv through the same rules as scripts/mark.py.
+
+The page also has Outreach and Events tabs, fed from tracker/outreach.csv and tracker/events.csv;
+their clicks go to the collections "outreach" and "events" ({status, at} per item id), and
+`import` given the parent folder (work/board-clicks) records those through scripts/network.py.
 """
 
 import argparse
@@ -19,6 +24,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from network import (EVENT_FIELDS, OUTREACH_FIELDS, age_events, people_search,  # noqa: E402
+                     set_statuses)
 from update_tracker import (DECISION_FIELDS, ROLE_FIELDS, apply_decisions, read_csv,  # noqa: E402
                             role_sort, simple_name, write_csv)
 
@@ -35,10 +42,16 @@ def export(tracker, out):
             item["notes"] = r["notes"][:NOTE_CHARS] + ("…" if len(r["notes"]) > NOTE_CHARS else "")
         roles.append(item)
     out.mkdir(parents=True, exist_ok=True)
-    payload = {"exported": date.today().isoformat(), "roles": roles}
+    today = date.today().isoformat()
+    events = read_csv(tracker / "events.csv", EVENT_FIELDS)
+    age_events(events, today)
+    events = [e for e in events if e["status"] != "past"]
+    outreach = [{**o, "linkedin_search": people_search(o["company"], o["contact"])}
+                for o in read_csv(tracker / "outreach.csv", OUTREACH_FIELDS)]
+    payload = {"exported": today, "roles": roles, "events": events, "outreach": outreach}
     (out / "roles.json").write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
                                     encoding="utf-8")
-    print(f"{len(roles)} roles -> {out / 'roles.json'}")
+    print(f"{len(roles)} roles, {len(events)} events, {len(outreach)} outreach items -> {out / 'roles.json'}")
 
 
 def latest(decisions):
@@ -47,6 +60,24 @@ def latest(decisions):
     for d in decisions:
         last[d["role_id"] or "company:" + simple_name(d["company"])] = d["status"]
     return last
+
+
+def import_all(tracker, path):
+    """path is either one collection's folder or a folder holding decisions/, outreach/, events/."""
+    subdirs = [path / k for k in ("decisions", "outreach", "events") if (path / k).is_dir()]
+    if not subdirs:
+        return import_clicks(tracker, path)
+    for sub in subdirs:
+        if sub.name == "decisions":
+            import_clicks(tracker, sub)
+            continue
+        changes = {}
+        for f in sorted(sub.glob("*.json")):
+            body = json.loads(f.read_text(encoding="utf-8"))
+            if body.get("status"):
+                changes[f.stem] = str(body["status"]).lower()
+        changed = set_statuses(tracker, sub.name, changes, date.today().isoformat())
+        print(f"{len(changed)} {sub.name} status changes from the board" + (f": {', '.join(changed)}" if changed else ""))
 
 
 def import_clicks(tracker, path):
@@ -105,7 +136,7 @@ def main():
     elif not args.file:
         sys.exit("import needs the decisions JSON file")
     else:
-        import_clicks(args.tracker, args.file)
+        import_all(args.tracker, args.file)
 
 
 if __name__ == "__main__":

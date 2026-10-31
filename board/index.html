@@ -104,16 +104,38 @@ details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); w
 .pill.notfound { background: var(--warn-soft); color: var(--warn); }
 .confirm { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .more-btn { justify-self: center; margin-top: 6px; }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); }
+.tab {
+  font: 600 14px/1 var(--body); padding: 10px 12px 11px; border: 0; border-bottom: 2px solid transparent;
+  background: transparent; color: var(--muted); cursor: pointer; display: inline-flex; gap: 6px; align-items: center; margin-bottom: -1px;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tab .n { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); }
+.draft {
+  margin: 0; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); color: var(--ink);
+  font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.goal { margin: 0; font-size: 14px; }
+.goal b { font-weight: 600; }
+.role[data-fit="event"] { border-left-color: var(--possible); }
+.role[data-fit="outreach"] { border-left-color: var(--accent); }
+.pill.sent, .pill.going, .pill.attended { background: var(--applied-soft); color: var(--applied); }
+.pill.replied, .pill.meeting { background: var(--applied); color: var(--surface); }
+.pill.skipped, .pill.no-reply, .pill.not-going { background: var(--line); color: var(--muted); }
+.pill.interested { background: var(--accent-soft); color: var(--accent); }
+.linkbtn { font: 500 13px/1 var(--body); color: var(--accent); text-decoration: none; padding: 9px 6px; }
+.linkbtn:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: no-preference) { .role { transition: opacity .15s ease; } }
 </style>
 
 <div class="wrap">
   <header class="top">
     <h1>Job Shortlist</h1>
-    <p id="sub">Mark what you've applied for, what you can't do and what isn't your path. Next Monday's scan picks it up and stops reporting those roles.</p>
+    <p id="sub">Mark what you've applied for, what you can't do and what isn't your path, which messages you've sent and which events you'll go to. Each scan picks up your clicks.</p>
   </header>
 
   <div class="bar">
+    <nav class="tabs" id="tabs" aria-label="Section"></nav>
     <input id="q" class="search" type="search" placeholder="Search company, role or place" autocomplete="off" aria-label="Search roles">
     <div class="chips" id="chips" role="group" aria-label="Show"></div>
     <div class="status-line" id="status" aria-live="polite">Loading roles…</div>
@@ -133,10 +155,32 @@ details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); w
     { id: "applied", label: "Applied", test: r => ["applied", "interviewing", "offer", "rejected"].includes(r.dec) },
     { id: "hidden", label: "Hidden", test: r => ["ineligible", "off-path", "ignore"].includes(r.dec) },
   ];
+  const OUT_LABEL = { suggested: "To send", sent: "Sent", replied: "Replied", meeting: "Meeting booked", "no-reply": "No reply", skipped: "Skipped" };
+  const EVENT_LABEL = { upcoming: "Not decided", interested: "Interested", going: "Going", "not-going": "Not going", attended: "Attended" };
+  const VIEW_FILTERS = {
+    roles: FILTERS,
+    outreach: [
+      { id: "send", label: "To send", test: o => o.st === "suggested" },
+      { id: "sent", label: "Sent", test: o => ["sent", "replied", "meeting", "no-reply"].includes(o.st) },
+      { id: "skipped", label: "Skipped", test: o => o.st === "skipped" },
+    ],
+    events: [
+      { id: "next", label: "Coming up", test: e => ["upcoming", "interested", "going"].includes(e.st) },
+      { id: "going", label: "Going", test: e => ["going", "attended"].includes(e.st) },
+      { id: "no", label: "Not going", test: e => e.st === "not-going" },
+    ],
+  };
+  const VIEWS = [{ id: "roles", label: "Roles" }, { id: "outreach", label: "Outreach" }, { id: "events", label: "Events" }];
   const PAGE = 60;
-  const state = { roles: [], decisions: new Map(), filter: "todo", q: "", shown: PAGE, db: null, canWrite: true, confirming: null };
+  const state = { roles: [], outreach: [], events: [], decisions: new Map(), marks: { outreach: new Map(), events: new Map() },
+                  view: "roles", filters: { roles: "todo", outreach: "send", events: "next" },
+                  q: "", shown: PAGE, db: null, canWrite: true, confirming: null };
   const $ = id => document.getElementById(id);
-  try { const f = localStorage.getItem("board-filter"); if (FILTERS.some(x => x.id === f)) state.filter = f; } catch (e) {}
+  try {
+    const f = localStorage.getItem("board-filter"); if (FILTERS.some(x => x.id === f)) state.filters.roles = f;
+    const v = localStorage.getItem("board-view"); if (VIEWS.some(x => x.id === v)) state.view = v;
+  } catch (e) {}
+  const markOf = (kind, item) => (state.marks[kind].get(item.id) || {}).status || item.status;
 
   const companyKey = name => "company:" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 180);
 
@@ -172,13 +216,118 @@ details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); w
     return state.q.split(/\s+/).every(w => hay.includes(w));
   }
 
+  function items(view) {
+    if (view === "roles") { for (const r of state.roles) r.dec = decisionFor(r); return state.roles; }
+    for (const x of state[view]) x.st = markOf(view, x);
+    return state[view];
+  }
+
+  function renderTabs() {
+    const counts = { roles: items("roles").filter(FILTERS[0].test).length,
+                     outreach: items("outreach").filter(VIEW_FILTERS.outreach[0].test).length,
+                     events: items("events").filter(VIEW_FILTERS.events[0].test).length };
+    $("tabs").replaceChildren(...VIEWS.map(v => el("button", {
+      class: "tab", role: "tab", "aria-selected": String(state.view === v.id),
+      onclick: () => { state.view = v.id; state.shown = PAGE; state.confirming = null; try { localStorage.setItem("board-view", v.id); } catch (e) {} render(); }
+    }, v.label, el("span", { class: "n" }, String(counts[v.id])))));
+    $("q").placeholder = { roles: "Search company, role or place", outreach: "Search company or reason", events: "Search event, place or employer" }[state.view];
+  }
+
   function renderChips() {
-    const counts = Object.fromEntries(FILTERS.map(f => [f.id, 0]));
-    for (const r of state.roles) { r.dec = decisionFor(r); for (const f of FILTERS) if (f.test(r)) counts[f.id]++; }
-    $("chips").replaceChildren(...FILTERS.map(f => el("button", {
-      class: "chip", "aria-pressed": String(state.filter === f.id),
-      onclick: () => { state.filter = f.id; state.shown = PAGE; state.confirming = null; try { localStorage.setItem("board-filter", f.id); } catch (e) {} render(); }
+    const set = VIEW_FILTERS[state.view], list = items(state.view);
+    const counts = Object.fromEntries(set.map(f => [f.id, list.filter(f.test).length]));
+    $("chips").replaceChildren(...set.map(f => el("button", {
+      class: "chip", "aria-pressed": String(state.filters[state.view] === f.id),
+      onclick: () => { state.filters[state.view] = f.id; state.shown = PAGE; state.confirming = null;
+                       if (state.view === "roles") try { localStorage.setItem("board-filter", f.id); } catch (e) {}
+                       render(); }
     }, f.label, el("span", { class: "n" }, String(counts[f.id])))));
+  }
+
+  async function saveMark(kind, item, status) {
+    if (!state.db) return;
+    const prev = state.marks[kind].get(item.id);
+    const body = { status, at: new Date().toISOString() };
+    state.marks[kind].set(item.id, body);
+    render();
+    try {
+      await state.db.collection(kind).doc(item.id).set(body);
+      setStatus("Saved. The next scan will pick this up.");
+    } catch (e) {
+      if (prev) state.marks[kind].set(item.id, prev); else state.marks[kind].delete(item.id);
+      if (e && e.code === "invalid_argument") state.canWrite = false;
+      setStatus(e && e.code === "invalid_argument" ? "You can view this list but not change it." : "Couldn't save that. Check your connection and try again.", true);
+      render();
+    }
+  }
+
+  async function copyDraft(o, node) {
+    try { await navigator.clipboard.writeText(o.draft); setStatus("Draft copied. Paste it into LinkedIn or your email, then mark it sent."); }
+    catch (e) {
+      const range = document.createRange(); range.selectNodeContents(node);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      setStatus("Copying isn't allowed here, so the draft is selected. Copy it with your keyboard.");
+    }
+  }
+
+  function outreachRow(o) {
+    const off = !state.db || !state.canWrite;
+    const b = (label, status, primary) => el("button", { class: "btn" + (primary ? " primary" : ""), disabled: off, onclick: () => saveMark("outreach", o, status) }, label);
+    const draft = el("p", { class: "draft" }, o.draft);
+    const meta = [el("span", {}, `Contact: ${o.contact || "someone in the relevant team"}`)];
+    if (o.channel) meta.push(el("span", {}, `via ${o.channel}`));
+    if (o.created) meta.push(el("span", {}, `suggested ${fmtDate(o.created)}`));
+    let actions;
+    if (o.st === "suggested") actions = [b("Mark sent", "sent", true), b("Skip", "skipped")];
+    else {
+      actions = [el("span", { class: "pill " + o.st }, OUT_LABEL[o.st] || o.st)];
+      if (o.st === "sent") actions.push(b("Replied", "replied"), b("Meeting booked", "meeting"), b("No reply", "no-reply"));
+      if (o.st === "replied") actions.push(b("Meeting booked", "meeting"));
+      actions.push(el("button", { class: "btn quiet", disabled: off, onclick: () => saveMark("outreach", o, "suggested") }, "Undo"));
+    }
+    return el("article", { class: "role" + (o.st === "skipped" ? " decided" : ""), "data-fit": "outreach" },
+      el("div", {}, el("div", { class: "co" }, o.company),
+        el("h2", {}, o.trigger_url ? el("a", { href: o.trigger_url, target: "_blank", rel: "noopener" }, o.trigger) : o.trigger)),
+      el("div", { class: "meta" }, meta),
+      draft,
+      el("div", { class: "actions" },
+        el("button", { class: "btn", onclick: () => copyDraft(o, draft) }, "Copy draft"),
+        o.linkedin_search ? el("a", { class: "linkbtn", href: o.linkedin_search, target: "_blank", rel: "noopener" }, "Find people on LinkedIn") : null),
+      o.notes ? el("details", { class: "more" }, el("summary", {}, "Why now"), el("p", { class: "notes" }, o.notes)) : null,
+      el("div", { class: "actions" }, actions));
+  }
+
+  function eventRow(e) {
+    const off = !state.db || !state.canWrite;
+    const b = (label, status, primary) => el("button", { class: "btn" + (primary ? " primary" : ""), disabled: off, onclick: () => saveMark("events", e, status) }, label);
+    const meta = [el("span", {}, fmtDate(e.start) + (e.end && e.end !== e.start ? ` – ${fmtDate(e.end)}` : ""))];
+    if (e.location) meta.push(el("span", {}, e.location));
+    if (e.type) meta.push(el("span", { class: "fit" }, e.type));
+    if (e.cost) meta.push(el("span", {}, e.cost));
+    for (const [field, label] of [["register_by", "register by"], ["abstract_deadline", "abstracts by"]]) {
+      const d = daysTo(e[field]);
+      if (d !== null && d >= 0) meta.push(el("span", { class: d <= 14 ? "soon" : "" }, `${label} ${fmtDate(e[field])}`));
+    }
+    if (e.confidence && e.confidence !== "confirmed") meta.push(el("span", { class: "pill notfound" }, `dates ${e.confidence}`));
+    let actions;
+    if (["upcoming", "interested"].includes(e.st)) {
+      actions = [b("Going", "going", true)];
+      if (e.st === "upcoming") actions.push(b("Interested", "interested"));
+      else actions.push(el("span", { class: "pill interested" }, "Interested"));
+      actions.push(b("Not going", "not-going"));
+    } else {
+      actions = [el("span", { class: "pill " + e.st }, EVENT_LABEL[e.st] || e.st)];
+      if (e.st === "going" && daysTo(e.start) !== null && daysTo(e.start) <= 0) actions.push(b("Attended", "attended"));
+      actions.push(el("button", { class: "btn quiet", disabled: off, onclick: () => saveMark("events", e, "upcoming") }, "Undo"));
+    }
+    return el("article", { class: "role" + (e.st === "not-going" ? " decided" : ""), "data-fit": "event" },
+      el("div", {}, el("div", { class: "co" }, e.format || "event"),
+        el("h2", {}, e.url ? el("a", { href: e.url, target: "_blank", rel: "noopener" }, e.name) : e.name)),
+      el("div", { class: "meta" }, meta),
+      e.goal ? el("p", { class: "goal" }, el("b", {}, "Goal: "), e.goal) : null,
+      (e.employers || e.notes) ? el("details", { class: "more" }, el("summary", {}, "Who'll be there"),
+        el("p", { class: "notes" }, [e.employers, e.notes].filter(Boolean).join(" · "))) : null,
+      el("div", { class: "actions" }, actions));
   }
 
   async function save(key, body) {
@@ -244,24 +393,41 @@ details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); w
       actionsFor(r));
   }
 
+  function searchable(view, x) {
+    if (view === "roles") return matches(x);
+    if (!state.q) return true;
+    const hay = (view === "outreach" ? [x.company, x.trigger, x.contact] : [x.name, x.location, x.employers]).join(" ").toLowerCase();
+    return state.q.split(/\s+/).every(w => hay.includes(w));
+  }
+
+  const EMPTY = {
+    todo: "Nothing left to decide. New roles appear here after each scan.",
+    signal: "No signal-level roles open.", applied: "Nothing marked as applied yet. Tap Applied on a role once you've sent an application.",
+    hidden: "Nothing hidden yet. Roles you mark Not eligible, Not my path or Not interested move here.",
+    send: "No messages waiting. Each scan suggests up to three people to contact, drafted from that week's news and intakes.",
+    sent: "Nothing sent yet. Copy a draft, send it yourself on LinkedIn or by email, then tap Mark sent.",
+    skipped: "Nothing skipped.",
+    next: "No events in the calendar yet. Scans add conferences, careers fairs and webinars as they find them.",
+    going: "You haven't marked any events as Going.", no: "Nothing marked Not going.",
+  };
+
   function render() {
+    renderTabs();
     renderChips();
-    const f = FILTERS.find(x => x.id === state.filter);
-    const items = state.roles.filter(r => f.test(r) && matches(r));
-    // Soonest deadline first, then no deadline, then deadlines that have already passed.
+    const view = state.view, filter = state.filters[view];
+    const f = VIEW_FILTERS[view].find(x => x.id === filter);
+    const list = items(view).filter(x => f.test(x) && searchable(view, x));
+    // Roles: soonest deadline first, then no deadline, then deadlines that have already passed.
     const urgency = r => { const d = daysTo(r.closes); return d === null ? 999 : d < 0 ? 2000 - d : d; };
-    if (state.filter === "todo") items.sort((a, b) => (a.fit === b.fit ? 0 : a.fit === "strong" ? -1 : 1) || urgency(a) - urgency(b));
-    const list = $("list");
-    if (!items.length) {
-      const msg = state.q ? "Nothing matches that search." : {
-        todo: "Nothing left to decide. New roles appear here after each scan.",
-        signal: "No signal-level roles open.", applied: "Nothing marked as applied yet. Tap Applied on a role once you've sent an application.",
-        hidden: "Nothing hidden yet. Roles you mark Not eligible, Not my path or Not interested move here." }[state.filter];
-      list.replaceChildren(el("p", { class: "empty" }, msg));
-    } else list.replaceChildren(...items.slice(0, state.shown).map(row));
+    if (view === "roles" && filter === "todo") list.sort((a, b) => (a.fit === b.fit ? 0 : a.fit === "strong" ? -1 : 1) || urgency(a) - urgency(b));
+    if (view === "events") list.sort((a, b) => (a.start || "9").localeCompare(b.start || "9"));
+    if (view === "outreach") list.sort((a, b) => (b.created || "").localeCompare(a.created || ""));
+    const draw = { roles: row, outreach: outreachRow, events: eventRow }[view];
+    if (!list.length) $("list").replaceChildren(el("p", { class: "empty" }, state.q ? "Nothing matches that search." : EMPTY[filter]));
+    else $("list").replaceChildren(...list.slice(0, state.shown).map(draw));
     const more = $("more");
-    more.hidden = items.length <= state.shown;
-    more.textContent = `Show more (${items.length - state.shown} left)`;
+    more.hidden = list.length <= state.shown;
+    more.textContent = `Show more (${list.length - state.shown} left)`;
   }
 
   function setStatus(text, err = false) { const s = $("status"); s.textContent = text; s.classList.toggle("err", err); }
@@ -274,6 +440,8 @@ details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); w
       const res = await fetch("roles.json");
       const data = await res.json();
       state.roles = data.roles;
+      state.outreach = data.outreach || [];
+      state.events = data.events || [];
       setStatus(`${state.roles.length} roles from the scan of ${fmtDate(data.exported)}.`);
     } catch (e) {
       setStatus("Couldn't load the role list. Reload the page to try again.", true);
@@ -291,6 +459,12 @@ details.more summary { cursor: pointer; font-size: 13px; color: var(--accent); w
       state.decisions = new Map(snap.docs.map(d => [d.id, d.data()]));
       render();
     }, () => setStatus("Lost the connection to your saved choices. Reload the page.", true));
+    for (const kind of ["outreach", "events"]) {
+      db.collection(kind).onSnapshot(snap => {
+        state.marks[kind] = new Map(snap.docs.map(d => [d.id, d.data()]));
+        render();
+      }, () => setStatus("Lost the connection to your saved choices. Reload the page.", true));
+    }
     render();
   }
   boot();

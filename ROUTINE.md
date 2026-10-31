@@ -18,7 +18,7 @@ Use `python3` in the commands below, or `python` if that's what this computer ha
 2. The run date is today's local date as `YYYY-MM-DD` (`date +%F`). Below it is called DATE. If REPORT already exists, this run has already happened today: stop and say so.
 3. `mkdir -p work` (git-ignored scratch space for this run). If an earlier run left `work/findings-*.json` or `work/summary.json` behind, move them into `work/prev-<their date>/` first, so they aren't mixed into this run. Move any `work/seek-*.txt` there too.
 4. Read `profile.md`, `watchlist.md`, `tracker/roles.csv`, `tracker/companies.csv`, `tracker/decisions.csv`, and the newest earlier report of the same run type in `reports/` (core: `reports/YYYY-MM-DD.md` or `YYYY-MM-DD-anz.md`; career routes: any `reports/YYYY-MM-DD-careers*.md` or `-desk-careers.md`). That report's date is LAST (use "none" if there is none).
-5. **Pull in my clicks from the job board** (https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy) before anything reads the tracker: read its database with the `ArtifactData` tool, `action: "list"`, `collection: "decisions"`, `query: {limit: 1000}`, `out_dir: "work/board-clicks"`, then run `python3 scripts/board.py import work/board-clicks/decisions`. It appends only decisions that changed to `tracker/decisions.csv` and updates `tracker/roles.csv`. If the read fails, carry on and mention it in the report's Coverage section.
+5. **Pull in my clicks from the job board** (https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy) before anything reads the tracker: read its database with the `ArtifactData` tool, `action: "list"`, `query: {limit: 1000}`, `out_dir: "work/board-clicks"`, once for each of the collections `decisions`, `outreach` and `events`, then run `python3 scripts/board.py import work/board-clicks`. It appends only role decisions that changed to `tracker/decisions.csv` (updating `tracker/roles.csv`), and records which outreach messages I've sent and which events I'm going to in `tracker/outreach.csv` and `tracker/events.csv`. If the read fails, carry on and mention it in the report's Coverage section.
 6. If `tracker/roles.csv` has no data rows, this is the **baseline run**: every relevant role found counts as new. Say so at the top of the report.
 
 ## 1. Research with parallel subagents
@@ -32,6 +32,10 @@ Run `python3 scripts/plan_batches.py SECTION_FLAGS`. It splits the watchlist's t
 Launch one general-purpose subagent per batch, all **in a single message**, each with `run_in_background: false`, so they run concurrently and you wait for all of them. Subagents share this working directory, so point them at files instead of pasting the files into their prompts. Give each one this prompt, filled in:
 
 > You are batch N of the weekly job scan. The repo is at REPO_PATH. Read the "Research brief" section of `ROUTINE.md` and follow it. Then read `profile.md`, these parts of `watchlist.md`: SECTIONS, and the rows for your companies in `tracker/roles.csv`, `tracker/companies.csv`, `tracker/pipeline.csv` and `tracker/decisions.csv`. Today is DATE; the last report was LAST. Your WebSearch budget is BUDGET calls: spend it where WebFetch can't answer, and stop searching once it is used. Research every row in your part of the watchlist and write `work/findings-N.json` exactly as the brief specifies. Reply in at most five lines: companies checked, roles found by fit, anything that went wrong.
+
+**Core scan only: one extra subagent for events**, launched in the same message, with this prompt and a budget of 8 searches (add them to the total above):
+
+> You are the events batch of the weekly job scan. The repo is at REPO_PATH. Read the "Events brief" section of `ROUTINE.md` and follow it. Today is DATE.
 
 When they have all returned, check that each `work/findings-N.json` exists and parses (`python3 -m json.tool work/findings-N.json`). Re-run a failed batch once. If it fails again, carry on without it and say so in the report.
 
@@ -66,6 +70,12 @@ For **each** row in your part of the watchlist:
    - Never invent roles, dates, salaries or requirements. If a detail comes only from a search snippet, keep it but add "(unverified)" to its notes.
    - Leave out postings whose closing date has passed, or that look stale (older than about 60 days with no sign they're still open).
    - If one posting is advertised for several sites, make it one entry and list the locations.
+
+### Events brief (core scan only)
+
+Read `profile.md` and `tracker/events.csv`. Find events between today and nine months out where I could meet target employers or build visibility: scientific and industry conferences (fermentation, bioprocess, synthetic biology, microalgae and natural colours, microbiology), careers fairs I can attend in person in New Zealand or online, employer webinars and virtual open days for programmes in `tracker/pipeline.csv` or my applied roles, abstract deadlines for posters or talks, and Christchurch meetups. Prefer Christchurch and online, then the rest of NZ, then AU, UK and IE events worth travelling for. Confirm each on its official page (WebFetch is free); re-check events already in the file whose dates were `inferred` or `unverified`. Never invent events or dates.
+
+Write `work/events.json` as a list of {"name", "start" (YYYY-MM-DD), "end", "location", "format" (in-person, online or hybrid), "type" (conference, careers-fair, webinar, open-day, meetup or abstract-deadline), "url", "register_by", "abstract_deadline", "cost", "employers" (who will be there), "goal" (one concrete goal for me, e.g. "present a thesis poster; meet the R&D teams from X and Y"), "confidence" (confirmed, inferred or unverified), "notes"}. Include events already in the file only if a detail changed. Reply in at most four lines.
 
 ### Sweep rows (section 19 of the watchlist)
 
@@ -129,6 +139,13 @@ This updates `tracker/roles.csv`, `tracker/companies.csv` and `tracker/news.csv`
 
 If it exits with an error, fix the findings JSON (not the script) and run it again. Never hand-edit the CSVs. My own decisions go in `tracker/decisions.csv` through `scripts/mark.py` (see the next section).
 
+### Events, outreach and skills
+
+1. **Events** (core scan): `python3 scripts/network.py merge-events work/events.json` (skip it if the events batch failed, and say so in Coverage).
+2. **Outreach** (core scan): pick at most three people for me to contact this week and draft each message, then `python3 scripts/network.py add-outreach work/outreach.json`. Good triggers, best first: a target company's news in this run (funding, a new site, an acquisition, a hiring push); an intake in `opening_soon` that opens within about six weeks; an event I've marked `going`; a company close to my thesis (microalgae, phycocyanin, natural colours, precision fermentation) or a past employer. Skip companies with a `suggested` or `sent` item in `tracker/outreach.csv` from the last six weeks. Each entry is {"company", "trigger" (one line on what happened), "trigger_url", "contact" (a role or team such as "a trainee patent attorney in the life-sciences group", never a person's name), "channel", "draft", "notes" (why now, one or two sentences)}. Drafts are in my voice, plain and specific: who I am (microbiology MSc at Canterbury, Galdieria phycocyanin thesis, available from July 2027), one line tying me to the trigger, and one small ask (a quick question or a short call), never a request for a job. Keep LinkedIn connection notes under 300 characters. You only draft: never send anything, and never look up or name individuals.
+3. `python3 scripts/network.py summary --date DATE > work/network.json` for the report.
+4. **Skills** (first core scan of each month, or when `reports/skills-gap.md` is missing): `python3 scripts/skills_gap.py > reports/skills-gap.md`.
+
 ### Refresh the job board
 
 Run `python3 scripts/board.py export` (writes `work/board/roles.json`), then republish the board with the `Artifact` tool: `file_path: "board/index.html"`, `url: "https://claude.ai/artifact/8gTgrwWPajJdY8mfDqihFy"`, `files: {"roles.json": "work/board/roles.json"}`, and no `capabilities` or `icon` (both are kept). The board's saved clicks live in its database and survive the republish. If the publish fails, say so in Coverage.
@@ -167,6 +184,12 @@ Put `pipeline_to_recheck` and `just_opened` entries first, with a note ("expecte
 ## Company news
 - **Company** (date): headline. Why it matters. [source](url)
 
+## Outreach this week
+From `outreach_waiting` in `work/network.json`, newest first: **Company**: trigger ([source](trigger_url)). Contact: who, via channel. The draft as a quote block, then [LinkedIn people search](linkedin_search). Then one line per `outreach_follow_up` item ("sent DATE, no reply yet: send one short follow-up or mark No reply") and a one-line tally from `outreach_counts` (sent, replied, meetings). Point to the board's Outreach tab for copying drafts and marking them sent.
+
+## Events
+From `event_deadlines_next_4_weeks` first (registration or abstract deadlines, soonest first), then `events_next_8_weeks`: **Event** (dates, location, format): goal. Register by DATE. [link](url). Mark new ones (`events_new`) with "new". Omit the section if all three lists are empty.
+
 ## Your applications
 From `applied` in the summary (applied, interviewing, offer, rejected): Company: Role (status, since DATE). Flag anything that changed: a posting that disappeared, a closing date, a new role at the same employer. Omit the section if empty.
 
@@ -175,6 +198,9 @@ From `applied` in the summary (applied, interviewing, offer, rejected): Company:
 
 ## No longer found or closed
 - Company: Role (last seen DATE)
+
+## Skills to work on
+Only in runs that regenerated `reports/skills-gap.md`: its top three "Close these first" items, one line each, and a link to the full report.
 
 ## Watchlist suggestions
 Optional, at most five: employers found by the market sweeps that deserve their own row (two or more relevant roles, or a `strong` one), other companies worth adding, or rows that look obsolete (acquired, shut down, programme discontinued).
@@ -187,7 +213,7 @@ For the **career-routes scan**, keep the same structure. Its "Opening soon: prep
 
 ## Recording my decisions
 
-Usually I'll just tap Applied, Not eligible or Not interested on the job board (link in step 0.5); the next scan imports those clicks. When I say I've applied for something, or that I'm not eligible or not interested, record it with `scripts/mark.py` (in any session, not only scan runs):
+Usually I'll just tap Applied, Not eligible or Not interested on the job board (link in step 0.5); the next scan imports those clicks. The board's Outreach and Events tabs work the same way (Mark sent, Replied, Going and so on); by hand it's `python3 scripts/network.py set <id> <status>`. When I say I've applied for something, or that I'm not eligible or not interested, record it with `scripts/mark.py` (in any session, not only scan runs):
 
 ```
 python3 scripts/mark.py find kerry food safety          # look up the role id
