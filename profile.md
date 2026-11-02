@@ -4,9 +4,9 @@ The weekly routine uses this to decide which roles are worth flagging and how we
 
 ## Timing
 
-- Finishing an MSc in **June 2027**; available to start full-time from **July 2027**. The MSc runs full-time until then, so I can't take full-time roles or summer internships before July 2027. Small part-time roles alongside the MSc are the one exception (see "While studying").
-- Best fits are graduate programmes and roles starting **July to October 2027**. Many 2027 graduate programmes (Ireland, UK, Europe, Singapore) take applications from autumn 2026, so their opening dates and deadlines matter now.
-- Programmes starting before mid-2027 (e.g. CSL's February 2027 intakes) are too early. Watch for their next intake instead.
+- Finishing an MSc at the **end of June 2027**; available to start full-time from **1 July 2027**. The MSc runs full-time until then, so I can't take full-time roles or summer internships before July 2027. Small part-time roles alongside the MSc are the one exception (see "While studying").
+- Any role or programme that starts on or after **1 July 2027** counts, with no upper limit (a 2028 start is fine). Many 2027 graduate programmes (Ireland, UK, Europe, Singapore) take applications from autumn 2026, so their opening dates and deadlines matter now.
+- Programmes starting before 1 July 2027 (e.g. CSL's February 2027 intakes) are too early. Watch for their next intake instead.
 - Direct-hire roles advertised now usually want someone within weeks. Until about March 2027, treat them as a hiring signal: good grounds for a speculative "available from July 2027" approach. From about April 2027 they become real options.
 
 ## While studying (now to June 2027)
@@ -88,7 +88,7 @@ My level in the skills employers ask for most, used by `scripts/skills_gap.py` (
 
 Categories of role I can't or won't do. Leave these out entirely (don't list them even as `signal`). Single roles and whole companies are recorded in `tracker/decisions.csv` instead.
 
-- **Starts before July 2027.** Anything whose posting says it starts now, ASAP, immediately, or on a date before July 2027 (including fixed-term contracts and PhDs with an early start). An ordinary vacancy that gives no start date counts as starting now. Keep only graduate programmes, PhDs and other intakes, open applications and talent pools, and postings that offer a flexible start I could set to July 2027 or later. Exception: roles that meet "While studying" above.
+- **Starts before 1 July 2027.** Anything whose posting says it starts now, ASAP, immediately, or on a date before 1 July 2027 (including fixed-term contracts and PhDs with an early start). An ordinary vacancy that gives no start date counts as starting now. Keep only graduate programmes, PhDs and other intakes, open applications and talent pools, and postings that offer a flexible start I could set to 1 July 2027 or later. Exception: roles that meet "While studying" above.
 - **No work rights and no sponsorship.** Outside NZ, Australia, the UK and Ireland: any role whose posting clearly says it won't sponsor a visa, needs existing work authorisation, or is for citizens/permanent residents/local residents only. Also any Australian role limited to Australian citizens or PR. "Sponsorship unknown" is not a reason to leave a role out.
 - **Career routes I've ruled out** (chosen 27 Oct 2026):
   - Environmental, climate, carbon and sustainability consulting (environmental assessment, building sustainability, emissions reporting).
@@ -101,7 +101,7 @@ Categories of role I can't or won't do. Leave these out entirely (don't list the
 
 ## How to judge fit
 
-- **strong**: entry-level or MSc-level role in interests 1–4, or a relevant graduate programme (including the trainee or graduate intakes of the other career routes above, e.g. a life-sciences trainee patent attorney intake or a C&Q graduate programme starting July–October 2027); start timing can work for July 2027; no obvious work-rights blocker.
+- **strong**: entry-level or MSc-level role in interests 1–4, or a relevant graduate programme (including the trainee or graduate intakes of the other career routes above, e.g. a life-sciences trainee patent attorney intake or a C&Q graduate programme starting from 1 July 2027); start on or after 1 July 2027 (or flexible); no obvious work-rights blocker.
 - **possible**: relevant, but with a real caveat. For example: asks for 2–4 years' experience, an adjacent field (cell therapy, analytical chemistry, QC), tight timing, or unclear sponsorship.
 - **signal**: not applicable as it stands (senior, PhD required, 5+ years), but shows the company is hiring in a relevant team. Useful for a speculative application.
-- **Leave out**: summer internships and other roles that need work before July 2027, unless they meet "While studying" (but note a recurring internship or graduate intake as a lead for the next cycle); roles outside science and process (sales, finance, HR, IT, marketing, legal, admin, senior leadership; but keep the other career routes above: patent attorney trainees, regulatory and scientific advisor roles, field application and technical specialist roles, government science schemes, and the other routes listed above), and unrelated sites or functions at the big multinationals.
+- **Leave out**: summer internships and other roles that need work before 1 July 2027, unless they meet "While studying" (but note a recurring internship or graduate intake as a lead for the next cycle); roles outside science and process (sales, finance, HR, IT, marketing, legal, admin, senior leadership; but keep the other career routes above: patent attorney trainees, regulatory and scientific advisor roles, field application and technical specialist roles, government science schemes, and the other routes listed above), and unrelated sites or functions at the big multinationals.
