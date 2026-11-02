@@ -26,6 +26,8 @@ Working assumption (not a measured rate): if 1 in 25 to 40 well-targeted applica
 
 So: pile applications into the UK now, prepare AU/NZ in Jan to March, then switch to high-volume AU/NZ direct applications from April.
 
+**Decided 3 Nov 2026: apply to live ads from now, not just from April.** Ordinary UK, AU, NZ and Irish vacancies are reported and applied to now, saying "available full-time from 1 July 2027". Most will want someone sooner, so the scan ranks the ones that might wait (government, universities, research institutes, large companies, "start negotiable") higher. Each application is also interview practice.
+
 ## Industries to add (within reason)
 
 Each line fits your MSc or skills, and almost none are applied to yet.
@@ -47,7 +49,7 @@ Each line fits your MSc or skills, and almost none are applied to yet.
 4. **Generalist graduate programmes that take science graduates**: Big Four, NZ and Australian government, banks' agri teams (Feb 2028 backstop).
 5. **Speculative "available from July 2027" notes** in Jan to Feb to about 30 AU/NZ employers on the watchlist that don't run intakes.
 
-**A backstop to decide on later**: QC microbiology is the biggest employer of entry-level microbiologists in AU and NZ, and you ruled it out on 27 Oct. If you have fewer than 2 AU/NZ interviews by mid-May, consider reopening it for AU/NZ only. Your call, not a recommendation to do it now.
+**QC microbiology: added (decided 3 Nov 2026).** Lab-based QC microbiology roles in the UK, Australia, NZ and Ireland are now in scope and count as strong when entry-level. It's the biggest entry-level employer of microbiologists in all three countries.
 
 ## Targets
 
@@ -60,12 +62,12 @@ Each line fits your MSc or skills, and almost none are applied to yet.
 
 Plus **5 outreach messages a week** (current graduates or trainees at target employers, team members, recruiters). A referral or a warm contact lifts the response rate far more than another cold application.
 
-## Changes to the job-hunt machinery
+## Changes to the job-hunt machinery (made 3 Nov 2026, except the application kit)
 
 1. **Narrow the scans to the UK, Australia and NZ (and Ireland, where you already have 10 applications).** Stop scanning watchlist sections 5 to 17 (EU, Israel, Canada, US). That frees about half the scan budget for the industries above.
 2. **Add the new employers above to the watchlist** (about 60 rows), so the Monday scan checks them.
 3. **A UK board sweep** like `seek_search.py`, using free job APIs (Adzuna or Reed) for "graduate 2027", "September 2027", "trainee" in science categories. The scan is employer-by-employer, so it misses anyone not on the list.
-4. **An automatic April switch**: write into `profile.md` now that from **1 April 2027** ordinary UK, AU and NZ vacancies count (they'd start about July). Otherwise the "starts now" rule keeps hiding the roles you need most.
+4. **Live ads switched on now** (3 Nov 2026, earlier than the April switch first proposed).
 5. **An "apply this week" queue at the top of each report**: every open role or intake, sorted by deadline, plus a counter of applications this week against the target (from `decisions.csv`).
 6. **An application kit**, kept **outside this repo because the repo is public**: five CV variants (bioprocess R&D; analyst/consulting; patent/writing; policy/regulatory; lab/quality) and an answer bank for the usual graduate-scheme questions. That gets each application down to about 30 to 45 minutes.
 

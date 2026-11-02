@@ -15,6 +15,9 @@ picked up without editing ROUTINE.md.
 --only / --exclude take comma-separated section numbers (e.g. "20,21") and keep or
 drop every section whose number starts with one of them ("20" covers 20a, 20b, ...).
 The Monday core scan uses --exclude 20,21 and the Thursday career-routes scan --only 20,21.
+
+A "## N. ..." heading containing "(paused)" drops that section and all its subsections, so
+countries I'm not targeting stay in the file without being scanned.
 """
 
 import argparse
@@ -23,20 +26,28 @@ import re
 import sys
 from pathlib import Path
 
-HEADING = re.compile(r"#{2,3} (\d+[a-z]?)\. (.+)")
+HEADING = re.compile(r"(#{2,3}) (\d+[a-z]?)\. (.+)")
 SWEEP_WEIGHT = 10
 
 
 def sections(path):
     """[(index, label, rows)] for every numbered section that contains table rows."""
-    found, current, in_table = [], None, False
+    found, current, in_table, parent_paused = [], None, False, False
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         match = HEADING.fullmatch(line)
         if match:
-            current = [len(found), f"{match.group(1)}. {match.group(2).strip()}", 0]
-            found.append(current)
+            paused = "(paused)" in match.group(3).lower()
+            if match.group(1) == "##":
+                parent_paused = paused
+            if paused or parent_paused:
+                current = None
+            else:
+                current = [len(found), f"{match.group(2)}. {match.group(3).strip()}", 0]
+                found.append(current)
             in_table = False
+        elif line.startswith("#"):
+            current, in_table = None, False
         elif line.startswith("|") and current is not None:
             first = line.strip("|").split("|")[0].strip()
             if not in_table:

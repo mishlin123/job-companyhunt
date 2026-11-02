@@ -58,6 +58,11 @@ FIT_ORDER = {fit: i for i, fit in enumerate(FITS)}
 CLOSE_AFTER_DAYS = 21
 DEADLINE_WINDOW_DAYS = 42
 PIPELINE_STATUSES = ("upcoming", "open", "not-running", "closed")
+APPLY_QUEUE_SIZE = 25
+# Applications a week I'm aiming for (reports/2026-11-03-breadth-strategy.md): steady through the UK
+# graduate season and live ads, higher from April 2027 when AU/NZ ads hire for July starts.
+WEEKLY_TARGET = {(2027, 4): 12, (2027, 5): 12, (2027, 6): 12}
+DEFAULT_WEEKLY_TARGET = 8
 PREPARE_WINDOW_DAYS = 183  # "prepare now": opens within about six months, or no date yet
 CONFIDENCES = ("stated", "inferred", "unverified")
 
@@ -126,16 +131,23 @@ def watchlist_companies(path, only=frozenset(), exclude=frozenset()):
     """First-column names of every table in watchlist.md, in order, deduplicated.
 
     only / exclude are sets of section numbers ("20", "21"): a section "20e. ..." has number 20.
+    Sections under a "(paused)" heading are skipped, as in plan_batches.py.
     """
     if not path.exists():
         return []
-    names, in_table, number = [], False, ""
+    names, in_table, number, paused, parent_paused = [], False, "", False, False
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
-        heading = re.fullmatch(r"#{2,3} (\d+)[a-z]?\. .+", line)
+        heading = re.fullmatch(r"(#{2,3}) (\d+)[a-z]?\. (.+)", line)
         if heading:
-            number = heading.group(1)
-        if (only and number not in only) or number in exclude:
+            number = heading.group(2)
+            paused = "(paused)" in heading.group(3).lower()
+            if heading.group(1) == "##":
+                parent_paused = paused
+            paused = paused or parent_paused
+        elif line.startswith("#"):
+            number, paused = "", True  # unnumbered headings hold no scanned tables
+        if paused or (only and number not in only) or number in exclude:
             in_table = False
             continue
         if not line.startswith("|"):
@@ -261,6 +273,32 @@ def apply_decisions(rows, decisions, problems, extra=()):
             for row in everything:
                 if simple_name(row["company"]) == simple_name(d["company"]):
                     set_status(row, status)
+
+
+def apply_queue(rows, today):
+    """Open strong and possible roles across the whole tracker: soonest deadline first, then fit,
+    then newest. This is the report's "Apply this week" list, so it ignores --exact."""
+    def key(r):
+        closes = parse_date(r["closes"])
+        return (closes is None, closes or today, FIT_ORDER.get(r["fit"], 9),
+                -(parse_date(r["first_seen"]) or today).toordinal())
+    live = [r for r in rows if r["status"] == "open" and r["fit"] in ("strong", "possible")
+            and not (parse_date(r["closes"]) and parse_date(r["closes"]) < today)]
+    return sorted(live, key=key)[:APPLY_QUEUE_SIZE]
+
+
+def application_counts(rows, decisions, today):
+    """How many applications I've logged this week and recently, against the weekly target."""
+    applied = {}
+    for d in decisions:
+        when = parse_date(d["date"])
+        if d["status"].lower() == "applied" and d["role_id"] and when:
+            applied.setdefault(d["role_id"], when)
+    def since(days):
+        return sum(1 for when in applied.values() if 0 <= (today - when).days < days)
+    return {"this_week": since(7), "last_4_weeks": since(28),
+            "total": sum(1 for r in rows if r["status"] in APPLIED_STATUSES),
+            "weekly_target": WEEKLY_TARGET.get((today.year, today.month), DEFAULT_WEEKLY_TARGET)}
 
 
 def linkedin_search(company, programme):
@@ -446,6 +484,8 @@ def main():
     summary = {
         "date": run_date,
         "baseline": baseline,
+        "applications": application_counts(rows, decisions, today),
+        "apply_queue": apply_queue(rows, today),
         "new_roles": [r for r in rows if r["id"] in new_ids],
         "still_open": [r for r in rows if r["status"] == "open" and r["id"] not in new_ids and in_run(r)],
         "applied": [r for r in rows if r["status"] in APPLIED_STATUSES and in_run(r)],

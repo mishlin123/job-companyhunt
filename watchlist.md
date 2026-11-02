@@ -60,6 +60,19 @@ Each run splits the tables into research batches automatically (`scripts/plan_ba
 | Wilderlab | Wellington | Molecular lab technician, eDNA scientist | Low. Small accredited eDNA metabarcoding lab ([site](https://www.wilderlab.co/newsletters)) |
 | Watercare Laboratory Services | Auckland | Microbiologist, Laboratory Technician | Low. Water and wastewater lab; advertising an entry-level Microbiologist ([posting](https://nz.linkedin.com/jobs/view/microbiologist-at-watercare-services-limited-4477633424)) |
 
+### 1a. NZ agri-food, dairy and QC microbiology (added Nov 2026)
+
+| Company | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Ravensdown | Christchurch (HQ) and regions | Graduate programme (science, agronomy, environmental), R&D or lab technician | Medium. Christchurch-based fertiliser co-op with a yearly graduate intake; close to home |
+| Ballance Agri-Nutrients | Tauranga / Mount Maunganui | Graduate programme, science and technical roles | Medium. Fertiliser co-op with biologicals and agritech R&D |
+| Westland Milk Products | Hokitika / Rolleston | QC microbiology technician, laboratory analyst, technical graduate | Medium. Dairy (Yili-owned); Rolleston site is commutable from Christchurch |
+| Mataura Valley Milk | Gore, Southland | QC microbiology / laboratory technician | Low. Infant-formula-grade dairy plant (a2-owned) with an on-site micro lab |
+| ANZCO Foods | Christchurch and regions | Food-safety microbiology technician, technical or quality graduate | Low. Christchurch-headquartered meat processor with plant micro labs |
+| Analytica Laboratories | Hamilton | Microbiology technician / analyst | Medium. IANZ food, water and environmental testing lab that hires micro graduates |
+| DB Breweries | Auckland (Otahuhu), Timaru | Brewing laboratory / quality microbiology technician | Low. Heineken-owned; yeast and brewing micro |
+| Rabobank New Zealand | Wellington / regional | Graduate programme (agri analyst / rural) | Low. Agri-bank graduate intake; analyst route for an agri-science graduate |
+
 ## 2. Australia
 
 | Company | Location | Roles to watch | Type / 2027 relevance |
@@ -135,6 +148,19 @@ Each run splits the tables into research batches automatically (`scripts/plan_ba
 | State agriculture research (NSW DPIRD, Agriculture Victoria AgriBio, Queensland DPI) | NSW, VIC, QLD | Technical Officer (microbiology, molecular diagnostics) | Medium. Check each ad's citizenship rule: some state roles require Australian citizenship or PR ([AgriBio](https://agriculture.vic.gov.au)) |
 | University and institute research labs (Bio21, Monash BDI, Doherty, QAAFI, Deakin) | Melbourne, Brisbane, Geelong | Research Assistant / Technician in microbiology and protein science | Medium. Largest employers of entry-level research assistants ([uniroles](https://uniroles.com.au)) |
 
+### 2a. Australia agri-food, agtech and QC microbiology (added Nov 2026)
+
+| Company | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Elders | Adelaide and regional | Graduate program (agronomy, technical services) | Low. Agribusiness graduate intake |
+| Nufarm | Melbourne (Laverton) | Graduate program, R&D or formulation scientist | Medium. Crop protection with a biologicals push |
+| Corteva Agriscience ANZ | Sydney / regional | Graduate program, field or lab scientist | Medium. Seeds and biologicals; yearly ANZ graduate intake |
+| Bayer Crop Science ANZ | Melbourne / regional | Graduate program, R&D or regulatory graduate | Medium |
+| Rabobank Australia | Sydney / regional | Graduate program (agri analyst) | Low. Agri-bank graduate intake |
+| Sanitarium Health Food Company | Sydney (Berkeley Vale) / Auckland | QC microbiology technician, food scientist, R&D graduate | Medium. Large food manufacturer with in-house micro labs (AU and NZ) |
+| Saputo Dairy Australia | Victoria / Tasmania / WA | Laboratory / QC microbiology technician, technical graduate | Medium. Large dairy processor with site micro labs |
+| Coca-Cola Europacific Partners (Australia) | Perth / Sydney / Brisbane / Melbourne | Microbiologist, QC laboratory analyst | Medium. Has advertised plant microbiologist roles (Kewdale, Oct 2026) |
+
 ## 3. Ireland
 
 Ireland emerged as one of the best places for actual September 2027-start recruitment. British citizenship makes Ireland particularly convenient because of the Common Travel Area.
@@ -187,7 +213,33 @@ UK passport: no sponsorship needed for UK roles.
 | Accord Healthcare | Scientist – Downstream Process Development | London (Harrow). Permanent scientist job doing purification process development, scale-up, characterisation and tech transfer for biologics ([posting](https://uk.linkedin.com/jobs/view/scientist-downstream-process-development-at-accord-healthcare-4465528144)) |
 | Algenuity | Stewartby, Bedfordshire. Fermentation / R&D scientist (speculative; no careers page) | High. White chlorella made by heterotrophic microalgae fermentation (EdenPro): the closest UK analogue to the Galdieria fermentation thesis ([site](https://www.algenuity.com)) |
 
-## 5. Belgium
+### 4a. UK food and drink, bioprocess and QC microbiology (added Nov 2026)
+
+| Company | Location | Roles to watch | Type / 2027 relevance |
+|---|---|---|---|
+| Unilever | Port Sunlight / Colworth / Leeds | Future Leaders Programme – R&D, research scientist (graduate) | High. Large R&D graduate intake; microbiology and formulation science |
+| PepsiCo UK | Leicester | R&D graduate scheme | Medium. Food R&D graduate intake |
+| Mondelez International | Bournville, Birmingham | R&D / technical graduate | Medium. Global chocolate R&D centre |
+| Diageo | Scotland (Menstrie, Leven) / London | Graduate programme – science and technology, supply | Medium. Fermentation and distilling science |
+| Heineken UK | Manchester / Tadcaster / Edinburgh | Graduate programme – brewing, technical, quality | Medium. Brewing yeast and micro |
+| Carlsberg Britvic | Northampton / London | Graduate scheme – technical, quality | Low |
+| AB Mauri UK | Hull / Peterborough | Graduate scientist, yeast fermentation technologist, QC microbiologist | High. Bakers' yeast fermentation; close to the thesis skills |
+| Tate & Lyle | London / Lille R&D | Graduate R&D, food scientist | Low. Specialty food ingredients |
+| Arla Foods UK | Leeds / Aylesbury / Lockerbie | Graduate programme – technical, quality microbiology | Medium. Dairy |
+| Müller UK & Ireland | Market Drayton / Telford | Technical graduate, quality microbiologist | Medium. Dairy |
+| Oxford Biomedica | Oxford | Associate Scientist (process development), QC microbiology analyst | High. Viral-vector CDMO; process development and GMP micro |
+| Ipsen Biopharm | Wrexham, Wales | QC microbiologist, graduate scientist, process development | High. Fermentation-made botulinum toxin; GMP micro labs |
+| Thames Water | Reading (Spencer House lab) | Microbiology laboratory analyst, graduate scientist | Medium. Large accredited water-micro lab |
+| Severn Trent | Coventry (Severn Trent Laboratories) | Microbiology analyst, laboratory graduate | Medium |
+| Anglian Water | Huntingdon | Laboratory scientist (microbiology) | Low |
+| United Utilities | Warrington / Lancaster | Laboratory scientist (microbiology), graduate scheme | Low |
+| Scottish Water | Edinburgh / Glasgow / Inverness | Scientific services graduate, microbiology analyst | Low |
+| Eurofins UK | Wolverhampton / Lancaster / Edinburgh and others | Microbiology analyst (food, pharma, water) | Medium. Big entry-level micro-lab employer |
+| National School of Healthcare Science (NHS) | England-wide (also Wales, Scotland) | Scientist Training Programme – Clinical Microbiology, Genomics, Bioinformatics | High. Three-year salaried clinical-scientist training; window about two weeks in Dec–Jan for Sept starts |
+| Fera Science | York | Graduate scientist, microbiology / molecular lab | Medium. Defra-linked science company (plant health, food) |
+| Cefas | Lowestoft / Weymouth | Graduate scientist, microbiology (shellfish and water) | Medium. Government agency (Defra) |
+
+## 5. Belgium (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -198,7 +250,7 @@ UK passport: no sponsorship needed for UK roles.
 | Johnson & Johnson | Global Operations Leadership Development Programme (GOLD) | 2027 programme; EU work-right hurdle |
 | Bio Base Europe Pilot Plant | R&D Engineer / Biotechnologist, Fermentation Scientist, Process Development | Ghent. One of the strongest additions: the current R&D Engineer role asks for fermentation (bacteria/yeast/fungi) and DSP, working from lab to multi-tonne scale ([posting](https://jobs.bbeu.org/en/r-d-engineer)) |
 
-## 6. Netherlands
+## 6. Netherlands (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -223,7 +275,7 @@ UK passport: no sponsorship needed for UK roles.
 | Danone Global Research & Innovation Center | Utrecht. Scientist / research associate in fermented dairy, cultures and microbiome | Medium. Danone's main global R&I centre. Sponsorship: IND recognised sponsor ([register](https://ind.nl/en/public-register-recognised-sponsors/public-register-regular-labour-and-highly-skilled-migrants)) |
 | GNT Group (EXBERRY) | Mierlo. R&D / application / production scientist for colouring foods incl. spirulina blue | Medium. The most phycocyanin-relevant NL employer. Sponsorship: not an IND recognised sponsor, so a hard route (labour-market-tested work permit) ([site](https://exberry.com)) |
 
-## 7. Germany
+## 7. Germany (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -238,7 +290,7 @@ UK passport: no sponsorship needed for UK roles.
 | BIOWEG | Fermentation R&D roles (e.g. Senior Fermentation Specialist) | Industrial biotech making bio-based materials by fermentation; fermentation and biotechnology are core capabilities ([LinkedIn](https://www.linkedin.com/company/bioweg/)) |
 | MicroHarvest | Hamburg (also Lisbon). Fermentation / process scientist; spontaneous application | Medium. Bacterial single-cell protein by fermentation. Germany has no sponsor register: a skilled-worker permit attaches to the job offer ([careers](https://www.microharvest.com/careers)) |
 
-## 8. Denmark
+## 8. Denmark (paused)
 
 Denmark became one of the strongest industrial-synbio clusters in the search.
 
@@ -266,7 +318,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Carlsberg Research Laboratory | Copenhagen. Research Associate / Scientist in yeast and fermentation | Medium. Industrial yeast and fermentation research. Sponsorship: SIRI Fast-track certified ([SIRI](https://www.nyidanmark.dk/en-GB/Words-and-concepts/SIRI/Certified-companies)) |
 | DTU Biosustain | Kgs. Lyngby. Research Assistant / Academic Employee in strain engineering, fermentation and bioprocess | Medium. Denmark's synbio hub and a feeder to Copenhagen startups. Sponsorship: SIRI Fast-track certified ([SIRI](https://www.nyidanmark.dk/en-GB/Words-and-concepts/SIRI/Certified-companies)) |
 
-## 9. Sweden
+## 9. Sweden (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -274,7 +326,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Melt&Marble | Unsolicited R&D application | Explicitly welcomes metabolic engineering/synthetic biology/fermentation backgrounds |
 | AstraZeneca Gothenburg | R&D graduate/scientist opportunities | Drug discovery / bioscience |
 
-## 10. Finland
+## 10. Finland (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -284,7 +336,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Solar Foods | Open applications | Excellent speculative target |
 | Enifer | Fermentation / fungal biotech / bioprocess roles | Mycoprotein / industrial fermentation |
 
-## 11. France
+## 11. France (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -296,7 +348,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Givaudan – Sense Colour | Avignon and other sites (also Switzerland). Colour R&D / application scientist; trainee programmes | High. Sells Fermentalg's Galdieria Blue as Everzure, so the thesis is directly relevant. Sponsorship: large multinational; no explicit statement found ([trainees](https://careers.givaudan.com/global/en/trainee-programmes)) |
 | Microphyt | Baillargues (Montpellier). Microalgae cultivation / R&D technician or engineer | Medium. Microalgae actives in closed photobioreactors. French likely required; talent-passport salary floor applies ([careers](https://careers.flatchr.io/en/company/microphyt/)) |
 
-## 12. Israel
+## 12. Israel (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -304,7 +356,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Remilk | Upstream Bioprocess Researcher | Precision fermentation |
 | Remilk | Molecular Microbiology Scientist / Fermentation Scientist | Watch |
 
-## 13. Canada
+## 13. Canada (paused)
 
 | Company | Opportunity | Relevance |
 |---|---|---|
@@ -325,7 +377,7 @@ Denmark became one of the strongest industrial-synbio clusters in the search.
 | Northern RNA | Calgary. Plasmid DNA / microbial cell banking / bioprocess technician | Medium. Plasmid DNA by E. coli fermentation plus mRNA manufacturing; use IEC ([careers](https://northernrna.com/careers/)) |
 | Acadian Seaplants | Dartmouth, NS. R&D scientist / technician | Medium. Seaweed extracts R&D: the closest Canadian algae employer ([careers](https://www.acadianseaplants.com/careers)) |
 
-## 14. United States
+## 14. United States (paused)
 
 The major constraint here is US work authorisation/sponsorship. The US is split into three tables so the weekly scan can research it in parallel batches.
 
@@ -405,6 +457,15 @@ The major constraint here is US work authorisation/sponsorship. The US is split 
 | KBI Biopharma | Scientist I; Senior Research Associate; PD Scientist | Medium. Durham, NC. Biologics CDMO process development. Sponsorship: 2025 filings ([LCA](https://h1bdata.info/index.php?em=KBI+Biopharma&job=&city=&year=2025)) |
 | AGC Biologics (US) | MSAT Specialist; PD associate roles | Medium. Bothell, WA (Boulder microbial site unverified). Sponsorship: MSAT filings 2026 ([LCA](https://h1bdata.info/index.php?em=AGC+Biologics&job=&city=&year=2026)) |
 
+## 15. Market sweeps outside target countries (paused)
+
+Paused on 3 Nov 2026: I'm targeting the UK, Australia, NZ and Ireland only.
+
+| Sweep | Where to search | What to look for |
+|---|---|---|
+| Visa-sponsoring employers – Europe | LinkedIn and EURAXESS searches combining fermentation / bioprocess / microbiology with "visa sponsorship" or "relocation"; jobindex.dk, thehub.io, welcometothejungle.com, stepstone.de; the [IND recognised-sponsor register](https://ind.nl/en/public-register-recognised-sponsors/public-register-regular-labour-and-highly-skilled-migrants) and the [SIRI Fast-track list](https://www.nyidanmark.dk/en-GB/Words-and-concepts/SIRI/Certified-companies) to check employers | Entry-level fermentation, bioprocess, microbiology, strain-engineering and natural-colour roles where the posting offers sponsorship or relocation, or the employer is on a sponsor register |
+| Visa-sponsoring employers – US and Canada | LinkedIn, Greenhouse / Lever / Ashby boards, Canada Job Bank; [h1bdata.info](https://h1bdata.info/) to check an employer's H-1B history | Entry-level roles at employers with sponsorship evidence; cap-exempt university and national-lab Research Associate posts (no H-1B lottery); J-1 internship hosts |
+
 ## 16. Other international 2027 graduate programmes
 
 | Company | Programme | Notes |
@@ -417,7 +478,7 @@ The major constraint here is US work authorisation/sponsorship. The US is split 
 | CSL | Four Australian 2027 programmes | Start too early for my MSc completion |
 | Samsung Biologics | New-graduate open hire (Incheon, Korea; biology/chemistry majors; two intakes a year) | Medium. Sponsors visas 'based on the job's requirements'; needs an English speaking score and the GSAT test; no Korean requirement stated. Mammalian ([FAQ](https://www.samsungbiologics.com/careers/apply/faqs)) |
 
-## 17. Other Europe
+## 17. Other Europe (paused)
 
 Switzerland isn't in the EU, so Swiss roles need a Swiss work permit. Austria, Spain and Bulgaria are in the EU.
 
@@ -438,16 +499,17 @@ These rows aren't companies. Each one tells a research batch to search a whole j
 
 | Sweep | Where to search | What to look for |
 |---|---|---|
-| New Zealand – all employers | SEEK NZ (`work/seek-NZ.txt`, made by `scripts/seek_search.py`), nz.linkedin.com (location New Zealand), Trade Me Jobs, the CRI/PHF/Earth Sciences Workday boards (nzcris.wd3.myworkdayjobs.com), university job boards (Canterbury, Otago, Auckland, Massey, Lincoln, Victoria, Waikato), Eurofins and AsureQuality on SmartRecruiters | Microbiologist; Fermentation / Bioprocess Scientist or Technician; Research Technician / Assistant; Lab Technician (microbiology, molecular); R&D Food Technologist; graduate scientist programmes |
+| New Zealand – all employers | SEEK NZ (`work/seek-NZ.txt`, made by `scripts/seek_search.py`), nz.linkedin.com (location New Zealand), Trade Me Jobs, the CRI/PHF/Earth Sciences Workday boards (nzcris.wd3.myworkdayjobs.com), university job boards (Canterbury, Otago, Auckland, Massey, Lincoln, Victoria, Waikato), Eurofins and AsureQuality on SmartRecruiters | Microbiologist; Fermentation / Bioprocess Scientist or Technician; Research Technician / Assistant; Lab Technician (microbiology, molecular); QC microbiology / microbiology analyst (food, dairy, water, pharma); R&D Food Technologist; graduate scientist programmes |
 | Australia – New South Wales and ACT | SEEK (`work/seek-AU.txt`, made by `scripts/seek_search.py`; universities, state health/pathology services, agriculture departments and research institutes advertise here), au.linkedin.com, uniroles.com.au, ethicaljobs.com.au, university job boards (UNSW, Sydney, Macquarie, ANU), NSW and ACT government boards (check citizenship rules) | As for New Zealand, plus Manufacturing Associate and MSAT roles in biomanufacturing |
 | Australia – Victoria and Tasmania | SEEK (`work/seek-AU.txt`, made by `scripts/seek_search.py`; universities, state health/pathology services, agriculture departments and research institutes advertise here), au.linkedin.com, uniroles.com.au, ethicaljobs.com.au, university job boards (Melbourne, Monash, La Trobe, RMIT, Deakin, UTAS), Victorian government boards (check citizenship rules) | As above |
 | Australia – Queensland and Northern Territory | SEEK (`work/seek-AU.txt`, made by `scripts/seek_search.py`; universities, state health/pathology services, agriculture departments and research institutes advertise here), au.linkedin.com, uniroles.com.au, university job boards (UQ, QUT, Griffith, JCU), Queensland government boards (check citizenship rules) | As above |
 | Australia – South Australia and Western Australia | SEEK (`work/seek-AU.txt`, made by `scripts/seek_search.py`; universities, state health/pathology services, agriculture departments and research institutes advertise here), au.linkedin.com, uniroles.com.au, university job boards (Adelaide, Flinders, UniSA, UWA, Murdoch, Curtin), SA and WA government boards (check citizenship rules) | As above |
 | Study-time roles – Christchurch and remote (until June 2027) | SEEK NZ (`python3 scripts/seek_search.py --site NZ --state Canterbury --all` lists every Canterbury listing of the last 14 days; read it for science roles that are part-time, casual or flexible), nz.linkedin.com (location Christchurch, and remote New Zealand), Student Job Search (sjs.co.nz), UC and Lincoln job boards (casual, research assistant, demonstrator and tutor posts), Trade Me Jobs | See "While studying" in `profile.md`: part-time or casual science roles (up to ~15 h/week) in Christchurch or fully remote from NZ. Start each role's `notes` with `Study-time:` |
 | Australia and NZ graduate programmes | au.gradconnection.com, au.prosple.com, nz.prosple.com, company graduate pages | 2027 and 2028 intakes in science, R&D, quality microbiology, biotech manufacturing and brewing that start July 2027 or later and accept NZ citizens |
-| Visa-sponsoring employers – Europe | LinkedIn and EURAXESS searches combining fermentation / bioprocess / microbiology with "visa sponsorship" or "relocation"; jobindex.dk, thehub.io, welcometothejungle.com, stepstone.de; the [IND recognised-sponsor register](https://ind.nl/en/public-register-recognised-sponsors/public-register-regular-labour-and-highly-skilled-migrants) and the [SIRI Fast-track list](https://www.nyidanmark.dk/en-GB/Words-and-concepts/SIRI/Certified-companies) to check employers | Entry-level fermentation, bioprocess, microbiology, strain-engineering and natural-colour roles where the posting offers sponsorship or relocation, or the employer is on a sponsor register |
-| Visa-sponsoring employers – US and Canada | LinkedIn, Greenhouse / Lever / Ashby boards, Canada Job Bank; [h1bdata.info](https://h1bdata.info/) to check an employer's H-1B history | Entry-level roles at employers with sponsorship evidence; cap-exempt university and national-lab Research Associate posts (no H-1B lottery); J-1 internship hosts |
-| Microalgae, phycocyanin and natural colours – worldwide | LinkedIn, company career pages, the Algae Biomass Organization and EABA job boards, natural-colour companies (Oterra, GNT, Givaudan Sense Colour, Sensient, DIC) | Any role in microalgae cultivation or fermentation, spirulina / phycocyanin / phycobiliproteins, or natural-colour R&D, anywhere. These are the strongest fits to the thesis |
+| United Kingdom – graduate schemes and trainee intakes (Sept 2027) | `work/uk-jobs.txt` (made by `scripts/uk_search.py`: Reed, NHS Jobs, LinkedIn), gradcracker.com, targetjobs.co.uk, prospects.ac.uk, brightnetwork.co.uk, milkround.com, company graduate pages | Graduate and trainee schemes starting Sept 2027 in science, R&D, bioprocess, food and drink, QC microbiology, patent, regulatory, consulting/analyst and public-sector science, at employers not already in the watchlist |
+| United Kingdom – live science vacancies, London, South East and East (incl. Cambridge, Oxford) | `work/uk-jobs.txt` (filter by location with `grep`), LinkedIn guest feed (location London / Cambridge / Oxford), Reed, NHS Jobs, New Scientist Jobs, university job boards (Cambridge, Oxford, Imperial, UCL, KCL) | Entry-level research assistant / technician, associate scientist, QC microbiology analyst, microbiology technician, fermentation or bioprocess associate, food technologist, lab analyst |
+| United Kingdom – live science vacancies, Midlands, North, Scotland, Wales and South West | `work/uk-jobs.txt` (filter by location), LinkedIn guest feed (locations Manchester, Leeds, Birmingham, Glasgow, Edinburgh, Cardiff, Bristol, Teesside), Reed, NHS Jobs, university job boards | As above |
+| Microalgae, phycocyanin and natural colours – UK, Australia, NZ and Ireland | LinkedIn, company career pages, the Algae Biomass Organization and EABA job boards, natural-colour companies (Oterra, GNT, Givaudan Sense Colour, Sensient, DIC) | Any role in microalgae cultivation or fermentation, spirulina / phycocyanin / phycobiliproteins, or natural-colour R&D in the UK, Australia, NZ or Ireland. These are the strongest fits to the thesis |
 
 ## 20. Alternative career routes
 
@@ -478,6 +540,16 @@ Routes outside bench R&D that take MSc microbiology/biotech graduates and need n
 | Griffith Hack | Melbourne, Sydney, Brisbane, Perth | Trainee Patent Attorney / Patent Scientist | Medium |
 | Phillips Ormonde Fitzpatrick | Melbourne, Sydney, Adelaide | Trainee Patent Attorney – Biotech | Medium. PhD 'very helpful' for biotech |
 | FB Rice | Melbourne, Sydney | Trainee Patent Attorney – Life Sciences / Chemistry | Medium. Advertised a medicinal-chemistry trainee on SEEK in October 2026 |
+| Abel & Imray | London / Bath / Cardiff (UK) | Trainee Patent Attorney – Life Sciences | Medium. Yearly trainee intake |
+| Boult Wade Tennant | London / Cambridge / Oxford (UK) | Trainee Patent Attorney – Biotechnology | Medium |
+| Mathys & Squire | London / Cambridge / Manchester (UK) | Trainee Patent Attorney – Life Sciences | Medium |
+| Venner Shipley | London / Cambridge (UK) | Trainee Patent Attorney – Biotechnology | Medium |
+| Appleyard Lees | Manchester / Leeds / Cambridge (UK) | Trainee Patent Attorney – Life Sciences | Medium |
+| Haseltine Lake Kempner | London / Bristol / Leeds (UK) | Trainee Patent Attorney – Life Science / Biotech | High. Advertised a 2027 biotech trainee intake |
+| Reddie & Grose | London / Cambridge (UK) | Trainee Patent Attorney – Life Sciences | Medium |
+| Elkington and Fife | London / Sevenoaks (UK) | Trainee Patent Attorney – Biotechnology | Medium |
+| Gill Jennings & Every | London (UK) | Trainee Patent Attorney – Life Sciences | Medium |
+| Murgitroyd | Glasgow / Edinburgh / London (UK) | Trainee Patent Attorney – Biotechnology | Low |
 
 ### 20b. Government science schemes, regulators and biosecurity labs
 
@@ -699,6 +771,12 @@ Routes outside bench R&D that take MSc microbiology/biotech graduates and need n
 | HTANALYSTS | Sydney, AU | Analyst / Consultant (health economics, HTA, market access) | Low. HEOR and market-access consultancy for pharma; no advertised roles and EOIs ask for HEOR or HTA experience; worth a speculative approach after a short health-economics course; AU work rights fine |
 | PHARMAC | Wellington, NZ | Analyst (medicines and medical devices) | Low. NZ medicines-funding agency; current 12-month Analyst wants 1-3 years' experience; therapeutic-group and assessment roles occasionally suit science graduates; NZ citizen, no issue |
 | GHD | Sydney, AU / Auckland, NZ | Graduate Agricultural Consultant, Graduate Environmental Scientist | Low. Engineering consultancy with a yearly graduate programme (February starts) that listed a Graduate Agricultural Consultant in October 2026 (details unverified); agricultural rather than bioscience; NZ and AU work rights fine |
+| PwC UK | UK-wide | Graduate scheme – Consulting / Technology / Data (Sept 2027) | Medium. Takes any degree; analyst route |
+| KPMG UK | UK-wide | Graduate scheme – Consulting / Data / Tech (Sept 2027) | Medium |
+| EY UK | UK-wide | Graduate scheme – Consulting / Technology (Sept 2027) | Medium |
+| Trinity Life Sciences | London (UK) | Associate Consultant, Analyst | Medium. Pharma strategy consulting |
+| Health Advances | London (UK) | Analyst | Medium. Life-sciences strategy consulting |
+| Alira Health | London / Basel | Analyst, Associate Consultant | Low |
 
 ### 20j. Technology transfer and scientific publishing
 

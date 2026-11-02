@@ -39,7 +39,8 @@ CATEGORIES = [{"classification": "1223"},
 KEYWORDS = ["microbiologist", "microbiology", "fermentation", "bioprocess", "biotechnology",
             "research assistant", "research officer", "technical officer", "laboratory technician",
             "research technician", "scientist", "molecular biology", "graduate scientist",
-            "food technologist", "manufacturing associate", "process development"]
+            "food technologist", "manufacturing associate", "process development",
+            "qc microbiologist", "microbiology analyst", "microbiology technician", "laboratory analyst"]
 
 INCLUDE = re.compile(
     r"microbio|ferment|bioprocess|biotech|bio-?manufactur|synthetic bio|synbio|molecular|protein|"

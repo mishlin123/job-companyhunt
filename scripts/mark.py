@@ -7,13 +7,15 @@ Usage:
     python3 scripts/mark.py ineligible ID [ID ...] --note "needs fluent German"
     python3 scripts/mark.py off-path ID --note "too analytical-chemistry"
     python3 scripts/mark.py ignore --company "Richter BioLogics" --note "not interested"
+    python3 scripts/mark.py open ID [ID ...] --note "rule changed"   # undo an earlier decision
     python3 scripts/mark.py list                          # show every decision so far
 
 `find` also searches tracker/pipeline.csv (programmes opening soon), and a decision can name a
 pipeline id the same way, e.g. `mark.py ignore novo-nordisk-graduate-programme-2027-... --note "..."`.
 
 Statuses: applied, interviewing, offer, rejected (tracked and shown in the report),
-ineligible, off-path (doesn't fit my skills or direction), ignore (never reported again). With --company and no ids, the decision covers
+ineligible, off-path (doesn't fit my skills or direction), ignore (never reported again), and open,
+which undoes an earlier decision so the next scan re-checks the role. With --company and no ids, the decision covers
 every role at that company, including ones found in later scans.
 
 Each decision is appended to tracker/decisions.csv and applied to tracker/roles.csv at once;
@@ -50,7 +52,7 @@ def find(rows, pipeline, words):
 def main():
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("action", choices=("find", "list") + USER_STATUSES)
+    parser.add_argument("action", choices=("find", "list") + USER_STATUSES + ("open",))
     parser.add_argument("args", nargs="*", help="search words (find) or role ids")
     parser.add_argument("--company", help="apply to every role at this company instead of listed ids")
     parser.add_argument("--note", default="", help="why, e.g. 'needs Australian PR'")
