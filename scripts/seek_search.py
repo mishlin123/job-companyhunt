@@ -50,7 +50,7 @@ INCLUDE = re.compile(
     r"qc analyst|quality control|media prep|brew", re.I)
 EXCLUDE = re.compile(
     r"\b(senior|sr\.?|lead|principal|head|manager|director|chief|professor|lecturer|postdoc|"
-    r"post-doctoral|postdoctoral|fellow|phd scholarship|nurse|data scientist|software|"
+    r"post-doctoral|postdoctoral|fellow|phd|doctoral|nurse|data scientist|software|"
     r"registrar|engineer|geolog|geotech|construction|materials testing|soil|asphalt|concrete|"
     r"environmental scientist|ecolog|hydrolog|school|teacher|sales|account|it support|administrator)\b", re.I)
 

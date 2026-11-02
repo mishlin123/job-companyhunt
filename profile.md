@@ -51,7 +51,6 @@ Added 29 Oct 2026. Alongside the full-time MSc I can take small roles that fit a
   - Health economics, evidence synthesis and market access (systematic reviewer, HEOR analyst, HTA analyst).
   - Research management, research funding and science policy (research development officers, funder portfolio roles, graduate policy analysts).
   - Sustainability, life-cycle assessment and carbon accounting for food, agriculture and the bioeconomy.
-  - Funded or salaried PhD positions (Marie Skłodowska-Curie doctoral networks, UK studentships, ANZ industry PhDs) in interests 1–4 or microalgae/phycobiliproteins, starting in 2027.
   - Adjacent industries: HMOs and early-life nutrition, mycoprotein, cosmetic biotech ingredients, animal health and vet vaccines, agricultural biologicals, and circular-bioeconomy scale-up centres.
 
 ## Skills
@@ -88,7 +87,8 @@ My level in the skills employers ask for most, used by `scripts/skills_gap.py` (
 
 Categories of role I can't or won't do. Leave these out entirely (don't list them even as `signal`). Single roles and whole companies are recorded in `tracker/decisions.csv` instead.
 
-- **Starts before 1 July 2027.** Anything whose posting says it starts now, ASAP, immediately, or on a date before 1 July 2027 (including fixed-term contracts and PhDs with an early start). An ordinary vacancy that gives no start date counts as starting now. Keep only graduate programmes, PhDs and other intakes, open applications and talent pools, and postings that offer a flexible start I could set to 1 July 2027 or later. Exception: roles that meet "While studying" above.
+- **Starts before 1 July 2027.** Anything whose posting says it starts now, ASAP, immediately, or on a date before 1 July 2027 (including fixed-term contracts). An ordinary vacancy that gives no start date counts as starting now. Keep only graduate programmes and other intakes, open applications and talent pools, and postings that offer a flexible start I could set to 1 July 2027 or later. Exception: roles that meet "While studying" above.
+- **PhDs and doctoral study** (decided 3 Nov 2026: I'm not doing a PhD). Leave out PhD positions, studentships, doctoral training programmes, PhD scholarship rounds, industry PhDs and research-assistant-to-PhD pathways, and don't add them to the pipeline. Ordinary jobs that merely accept a PhD-or-MSc graduate are fine, and research-assistant jobs are fine when they aren't tied to enrolling in a PhD.
 - **No work rights and no sponsorship.** Outside NZ, Australia, the UK and Ireland: any role whose posting clearly says it won't sponsor a visa, needs existing work authorisation, or is for citizens/permanent residents/local residents only. Also any Australian role limited to Australian citizens or PR. "Sponsorship unknown" is not a reason to leave a role out.
 - **Career routes I've ruled out** (chosen 27 Oct 2026):
   - Environmental, climate, carbon and sustainability consulting (environmental assessment, building sustainability, emissions reporting).
