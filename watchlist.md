@@ -238,6 +238,19 @@ UK passport: no sponsorship needed for UK roles.
 | National School of Healthcare Science (NHS) | England-wide (also Wales, Scotland) | Scientist Training Programme – Clinical Microbiology, Genomics, Bioinformatics | High. Three-year salaried clinical-scientist training; window about two weeks in Dec–Jan for Sept starts |
 | Fera Science | York | Graduate scientist, microbiology / molecular lab | Medium. Defra-linked science company (plant health, food) |
 | Cefas | Lowestoft / Weymouth | Graduate scientist, microbiology (shellfish and water) | Medium. Government agency (Defra) |
+| Almac Group | Craigavon, Northern Ireland | QC microbiology analyst, graduate scientist, analytical/biologics roles | High. Large NI CDMO and clinical-supply company; regular graduate and analyst hiring |
+| Randox Laboratories | Crumlin / Antrim, Northern Ireland | Graduate scientist, R&D scientist, QC technician | Medium. Diagnostics maker with big graduate intakes |
+| Norbrook Laboratories | Newry, Northern Ireland | QC microbiologist, graduate scientist | Medium. Veterinary pharmaceuticals; GMP micro labs |
+| Dale Farm | Belfast / Ballymena / Dromore, Northern Ireland | Laboratory technician, technical or quality graduate | Low. NI dairy co-op with site labs |
+| Agri-Food and Biosciences Institute (AFBI) | Belfast / Hillsborough, Northern Ireland | Scientific officer, assistant scientific officer (microbiology, food, veterinary sciences) | Medium. NI government agri-food science; recruits through NI Civil Service |
+| Ingenza | Roslin, Scotland | Fermentation scientist, bioprocess or strain engineering associate | High. Industrial biotech and fermentation contract R&D |
+| MiAlgae | Edinburgh / Grangemouth, Scotland | Laboratory technician, bioprocess scientist (microalgae) | High. Microalgae (omega-3) from whisky co-products; closest UK thesis match |
+| Xanthella | Oban, Scotland | Algae cultivation scientist, technician | Low. Small microalgae photobioreactor company |
+| Moredun Research Institute | Penicuik, Scotland | Research assistant, scientist (microbiology, animal health) | Medium |
+| James Hutton Institute | Dundee / Aberdeen, Scotland | Research assistant, scientific officer (plant and soil microbiology) | Medium |
+| Convatec | Deeside, Wales | QC microbiology analyst, R&D scientist | Medium. Medical devices with antimicrobial products; micro labs |
+| Norgine | Hengoed, Wales | QC microbiology / laboratory analyst | Low. Pharma manufacturing site |
+| Aberystwyth University (BEACON / IBERS) | Aberystwyth, Wales | Research assistant / technician in biorefining and fermentation | Medium. BEACON biorefining centre does scale-up fermentation work |
 
 ## 5. Belgium (paused)
 
