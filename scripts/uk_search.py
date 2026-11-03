@@ -4,10 +4,15 @@
 Usage:
     python3 scripts/uk_search.py [--days 14] [--json] [--all] > work/uk-jobs.txt
 
-Three sources answer plain requests and cost no WebSearch calls:
+All four UK nations are covered. These sources answer plain requests and cost no WebSearch calls:
 - Reed (reed.co.uk): the search pages carry their results as JSON.
-- NHS Jobs (jobs.nhs.uk): NHS labs, the biggest UK employer of entry-level microbiologists.
-- The LinkedIn guest feed, location United Kingdom.
+- NHS Jobs (jobs.nhs.uk): England and Wales NHS labs, the biggest UK employer of entry-level
+  microbiologists. NHS Scotland (apply.jobs.scot.nhs.uk) and HSC Northern Ireland (jobs.hscni.net)
+  run their own boards, so both are read too.
+- The LinkedIn guest feed, location United Kingdom, plus Scotland, Wales and Northern Ireland
+  separately so the smaller nations aren't crowded out of the first pages.
+Each line is tagged with its nation (England, Scotland, Wales, Northern Ireland), worked out from
+the location text, so sweeps can filter with grep.
 Keyword searches cover the role families in profile.md, including QC microbiology and
 graduate schemes. Titles are filtered with the same INCLUDE / EXCLUDE rules as seek_search.py,
 plus a few UK-specific terms (trainee patent attorney, scientist training programme).
@@ -40,6 +45,31 @@ LINKEDIN_KEYWORDS = ["microbiologist", "QC microbiology", "fermentation scientis
                      "research assistant biology", "graduate scientist", "trainee patent attorney",
                      "graduate scheme 2027 science", "laboratory technician microbiology"]
 
+LINKEDIN_NATIONS = ["Scotland, United Kingdom", "Wales, United Kingdom", "Northern Ireland, United Kingdom"]
+LINKEDIN_NATION_KEYWORDS = ["microbiologist", "laboratory technician", "graduate scientist", "research assistant",
+                            "QC analyst", "fermentation"]
+DEVOLVED_KEYWORDS = ["microbiology", "laboratory", "scientist", "healthcare science", "research"]
+
+NATIONS = [
+    ("Scotland", re.compile(r"scotland|edinburgh|glasgow|aberdeen|dundee|inverness|stirling|perth\b|lanarkshire|"
+                            r"lothian|fife|ayrshire|renfrew|dunbartonshire|falkirk|livingston|roslin|paisley|"
+                            r"dumfries|borders|highland|moray|angus|argyll|oban|motherwell|kilmarnock", re.I)),
+    ("Wales", re.compile(r"wales|cardiff|swansea|newport|wrexham|bangor|aberystwyth|bridgend|glamorgan|gwent|"
+                         r"gwynedd|powys|carmarthen|pembroke|conwy|denbigh|flintshire|deeside|anglesey|"
+                         r"merthyr|caerphilly|rhondda|neath|llanelli|monmouth", re.I)),
+    ("Northern Ireland", re.compile(r"northern ireland|belfast|antrim|armagh|craigavon|newry|londonderry|\bderry\b|"
+                                    r"lisburn|newtownabbey|coleraine|enniskillen|omagh|ballymena|banbridge|"
+                                    r"dungannon|county down|co\. down|tyrone|fermanagh", re.I)),
+]
+
+
+def nation(location):
+    for name, pattern in NATIONS:
+        if pattern.search(location):
+            return name
+    return "England"
+
+
 # UK-specific titles the shared INCLUDE rule doesn't catch.
 INCLUDE_UK = re.compile(r"trainee patent|patent (scientist|assistant)|scientist training programme|"
                         r"trainee clinical scientist|healthcare science", re.I)
@@ -56,6 +86,8 @@ def get(url, retries=3):
             with urllib.request.urlopen(req, timeout=30) as resp:
                 return resp.read().decode("utf-8", "replace")
         except Exception as e:  # network errors and 429s: back off and retry
+            if getattr(e, "code", None) == 404:  # e.g. Reed has no second page of results
+                return ""
             if attempt == retries - 1:
                 print(f"warning: {url}: {e}", file=sys.stderr)
                 return ""
@@ -105,10 +137,30 @@ def nhs(keyword, pages=2):
         time.sleep(1)
 
 
-def linkedin(keyword, days, pages=3):
+def nhs_scotland(keyword):
+    url = "https://apply.jobs.scot.nhs.uk/Home/_JobCard?" + urllib.parse.urlencode({"what": keyword})
+    for m in re.finditer(r'href="(/Job/JobDetail\?JobId=\d+)"[^>]*>(.*?)</a>', get(url), re.S):
+        title = clean(m.group(2))
+        if title and title != "More..":
+            yield {"source": "nhs-scotland", "listed": "", "title": title, "employer": "NHS Scotland",
+                   "location": "Scotland", "url": "https://apply.jobs.scot.nhs.uk" + m.group(1)}
+
+
+def hscni():
+    """HSC Northern Ireland lists every open job on one page; titles come from the URL slugs."""
+    for m in sorted(set(re.findall(r'href="(/Job/\d+/([^"]+))"', get("https://jobs.hscni.net/Search")))):
+        slug = m[1]
+        trust = re.match(r"(bhsct|nhsct|sehsct|shsct|whsct|nias|bso|pha)", slug)
+        title = re.sub(r"^(bhsct|nhsct|sehsct|shsct|whsct|nias|bso|pha)-*", "", slug).replace("-", " ").strip()
+        yield {"source": "hscni", "listed": "", "title": title.capitalize(),
+               "employer": f"HSC Northern Ireland ({trust.group(1).upper()})" if trust else "HSC Northern Ireland",
+               "location": "Northern Ireland", "url": "https://jobs.hscni.net" + m[0]}
+
+
+def linkedin(keyword, days, pages=3, location="United Kingdom"):
     for page in range(pages):
         url = ("https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?"
-               + urllib.parse.urlencode({"keywords": keyword, "location": "United Kingdom",
+               + urllib.parse.urlencode({"keywords": keyword, "location": location,
                                          "f_TPR": f"r{days * 86400}", "start": page * 10}))
         cards = get(url).split("<li>")[1:]
         for c in cards:
@@ -140,21 +192,35 @@ def main():
     for k in NHS_KEYWORDS:
         for job in nhs(k):
             found.setdefault(job["url"], job)
+    for k in DEVOLVED_KEYWORDS:
+        for job in nhs_scotland(k):
+            found.setdefault(job["url"], job)
+    for job in hscni():
+        found.setdefault(job["url"], job)
     for k in LINKEDIN_KEYWORDS:
         for job in linkedin(k, args.days):
             found.setdefault(job["url"], job)
+    for place in LINKEDIN_NATIONS:
+        for k in LINKEDIN_NATION_KEYWORDS:
+            for job in linkedin(k, args.days, pages=2, location=place):
+                found.setdefault(job["url"], job)
+    for job in found.values():
+        job["nation"] = "Northern Ireland" if job["source"] == "hscni" else (
+            "Scotland" if job["source"] == "nhs-scotland" else nation(job["location"]))
 
     rows = [r for r in found.values()
             if args.all or ((INCLUDE.search(r["title"]) or INCLUDE_UK.search(r["title"]))
                             and not EXCLUDE.search(r["title"]) and not EXCLUDE_UK.search(r["title"]))]
-    rows.sort(key=lambda r: (r["employer"].lower(), r["title"].lower()))
+    rows.sort(key=lambda r: (r["nation"], r["employer"].lower(), r["title"].lower()))
     if args.json:
         json.dump(rows, sys.stdout, indent=1, ensure_ascii=False)
         print()
         return
-    print(f"# UK: {len(rows)} matching of {len(found)} listings (Reed and LinkedIn: last {args.days} days; NHS Jobs: newest)")
+    by_nation = {n: sum(1 for r in rows if r["nation"] == n) for n in ("England", "Scotland", "Wales", "Northern Ireland")}
+    print(f"# UK: {len(rows)} matching of {len(found)} listings (Reed and LinkedIn: last {args.days} days; "
+          f"NHS boards: newest) · " + ", ".join(f"{n} {c}" for n, c in by_nation.items()))
     for r in rows:
-        print(" | ".join([r["listed"], r["source"], r["employer"], r["title"], r["location"], r["url"]]))
+        print(" | ".join([r["listed"], r["source"], r["nation"], r["employer"], r["title"], r["location"], r["url"]]))
 
 
 if __name__ == "__main__":
