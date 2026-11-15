@@ -24,6 +24,14 @@ A watchlist of about 160 biotech and precision-fermentation employers for jobs s
   - `tracker/companies.csv`: the careers page found for each company.
   - A desktop notification when a run starts. The run's summary is in its session under **Scheduled** in the app's sidebar.
 
+## The daily startup radar
+
+- **When:** every morning at about 6:15–6:25 (the app adds a few minutes of jitter), as a local scheduled task ("Daily startup radar"), before the 7am scans. Like the other routines it runs only while the app is open and the Mac is awake, with one catch-up run on wake.
+- **What it does:** looks for startups and small companies in NZ, Australia, the UK and Ireland that are likely to hire before they advertise: funding rounds, grants, spinouts and new sites (Google News and a dozen startup and trade-press feeds), and jobs posted only on LinkedIn (the LinkedIn guest feed for every company on the roster, plus a short keyword sweep). Claude judges each against [`profile.md`](profile.md), suggests a next move and drafts at most two outreach notes a day.
+- **How:** Claude follows [`STARTUP_RADAR.md`](STARTUP_RADAR.md); [`scripts/startup_radar.py`](scripts/startup_radar.py) does the discovery and bookkeeping.
+- **Results:** `reports/radar/YYYY-MM-DD.md`; `tracker/leads.csv` (the roster of companies being watched, seeded from the watchlist's startups); `tracker/radar_seen.csv` (so nothing is shown twice); drafts in `tracker/outreach.csv`.
+- **Decisions:** `python3 scripts/startup_radar.py set "<company>" ignore|contacted|applied --note "..."`, or just tell Claude.
+
 ## Changing things
 
 | To... | Do this |
